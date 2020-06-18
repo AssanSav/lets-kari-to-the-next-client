@@ -1,11 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router} from "react-router-dom"
+import './styleSheet/app.css';
+import Routes from './components/Routes';
+import SessionStatus from './containers/SessionStatus';
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <SessionStatus />
+                <Routes />
+            </div>
+        </Router>
+        
+    );
 }
 
 export default App;
