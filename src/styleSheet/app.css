@@ -1,0 +1,186 @@
+.App {
+  text-align: center;
+}
+
+body {
+  /* background-image: url("") */
+}
+.nav_bar  {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav_bar li {
+  float: left;
+}
+
+.logout li {
+  float: right
+}
+
+.nav_bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+.nav_bar li a:hover {
+  background-color: black;
+}
+
+ input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  margin-left: 40px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+img {
+  border: 10px solid #ddd;
+  width: 500px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  border-radius: 75px;
+}
+
+table {
+  background-color: paleturquoise;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+p {
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+  max-width: 100%;
+  font-size: 20px;
+  margin: auto;
+  line-height: 1.2em;
+  border: 2px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d5d2df;
+}
+
+.edit-profile {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  margin-left: 40px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkboxes {
+  text-align: center;
+font-family: 'Questrial', sans-serif;
+max-width: 100%;
+font-size: 20px;
+margin: auto;
+line-height: 1.2em;
+border: 2px;
+padding: 10px;
+border-radius: 5px;
+background-color: #d5d2df;
+}
+
+.profile_card {
+  width: 240px;
+  margin: 10px;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+  float: left;
+  display: inline-grid;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.edit-profile {
+  padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+box-sizing: border-box;
+width: 20%;
+background-color: #4CAF50;
+color: white;
+margin-left: 40px;
+margin-right: 40px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+#image {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  width: 240px;
+  border-radius: 75px;
+}
+
+.image_frame {
+  font-family: 'Raleway', sans-serif;
+text-align: center;
+vertical-align: bottom;
+}
+
+.view-profile {
+  padding: 12px 20px;
+  text-align: center;
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  color: white;
+  margin-left: 40px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #45a049;
+}
