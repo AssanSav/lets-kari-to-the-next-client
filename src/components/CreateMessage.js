@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { createMessage } from "../actions/createMessage"
+import {Form, Button} from "react-bootstrap"
 
 
 class CreateMessage extends Component {
@@ -32,12 +33,20 @@ class CreateMessage extends Component {
 
     render() {
         return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-            <textarea name={this.state.content} onChange={this.handleChange} rows="4" cols="50"></textarea><br/>
-            <input type="submit" value="Send" />
-            </form>
-        </div>
+            <div>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group className="border border-primary mx-25">
+                        <Form.Control
+                            rows="4" cols="50"
+                            as="textarea"
+                            name="content"
+                            value={this.state.content}
+                            onChange={this.handleChange}
+                        />
+                    </Form.Group>
+                    <Button variant="outline-success" type="submit">Send</Button>
+                </Form>
+            </div>
         )
     }
 }
