@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { loginUser } from "../actions/loginUser"
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import {Form, Button} from "react-bootstrap"
 
 
 class Login extends Component {
@@ -37,29 +38,33 @@ class Login extends Component {
     render() {
         const {email, password} = this.state
         return (
-            <div className="login-form">
-                <form onSubmit={this.handleSubmit}>
-                <p>
-                    <input
-                    placeholder="email"
-                    type="text"
-                    name="email"
-                    onChange={this.handleChange}
-                    value={email}
-                    />
-                </p>
-                <p>
-                    <input
-                    placeholder="password"
-                    type="password"
-                    name="password"
-                    autoComplete={password}
-                    value={password}
-                    onChange={this.handleChange}
-                    />
-                </p>
-                <input type="submit" value="Login" />
-                </form>
+            <div className="form">
+                <h1>Login</h1>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="email"
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={this.handleChange} />
+                    </Form.Group>
+                    
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="password"
+                            type="password"
+                            name="password"
+                            autoComplete={password}
+                            value={password}
+                            onChange={this.handleChange} />
+                    </Form.Group> 
+                    <Button variant="outline-success" type="submit">Login</Button>
+                </Form>
+                Don't have an account?
+                <Link to="/signup">
+                    Signup
+                </Link>
             </div>
         )
     }

@@ -13,7 +13,7 @@ export const fetchUsers = () => {
             })
             .then(resp => resp.json())
             .then(data => {
-                dispatch({ type: FETCH_USERS, users: data.users.data.map(m => m.attributes) })
+                dispatch({ type: FETCH_USERS, users: data.users.data.map(m => m.attributes), interests: data.interests })
         })
     }
 }

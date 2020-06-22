@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { Button, Container, Col, Row, Image } from "react-bootstrap"
 
 
 const MyProfile = (props) => {
@@ -16,15 +17,21 @@ const MyProfile = (props) => {
             <h2>
             {username}
             </h2>
-            <img src={image} alt="" />
+            <Container className="justify-content-md-center">
+                <Row >
+                    <Col xs={10} md={6} >
+                        <Image src={image} roundedCircle/>
+                    </Col>
+                </Row>  
+            </Container>
+            <img  alt="" />
             <Link to={`/upload-photos/${id}`}>
-            Upload Image
+                Upload Image
             </Link>
-            <h2>Bio</h2>
+            <h2 className={bio}>Bio</h2>
             <p>
             {bio}
             </p>
-            <br></br> <br></br>
             <table className="table">
                 <tbody>
                     <tr>
@@ -53,11 +60,10 @@ const MyProfile = (props) => {
             <h2>
             {props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)} 
             </h2> 
-            <Link  to={`/edit-profile/${props.user.id}`}>
-                <button className="edit-profile">
-                    Edit Profile
-                </button> 
-            </Link>
+
+            <Button variant="outline-success" href={`/edit-profile/${props.user.id}`} >
+                Edit Profile
+            </Button> 
         </div>
     )
   }

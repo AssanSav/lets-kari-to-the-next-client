@@ -17,23 +17,23 @@ class SentMessages extends Component {
     else {
       return (
         <div>
-            <table>
+            <table className="messages-table">
                 <tbody>
                 <tr>
-                    <th>Date</th>
-                    <th>Sent to</th>
-                    <th>Content</th>
-                    <th>Send More</th>
+                    <th id="date">Date</th>
+                    <th id="sent_messages">Sent to</th>
+                    <th id="content">Content</th>
+                    <th id="send_more">Send More</th>
                 </tr>
                 {this.props.sentMessages.map(message =>
                     <tr key={message.id}>
                     <td>{message.created_at}</td>
-                    <Link to={`/match-profile/${message.match_id}`}>
+                    <Link id="link" to={`/match-profile/${message.match_id}`}>
                         <td>{message.match_name}</td>
                     </Link>
                     <td>{message.content}</td>
                     <td>
-                        <Link to={`/match-new-message/${message.match_id}`}>
+                        <Link id="link" to={`/match-new-message/${message.match_id}`}>
                         Send Again
                     </Link>
                     </td>

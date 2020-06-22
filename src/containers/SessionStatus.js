@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sessionStatus } from '../actions/sessionStatus';
-import NavBar from "../components/NavBar";
+import NavBarComponent from "../components/NavBar";
+
 
 
 class SessionStatus extends Component {
@@ -14,9 +15,9 @@ class SessionStatus extends Component {
         if (this.props) {
             const { status, user } = this.props
             return (
-                <div>
-                    <NavBar status={status} user={user} />
-                </div>
+                <>
+                    <NavBarComponent status={status} user={user} />
+                </>
             )
         }
     }

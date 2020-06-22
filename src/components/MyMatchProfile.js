@@ -1,8 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { fetchProfile } from "../actions/fetchProfile"
-import {Link} from "react-router-dom"
-
+import {Button, Container, Row, Col, Image} from "react-bootstrap"
 
 class MyMatchProfile extends Component {
 
@@ -22,12 +21,17 @@ class MyMatchProfile extends Component {
                     <h2>
                         {username}
                     </h2>
-                    <img src={image} alt="" />
-                    <h2>Bio</h2>
-                    <p>
+                    <Container className="justify-content-md-center">
+                        <Row >
+                            <Col xs={10} md={6} >
+                                <Image src={image} roundedCircle />
+                            </Col>
+                        </Row>
+                    </Container>
+                    <h2 >Bio</h2>
+                    <p className="bio">
                         {bio}
                     </p>
-                    <br></br> <br></br>
                     <table className="table">
                         <tbody>
                             <tr>
@@ -56,11 +60,9 @@ class MyMatchProfile extends Component {
                     <h2>
                         {this.props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)}
                     </h2>
-                    <Link to={`/match-new-message/${id}`}>
-                        <button className="view-profile">
-                            Send Message
-                        </button>
-                    </Link>
+                    <Button variant="outline-success" href={`/match-new-message/${id}`}>
+                        Send Message
+                    </Button>
                 </div>
             )
         }

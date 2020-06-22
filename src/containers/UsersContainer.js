@@ -4,27 +4,29 @@ import { fetchUsers} from '../actions/fetchUsers';
 import UsersList from "../components/UsersList";
 
 
+
 class UsersContainer extends Component {
 
-  componentDidMount() {
-    this.props.fetchUsers()
-  }
-
-  render() {
-    if (this.props) {
-      return (
-        <div>
-          <UsersList users={this.props.users} />
-        </div>
-      )
+    componentDidMount() {
+        this.props.fetchUsers()
     }
-  }
+
+    render() {
+        if (this.props) {
+            return (
+                <div>
+                    <UsersList users={this.props.users} interests={this.props.interests}/>
+                </div>
+            )
+        }
+    }
 }
 
 
-const mapStateToProps = ({ usersReducer}) => {
-  return {
-    users: usersReducer.users
-  }
+const mapStateToProps = ({ usersReducer, interestsReducer}) => {
+    return {
+        users: usersReducer.users,
+        interests: interestsReducer.interests
+    }
 }
 export default connect(mapStateToProps, {fetchUsers})(UsersContainer)

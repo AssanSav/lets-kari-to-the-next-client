@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 import { signupUser } from "../actions/signupUser"
 import { fetchInterests } from "../actions/fetchInterests"
 import { withRouter } from "react-router-dom"
+import { Form, Row, Col, Button } from "react-bootstrap"
+import {Link} from "react-router-dom"
 
 
 class Signup extends Component {
@@ -24,7 +26,8 @@ class Signup extends Component {
             children: "",
             relationship:  "",
             education:  "",
-            bio:  ""
+            bio: "",
+            visibility: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -91,150 +94,198 @@ class Signup extends Component {
             children: "",
             relationship: "",
             education: "",
-            image: "",
-            bio: ""
+            bio: "",
+            visibility: ""
         })
     }
 
 
     render() {
-        const { username, email, password, password_confirmation, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
+        const { username, email, password, password_confirmation, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
         
         return (
-            <div className="signup-form">
-                <form onSubmit={this.handleSubmit}>
-                <input
-                    placeholder="username"
-                    type="text"
-                    name="username"
-                    onChange={this.handleChange}
-                    value={username}
-                />
-                <input
-                    placeholder="email"
-                    type="text"
-                    name="email"
-                    value={email}
-                    onChange={this.handleChange}
-                />
-                <select name="gender" value={gender} onChange={this.handleChange}>
-                    <option selected="selected">Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select> 
+            <div className="form">
+                <h1>Register</h1>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="username"
+                            name="username"
+                            value={username}
+                            onChange={this.handleChange}/>
+                    </Form.Group>
 
-                <select name="orientation" value={orientation} onChange={this.handleChange}>
-                    <option selected="selected">Orientation</option>
-                    <option value="Gay">Gay</option>
-                    <option value="Straight">Straight</option>
-                    <option value="Lesbian">Lesbian</option>
-                </select>
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="email"
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={this.handleChange} />
+                    </Form.Group>
 
-                <select name="ethnicity" value={ethnicity} onChange={this.handleChange}>
-                    <option selected="selected">Relationship</option>
-                    <option value="Hispanic or Latino">Hispanic or Latino</option>
-                    <option value="Black/African descent">Black/African descent</option>
-                    <option value="White">White</option>
-                    <option value="Asian/Pacific Islander">Asian/Pacific Islander</ option>
-                </select>
+                    <Form.Group>
+                        <Form.Control as="select" name="gender" value={gender} placeholder="" onChange={this.handleChange}>
+                            <option>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </Form.Control>
+                    </Form.Group>
 
-                <select name="body_shape" value={body_shape} onChange={this.handleChange}>
-                    <option selected="selected">Body Shape</option>
-                    <option value="Athletic">Athletic</option>
-                    <option value="Curvy">Curvy</option>
-                    <option value="Skinny">Skinny</option>
-                </select>
+                    <Form.Group>
+                        <Form.Control as="select" name="orientation" value={orientation} placeholder="" onChange={this.handleChange}>
+                            <option>Orientation</option>
+                            <option value="Gay">Gay</option>
+                            <option value="Straight">Straight</option>
+                            <option value="Lesbian">Lesbian</option>
+                        </Form.Control>
+                    </Form.Group>
 
-                <select name="relationship" value={relationship} onChange={this.handleChange}>
-                    <option selected="selected">Ethnicity</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="In a Relationship">In a Relationship</option>
-                    <option value="Engaged">Engaged</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Separated">Separated</option>
-                    <option value="Divorced">Divorced</option>
-                </select>
+                    <Form.Group>
+                        <Form.Control as="select" name="ethnicity" value={ethnicity} onChange={this.handleChange}>
+                            <option>Ethnicity</option>
+                            <option value="Hispanic or Latino">Hispanic or Latino</option>
+                            <option value="Black/African descent">Black/African descent</option>
+                            <option value="White">White</option>
+                            <option value="Asian/Pacific Islander">Asian/Pacific Islander</ option>
+                        </Form.Control>  
+                    </Form.Group>
+    
+                    <Form.Group>
+                        <Form.Control as="select" name="body_shape" value={body_shape} onChange={this.handleChange}>
+                            <option>Body Shape</option>
+                            <option value="Athletic">Athletic</option>
+                            <option value="Curvy">Curvy</option>
+                            <option value="Skinny">Skinny</option>
+                        </Form.Control>
+                    </Form.Group>
 
-                <select name="education" value={education} onChange={this.handleChange}>
-                    <option selected="selected">Education</option>
-                    <option value="Doctorate">Doctorate</option>
-                    <option value="Masters">Masters</option>
-                    <option value="Bachelors">Bachelors</option>
-                    <option value="Some College">Some College</option>
-                    <option value="High School">High School</option>
-                    <option value="Did not complete High School">Did not complete High School</option>
-                </select>
-                <input
-                    placeholder="age"
-                    type="text"
-                    name="age"
-                    autoComplete={age}
-                    value={age}
-                    onChange={this.handleChange}
-                />
-                <input
-                    placeholder="height"
-                    type="text"
-                    name="height"
-                    autoComplete={height}
-                    value={height}
-                    onChange={this.handleChange}
-                />
-                <input
-                    placeholder="city"
-                    type="text"
-                    name="city"
-                    autoComplete={city}
-                    value={city}
-                    onChange={this.handleChange}
-                />
-                <input
-                    placeholder="children"
-                    type="text"
-                    name="children"
-                    autoComplete={children}
-                    value={children}
-                    onChange={this.handleChange}
-                />
-                <label>Bio</label> <br/>
-                <textarea
-                    rows="4" cols="100" 
-                    name="bio"
-                    onChange={this.handleChange}
-                    value={bio}>
-                </textarea>
-                {this.props.interests.map((interest, index) => {
-                    return (
-                        <div className="checkboxes" key={interest.id}>
-                        <input
-                            id={'index_'+ index}
-                            type="checkbox" value={interest.id}
-                            onChange={this.handleCkecked}
-                        /> {interest.name}
-                        </div>
-                    )})
-                }
-                    <div>
-                    <input
-                    placeholder="password"
-                    type="password"
-                    name="password"
-                    autoComplete={password}
-                    value={password}
-                    onChange={this.handleChange}
-                    />
-                    <input
-                    placeholder="password_confirmation"
-                    type="password"
-                    name="password_confirmation"
-                    autoComplete={password_confirmation}
-                    value={password_confirmation}
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                <input type="submit" value="Signup" />
-                </form>
+                    <Form.Group>
+                        <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
+                            <option>Relationship</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="In a Relationship">In a Relationship</option>
+                            <option value="Engaged">Engaged</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Divorced">Divorced</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Control as="select" name="education" value={education} onChange={this.handleChange} >
+                            <option>Education</option>
+                            <option value="Doctorate">Doctorate</option>
+                            <option value="Masters">Masters</option>
+                            <option value="Bachelors">Bachelors</option>
+                            <option value="Some College">Some College</option>
+                            <option value="High School">High School</option>
+                            <option value="Did not complete High School">Did not complete High School</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="age"
+                            type="text"
+                            name="age"
+                            autoComplete={age}
+                            value={age}
+                            onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Control
+                           placeholder="height"
+                            type="text"
+                            name="height"
+                            autoComplete={height}
+                            value={height}
+                            onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="city"
+                            type="text"
+                            name="city"
+                            autoComplete={city}
+                            value={city}
+                            onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Control
+                            placeholder="children"
+                            type="text"
+                            name="children"
+                            autoComplete={children}
+                            value={children}
+                            onChange={this.handleChange}/>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <label><strong>Little Bit About Yourself</strong></label> <br />
+                        <Form.Control
+                            as="textarea"
+                            name="bio"
+                            onChange={this.handleChange}
+                            value={bio}/>
+                    </Form.Group>
+
+                    <div className="check-me">
+                        { this.props.interests.map((interest, index) => {
+                            return (
+                                <span className="mb-3" key={interest.id}>
+                                <input
+                                    id={'index_'+ index}
+                                    type="checkbox" value={interest.id}
+                                    onChange={this.handleCkecked}
+                                />
+                                    {interest.name}
+                                </span>
+                            )
+                            
+                        })}
+                    </div> <br />
+
+                    <Form.Group>
+                        <Form.Control as="select" name="visibility" value={visibility} onChange={this.handleChange}>
+                            <option>Choose True To Be Seen Publicly</option>
+                            <option value="true">true</option>
+                            <option value="talse">false</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Row>
+                        <Col>
+                            <Form.Control
+                                placeholder="password"
+                                type="password"
+                                name="password"
+                                autoComplete={password}
+                                value={password}
+                                onChange={this.handleChange}/>
+                        </Col>
+                        <Col>
+                            <Form.Control
+                                placeholder="Confirm Password"
+                                type="password"
+                                name="password_confirmation"
+                                autoComplete={password_confirmation}
+                                value={password_confirmation}
+                                onChange={this.handleChange}/>
+                        </Col>
+                    </Row>
+                    <div /><br/>
+                    <Button variant="outline-success" type="submit">Signup</Button>
+                </Form>
+                  Have an account!
+                <Link to="/login">
+                    Login
+                </Link>
             </div>
         )
     }

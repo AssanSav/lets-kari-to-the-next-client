@@ -5,6 +5,7 @@ import Routes from './components/Routes';
 import SessionStatus from './containers/SessionStatus';
 
 function App() {
+    
     return (
         <Router>
             <div className="App">

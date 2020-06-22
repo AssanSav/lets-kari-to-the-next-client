@@ -2,185 +2,193 @@
   text-align: center;
 }
 
-body {
-  /* background-image: url("") */
-}
-.nav_bar  {
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+ body {
+   background-image: url("https://images.unsplash.com/photo-1545073255-7d382c4e78ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+   background-color: black;
+   background-size: cover;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+ } 
+
+.App {
+  width: 965px;
+  margin: 0 auto;
+  margin-top: -30px;
+  margin-bottom: -30;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .7);
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 25px;
+  padding-bottom: 80px;
+  height: 100%;
   overflow: hidden;
-  background-color: #333;
 }
 
-.nav_bar li {
-  float: left;
-}
-
-.logout li {
-  float: right
-}
-
-.nav_bar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-}
-
-.nav_bar li a:hover {
+.header {
+  width: 965px;
+  margin-bottom: -10px;
+  position: relative;
+  top: -10px;
   background-color: black;
+  height: 100px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
 }
 
- input, select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 20%;
-  background-color: #4CAF50;
-  color: white;
-  margin-left: 40px;
-  margin-right: 40px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-img {
-  border: 10px solid #ddd;
-  width: 500px;
-  display: block;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  border-radius: 75px;
-}
-
-table {
-  background-color: paleturquoise;
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-p {
-  text-align: center;
+.navbar {
+  position: relative;
   font-family: 'Questrial', sans-serif;
-  max-width: 100%;
-  font-size: 20px;
-  margin: auto;
-  line-height: 1.2em;
-  border: 2px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #d5d2df;
-}
-
-.edit-profile {
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 20%;
-  background-color: #4CAF50;
+  font-weight: bold;
+  padding-right: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
   color: white;
-  margin-left: 40px;
-  margin-right: 40px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
-.checkboxes {
+.navbar ul {
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+}
+.navbar li {
+  display: inline;
+  padding: 5px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.link {
+  font-weight: bold;
+  list-style-type: none;
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  margin-top: 40px;
+  font-size: 17;
+}
+
+.form {
+  max-width:500px;
+  margin:25px auto;
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.check-me{
   text-align: center;
-font-family: 'Questrial', sans-serif;
-max-width: 100%;
-font-size: 20px;
-margin: auto;
-line-height: 1.2em;
-border: 2px;
-padding: 10px;
-border-radius: 5px;
-background-color: #d5d2df;
+  max-width:500px;
+  margin-top: 40px;
+  padding: 8px;
+  background:#fff;
+  border-radius:2px;
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  border:1px solid #DDDDDD;
+  border-radius: 3px;
 }
 
-.profile_card {
-  width: 240px;
+.check-me label, input[type=checkbox]{
+    margin-left: 10px;
+}
+ 
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.profile_short {
+  display: inline-grid;
+  width: 280px;
   margin: 10px;
   background-color: white;
-  padding: 25px;
+  padding: 5px;
   position: relative;
-  float: left;
-  display: inline-grid;
   font-family: 'Raleway', sans-serif;
   text-align: center;
   border-radius: 10px;
 }
 
-.edit-profile {
-  padding: 12px 20px;
-margin: 8px 0;
-display: inline-block;
-box-sizing: border-box;
-width: 20%;
-background-color: #4CAF50;
-color: white;
-margin-left: 40px;
-margin-right: 40px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
+.profile_short a:link {
+  text-decoration: none;
 }
 
-#image {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  width: 240px;
+#avatar_img {
+  height: 240px;
+  width: 100%;
   border-radius: 75px;
 }
 
-.image_frame {
+.image_align {
   font-family: 'Raleway', sans-serif;
-text-align: center;
-vertical-align: bottom;
+  text-align: center;
+  vertical-align: bottom;
 }
 
-.view-profile {
-  padding: 12px 20px;
-  text-align: center;
+.bio {
+  text-align: left;
+  font-family: 'Questrial', sans-serif;
+  max-width: 805px;
+  font-size: 20px;
   margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  color: white;
-  margin-left: 40px;
-  margin-right: 40px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #45a049;
+  line-height: 1.2em;
+  border: 2px;
+  padding: 10px;
+  border-radius: 10px;
+  border-color:red;
+  background-color: #d5d2df;
 }
+
+table {
+  font-family: 'Questrial', sans-serif;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  margin-top: 10px;
+  border-style: solid;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-left: 20;
+  margin-top: 20px;
+}
+
+a.btn.btn-outline-success {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+#root > div > div:nth-child(2) > div > form{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+#root > div > div:nth-child(2) > div > form > button {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+#root > div > div:nth-child(2) > div > table{
+  width: 900px;
+  position: relative;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+
+ table th {
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+

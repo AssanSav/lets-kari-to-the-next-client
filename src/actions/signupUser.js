@@ -14,9 +14,8 @@ export const signupUser = (formData, ownProps) => {
             })
             .then(resp => resp.json())
             .then(data => {
-                dispatch({ type: SIGNUP, payload: data.user.data.attributes, interests: data.interests },
-                
-                ownProps.history.push(`/my-profile/${data.user.data.attributes.id}`))
+                data.status === 200 ? dispatch({ type: SIGNUP, payload: data.user.data.attributes, interests: data.interests }, 
+                ownProps.history.push(`/my-profile/${data.user.data.attributes.id}`)) : ownProps.history.push("/signup")
         })
     }
 }

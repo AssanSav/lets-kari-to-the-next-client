@@ -16,8 +16,8 @@ class ReceivedMessages extends Component {
     }
     else {
       return (
-        <div>
-            <table>
+        <div >
+            <table className="messages-table">
                 <tbody>
                     <tr>
                         <th>Date</th>
@@ -28,12 +28,12 @@ class ReceivedMessages extends Component {
                     {this.props.receivedMessages.map(message =>
                         <tr key={message.id}>
                             <td>{message.created_at}</td>
-                            <Link to={`/match-profile/${message.user_id}`}>
+                            <Link id="link" to={`/match-profile/${message.user_id}`}>
                                 <td>{message.sender_name}</td>
                             </Link>
                             <td>{message.content}</td>
                             <td>
-                                <Link to={`/match-new-message/${message.user_id}`}>
+                                <Link  id="link" to={`/match-new-message/${message.user_id}`}>
                                 Reply
                             </Link>
                             </td>
