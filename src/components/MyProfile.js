@@ -1,10 +1,18 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-import { Button, Container, Col, Row, Image } from "react-bootstrap"
+import { Button, Image } from "react-bootstrap"
+import {deleteUser} from "../actions/deleteUser"
 
 
 const MyProfile = (props) => {
+
+    const removeUser = () => {
+        props.deleteUser(props.user)
+            .then(() => {
+                props.history.push("/signup")
+        })
+    }
   
     if (!props.user )  {
         return <div></div>
@@ -13,23 +21,19 @@ const MyProfile = (props) => {
         const {id, age, image, username, city, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = props.user
     
     return (
-        <div className="wraper">
+        <div className="my-profile">
             <h2>
             {username}
             </h2>
-            <Container className="justify-content-md-center">
-                <Row >
-                    <Col xs={10} md={6} >
-                        <Image src={image} roundedCircle/>
-                    </Col>
-                </Row>  
-            </Container>
+            <div className="avatar_flip">
+                <Image src={image} roundedCircle/> 
+            </div>
             <img  alt="" />
             <Link to={`/upload-photos/${id}`}>
                 Upload Image
             </Link>
-            <h2 className={bio}>Bio</h2>
-            <p>
+            <h2>Bio</h2>
+            <p className="bio">
             {bio}
             </p>
             <table className="table">
@@ -56,14 +60,18 @@ const MyProfile = (props) => {
                     </tr>
                 </tbody> 
             </table>
-            <h3>Interests:</h3>
+            <h3><strong>Interested In:</strong></h3>
             <h2>
             {props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)} 
             </h2> 
-
+            <div>
             <Button variant="outline-success" href={`/edit-profile/${props.user.id}`} >
-                Edit Profile
-            </Button> 
+                    Edit Profile
+            </Button>
+            </div> 
+            <Button variant="danger" onClick={removeUser} style={{marginTop: "10px"}}>
+                Delete Account
+            </Button>
         </div>
     )
   }
@@ -78,4 +86,4 @@ const mapStateToProps = ({ usersReducer, interestsReducer }) => {
     }
 }
 
-export default connect(mapStateToProps, null)(MyProfile)
+export default connect(mapStateToProps, {deleteUser})(MyProfile)
