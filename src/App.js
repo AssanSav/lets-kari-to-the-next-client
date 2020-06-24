@@ -8,10 +8,14 @@ function App() {
     
     return (
         <Router>
-            <div className="App">
-                <SessionStatus />
-                <Routes />
-            </div>
+            <>
+            <SessionStatus />
+                <div className="wraper">
+                    <div className="main"> 
+                        <Routes /> 
+                    </div>
+                </div> 
+            </>
         </Router>
         
     );
