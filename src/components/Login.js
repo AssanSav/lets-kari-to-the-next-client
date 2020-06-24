@@ -61,10 +61,12 @@ class Login extends Component {
                     </Form.Group> 
                     <Button variant="outline-success" type="submit">Login</Button>
                 </Form>
-                Don't have an account?
-                <Link to="/signup">
-                    Signup
-                </Link>
+                <div className="bottom_link">
+                    Don't have an account?
+                    <Link to="/signup">
+                        Signup
+                    </Link>
+                </div>
             </div>
         )
     }

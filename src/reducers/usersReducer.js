@@ -1,4 +1,4 @@
-import { SIGNUP, LOGGED_OUT, LOGGED_IN, LOGIN, LOGOUT, EDIT_PROFILE, FETCH_PROFILE, FETCH_USERS, UPLOAD_PHOTO} from "../actions/types"
+import { SIGNUP, LOGGED_OUT, LOGGED_IN, LOGIN, LOGOUT, EDIT_PROFILE, FETCH_PROFILE, FETCH_USERS, UPLOAD_PHOTO, DELETE_USER} from "../actions/types"
 
 
 const usersReducer = (state = { status: false, user: {}, profile: {}, users: [] }, action) => {
@@ -64,6 +64,12 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [] 
             user: {}
             }
 
+        case DELETE_USER: 
+            return {
+                ...state,
+                status: false,
+                user: {}
+            }
         default: {
             return state
             }

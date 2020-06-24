@@ -16,7 +16,7 @@ import UploadPhoto from "./UploadPhoto"
 const Routes = () => {
 
   return (
-    <div>
+    <>
       <Switch>
         <Route exact path="/">
           <Login  />
@@ -67,7 +67,7 @@ const Routes = () => {
         </Route>
         
       </Switch>
-    </div>
+    </>
   )
 }
 

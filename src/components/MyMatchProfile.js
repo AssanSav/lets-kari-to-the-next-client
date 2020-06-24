@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { fetchProfile } from "../actions/fetchProfile"
-import {Button, Container, Row, Col, Image} from "react-bootstrap"
+import {Button, Image} from "react-bootstrap"
 
 class MyMatchProfile extends Component {
 
@@ -17,17 +17,13 @@ class MyMatchProfile extends Component {
             const {id, age, image, username, city, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.props.profile
 
             return (
-                <div className="wraper">
+                <div className="my-profile">
                     <h2>
                         {username}
                     </h2>
-                    <Container className="justify-content-md-center">
-                        <Row >
-                            <Col xs={10} md={6} >
-                                <Image src={image} roundedCircle />
-                            </Col>
-                        </Row>
-                    </Container>
+                    <div className="avatar_flip" >
+                            <Image src={image} roundedCircle />
+                    </div>
                     <h2 >Bio</h2>
                     <p className="bio">
                         {bio}
@@ -56,7 +52,7 @@ class MyMatchProfile extends Component {
                             </tr>
                         </tbody>
                     </table>
-                    <h3>Interests:</h3>
+                    <h3><strong>Interests:</strong></h3>
                     <h2>
                         {this.props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)}
                     </h2>

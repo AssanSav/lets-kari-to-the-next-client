@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { fetchReceivedMessages } from "../actions/fetchReceivedMessages"
+import { deleteReceivedMessage } from "../actions/deleteReceivedMessage"
 import { Link } from "react-router-dom"
+import {Button} from "react-bootstrap"
 
 
 class ReceivedMessages extends Component {
@@ -17,28 +19,42 @@ class ReceivedMessages extends Component {
     else {
       return (
         <div >
-            <table className="messages-table">
+          <h2 style={{textAlign: 'center'}}>Received Messages</h2>
+            <table>
                 <tbody>
                     <tr>
-                        <th>Date</th>
-                        <th>From</th>
-                        <th>Content</th>
-                        <th>Reply</th>
+                      <th>Date:</th>
+                      <th>From:</th>
+                      <th>Content:</th>
+                      <th>Reply:</th>
+                      <th>Remove:</th>
                     </tr>
-                    {this.props.receivedMessages.map(message =>
+                      {this.props.receivedMessages.map(message =>
                         <tr key={message.id}>
-                            <td>{message.created_at}</td>
-                            <Link id="link" to={`/match-profile/${message.user_id}`}>
-                                <td>{message.sender_name}</td>
+                          <td>
+                            {message.created_at.split("T")[0]}
+                          </td>
+                          <td id="link" >
+                            <Link to={`/match-profile/${message.user_id}`}>
+                              {message.sender_name}
                             </Link>
-                            <td>{message.content}</td>
-                            <td>
-                                <Link  id="link" to={`/match-new-message/${message.user_id}`}>
-                                Reply
-                            </Link>
-                            </td>
-                        </tr>
-                    )}
+                          </td>
+                          <td id="link">
+                            {message.content}
+                          </td>
+                          <td id="link">
+                            <Link to={`/match-new-message/${message.user_id}`}>
+                              <Button variant="outline-success">
+                                  Reply
+                                </Button>  
+                              </Link>
+                          </td>
+                          <td id="last_link">
+                            <button className="btn" onClick={() => this.props.deleteReceivedMessage(message)}>
+                              X
+                            </button>
+                          </td>
+                        </tr>)}
                 </tbody>
             </table>
         </div>
@@ -55,4 +71,4 @@ const mapStateToProps = ({ messagesReducer }) => {
 }
 
 
-export default connect(mapStateToProps, { fetchReceivedMessages })(ReceivedMessages)
+export default connect(mapStateToProps, { fetchReceivedMessages, deleteReceivedMessage })(ReceivedMessages)

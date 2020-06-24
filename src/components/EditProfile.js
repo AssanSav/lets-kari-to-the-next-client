@@ -188,13 +188,6 @@ class EditProfile extends Component {
                             {visibilityChoice.map((e, i) => <option key={i + 1} value={e} >{e}</option>)}
                         </Form.Control>
                     </Form.Group>
-                    {/* <Form.Group>
-                        <Form.Control as="select" name="visibility" value={visibility} onChange={this.handleChange}>
-                            <option>Choose True To Be Seen Publicly</option>
-                            <option value="True">True</option>
-                            <option value="False">False</option>
-                        </Form.Control>
-                    </Form.Group> */}
 
                     <Form.Group>
                         <label><strong>Bio</strong></label> <br />

@@ -62,9 +62,9 @@ class UploadPhoto extends Component {
     render() {
         return (
             <div className="upload-photo">
+                <br/>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} type="file" id="file" />
-                    <label for="file" >choose a file</label>
 
                     {this.state.isCameraVisible &&
                         <Camera
@@ -78,14 +78,14 @@ class UploadPhoto extends Component {
                         </Button> :
                         <Button variant="outline-secondary" onClick={this.showCamera}>
                             Hide Camera
-                        </Button>} <br /> <br />
+                        </Button>} <br /> <br/>
                     
-                    <img src={this.state.inputFile} alt={this.state.inputFile} />
+                    <img src={this.state.inputFile} alt={this.state.inputFile} /><br/><br/>
 
-                    <Button variant="outline-success" type="submit" value="Upload">
+                    <Button variant="outline-success" type="submit" value="Upload" >
                         Upload
                     </Button>
-                </form>
+                </form><br/>
             </div>
         )
     }

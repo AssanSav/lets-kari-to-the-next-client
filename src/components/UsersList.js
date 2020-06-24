@@ -8,7 +8,6 @@ class UsersList extends Component {
         super()
         this.state = {
             users: [],
-            // interest_ids: [],
             city: "",
             maxAge: "",
             gender: "",
@@ -66,19 +65,8 @@ class UsersList extends Component {
 
         this.setState({
             users: this.props.users.filter(u => {
-                // var userInterestId = u.interests.map(i => i.id)
-                // const interestsMatches = (a = userInterestId, b = interest_ids) => {
-                //     for (var i = a.length - 1; i >= 0; i--){
-                //         if (a[i].toString() === b[i]) {
-                //             return true
-                //         } 
-                //     }
-                // }
-                return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight 
-                    // && u.interests.includes(i => interest_ids.indexOf(i) > -1)
-                // &&  && u.height <= heightLimit  &&  && u.age <= ageLimit    
+                return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight   
             }),
-            // interest_ids: [],
             city: "",
             maxAge: "",
             gender: "",
@@ -91,15 +79,6 @@ class UsersList extends Component {
             education: ""
         })
         // document.getElementById("index_0").checked = false
-        // document.getElementById("index_1").checked = false
-        // document.getElementById("index_2").checked = false
-        // document.getElementById("index_3").checked = false
-        // document.getElementById("index_4").checked = false
-        // document.getElementById("index_5").checked = false
-        // document.getElementById("index_6").checked = false
-        // document.getElementById("index_7").checked = false
-        // document.getElementById("index_8").checked = false
-        // document.getElementById("index_9").checked = false 
     }
 
 
@@ -110,7 +89,7 @@ class UsersList extends Component {
         if (this.props.users !== []) {
             return (
                 <div >
-                    <h1>Search</h1>
+                    <h1 style={{textAlign: "center"}}>Find A Date</h1>
 
                     <Form onSubmit={this.handleSubmit} className="form">
                         <Row>
@@ -214,26 +193,11 @@ class UsersList extends Component {
                                     onChange={this.handleChange} />
                             </Col>
                         </Row>
-
-                        {/* <div className="check-me">
-                            {this.props.interests.map((interest, index) => {
-                                return (
-                                    <span className="mb-3" key={interest.id}>
-                                        <input
-                                            id={'index_' + index}
-                                            type="checkbox" value={interest.id}
-                                            onChange={this.handleCkecked}
-                                        />
-                                        {interest.name}
-                                    </span>
-                                )
-
-                            })}
-                        </div>  */}
                 
                         <div /><br />
                         <Button variant="outline-success" type="submit">Search</Button>
                     </Form>
+                    <h1 style={{textAlign: "center"}}>Users</h1>
                     <div className="container">
                         {users.map(user => <UserCard user={user}/> )}
                     </div>

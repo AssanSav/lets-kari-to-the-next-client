@@ -1,7 +1,9 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { fetchSentMessages } from "../actions/fetchSentMessages"
+import { deleteSentMessage } from "../actions/deleteSentMessage"
 import { Link } from "react-router-dom"
+import {Button} from "react-bootstrap"
 
 
 class SentMessages extends Component {
@@ -10,6 +12,7 @@ class SentMessages extends Component {
     this.props.fetchSentMessages()
   }
 
+
   render() {
     if (this.props.sentMessages === [] || !this.props.sentMessages) {
       return <div></div>
@@ -17,28 +20,43 @@ class SentMessages extends Component {
     else {
       return (
         <div>
-            <table className="messages-table">
-                <tbody>
+          <h2 style={{ textAlign: 'center' }}>Sent Messages</h2>
+          <table >
+            <tbody>
                 <tr>
-                    <th id="date">Date</th>
-                    <th id="sent_messages">Sent to</th>
-                    <th id="content">Content</th>
-                    <th id="send_more">Send More</th>
+                  <th>Date:</th>
+                  <th>Sent to:</th>
+                  <th>Content:</th>
+                  <th>Send More:</th>
+                  <th>Remove:</th>
                 </tr>
                 {this.props.sentMessages.map(message =>
                     <tr key={message.id}>
-                    <td>{message.created_at}</td>
-                    <Link id="link" to={`/match-profile/${message.match_id}`}>
-                        <td>{message.match_name}</td>
-                    </Link>
-                    <td>{message.content}</td>
-                    <td>
-                        <Link id="link" to={`/match-new-message/${message.match_id}`}>
-                        Send Again
-                    </Link>
+                      <td>
+                      {message.created_at.split("T")[0]} at {message.created_at.split("T")[1].split(".")[0]}
+                      </td>
+                      <td id="link">
+                        <Link to={`/match-profile/${message.match_id}`} style={{textDecoration: "underline"}}>
+                          {message.match_name}
+                        </Link>
+                      </td>
+                      <td id="link">
+                          {message.content}
+                      </td>
+                      <td id="link">
+                        <Link  to={`/match-new-message/${message.match_id}`}>
+                        <Button variant="outline-success">
+                                Send Again
+                            </Button>
+                        </Link>
+                    </td>
+                    <td id="last_link">
+                      <button className="btn" onClick={() => this.props.deleteSentMessage(message, "sent")}>
+                          X
+                      </button>
                     </td>
                     </tr>)}
-                </tbody>
+              </tbody>
             </table>
         </div>
       )
@@ -54,4 +72,4 @@ const mapStateToProps = ({ messagesReducer }) => {
 }
 
 
-export default connect(mapStateToProps, { fetchSentMessages})(SentMessages)
+export default connect(mapStateToProps, { fetchSentMessages, deleteSentMessage})(SentMessages)

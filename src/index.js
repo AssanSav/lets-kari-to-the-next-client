@@ -13,11 +13,17 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk, logger)))
 ReactDOM.render(
-    // <React.StrictMode>
+    <React.StrictMode>
         <Provider store={store}>
-            <App />
+        <App />
+        
         </Provider>
-    // </React.StrictMode> 
+        <footer>
+            <div class="footer-copyright text-center py-3" style={{color: "white"}}>© 2020 Copyright:
+            <a href="mailto:assane.savadogo81@.com/" style={{fontStyle: "italic"}}> Assane</a>
+        </div>
+        </footer>
+    </React.StrictMode> 
   ,
   document.getElementById('root')
 );
