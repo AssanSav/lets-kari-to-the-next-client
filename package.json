@@ -2,10 +2,6 @@
   "name": "lets-kari-to-the-next-client",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.14.4",
-    "node": "10.20.1"
-  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -28,16 +24,13 @@
     "react-social-login-buttons": "^3.1.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "serve": "^11.3.2"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
