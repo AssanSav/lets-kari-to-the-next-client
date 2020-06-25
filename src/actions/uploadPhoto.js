@@ -3,7 +3,7 @@ import { UPLOAD_PHOTO } from "./types"
 
 export const uploadPhoto = (formData) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/avatars/${formData.user_id}`, {
+        return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/avatars/${formData.user_id}`, {
             method: "PATCH",
             credentials: "include",
             body: formData
