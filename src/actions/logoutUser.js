@@ -1,8 +1,8 @@
-import { LOGOUT } from "./types"
+import { LOGOUT, BASE_URL  } from "./types"
 
 export const logoutUser = (id) => {
     return dispatch => {
-        return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/logout/${id}`, {
+        return fetch(`${BASE_URL}/api/v1/logout/${id}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',

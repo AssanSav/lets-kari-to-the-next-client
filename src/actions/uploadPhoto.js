@@ -1,9 +1,9 @@
-import { UPLOAD_PHOTO } from "./types"
+import { UPLOAD_PHOTO, BASE_URL } from "./types"
 
 
 export const uploadPhoto = (formData) => {
     return dispatch => {
-        return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/avatars/${formData.user_id}`, {
+        return fetch(`${BASE_URL}/api/v1/avatars/${formData.user_id}`, {
             method: "PATCH",
             credentials: "include",
             body: formData

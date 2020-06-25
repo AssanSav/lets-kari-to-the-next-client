@@ -1,11 +1,11 @@
-import { DELETE_USER } from "./types"
+import { DELETE_USER, BASE_URL } from "./types"
 
 
 
 
 export const deleteUser = (profile) => {
     return dispatch => {
-        return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/users/${profile.id}`, {
+        return fetch(`${BASE_URL}/api/v1/users/${profile.id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",

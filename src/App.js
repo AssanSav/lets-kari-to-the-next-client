@@ -13,6 +13,11 @@ function App() {
                 <div className="wraper">
                     <div className="main"> 
                         <Routes /> 
+                        <footer>
+                            <div class="footer-copyright text-center py-3" style={{ color: "white" }}>© 2020 Copyright:
+                            <a href="mailto:assane.savadogo81@.com/" style={{ fontStyle: "italic" }}> Assane</a>
+                            </div>
+                        </footer>
                     </div>
                 </div> 
             </>

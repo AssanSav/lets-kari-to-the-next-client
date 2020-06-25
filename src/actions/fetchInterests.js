@@ -1,9 +1,9 @@
-import { FETCH_INTERESTS } from "./types"
+import { FETCH_INTERESTS, BASE_URL } from "./types"
 
 
 export const fetchInterests = () => {
     return dispatch => {
-        return fetch("https://lets-kari-to-the-next.herokuapp.com/api/v1/interests", {
+        return fetch(`${ BASE_URL }/api/v1/interests`, {
             headers: {
                 "Conent-Type": "application/json",
                 "Accept": "application/json"

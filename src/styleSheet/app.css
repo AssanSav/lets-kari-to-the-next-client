@@ -6,14 +6,14 @@
 /* Main Body */
 body {
    background-image: url("https://images.unsplash.com/photo-1545073255-7d382c4e78ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
-   background-color: black;
+   /* background-color: black; */
    background-size: cover;
    background-attachment: fixed;
    background-repeat: no-repeat;
  } 
 
 .header {
-  width: 1025px;
+  width: 1300px;
   margin: 0 auto;
   margin-bottom: -10px;
   position: relative;
@@ -26,16 +26,16 @@ body {
   z-index: 1;
 }
 
-#root > div.wraper {
-  width: 1025px;
+div.wraper {
+  width: 1300px;
   margin: 0 auto;
-  margin-top: -30px;
+  margin-top: -25px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .7);
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
-  height: 100%;
+  margin-bottom: -50px;
   overflow: hidden;
 }
 
@@ -67,7 +67,7 @@ body {
 .navbar ul {
   list-style-type: none;
   position: relative;
-  width: 1015px;
+  width: 1300px;
 }
 
 .navbar li {
@@ -319,8 +319,13 @@ tr:nth-child(even) {
 /* footer */
 footer {
   position: relative;;
-  margin-top: 95%;
+  margin-top: 40px;
   left:0;
   bottom:0;
   right:0;
 }
+
+/* New mesage form */
+/* #root > div.wraper > div > div > form > button{
+  float: right;
+} */

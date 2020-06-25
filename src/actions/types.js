@@ -1,3 +1,6 @@
+export const BASE_URL = "https://lets-kari-to-the-next.herokuapp.com"
+// "http://localhost:3001"
+
 export const FAILED = "FAILED"
 export const LOGGED_IN = "LOGGED_IN"
 export const LOGGED_OUT = "LOGGED_OUT"

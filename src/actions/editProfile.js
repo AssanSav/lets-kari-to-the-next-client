@@ -1,9 +1,9 @@
-import { EDIT_PROFILE } from "./types"
+import { EDIT_PROFILE, BASE_URL } from "./types"
 
 
 export const editProfile = (profile) => {
     return dispatch => {
-        return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/users/${profile.id}`, {
+        return fetch(`${BASE_URL}/api/v1/users/${profile.id}`, {
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",

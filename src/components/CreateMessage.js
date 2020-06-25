@@ -35,9 +35,9 @@ class CreateMessage extends Component {
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group className="border border-primary mx-25">
+                    <Form.Group className="border border-primary mx-10">
                         <Form.Control
-                            rows="4" cols="50"
+                            rows="4" cols="10"
                             as="textarea"
                             name="content"
                             value={this.state.content}

@@ -1,9 +1,9 @@
-import { FETCH_PROFILE } from './types'
+import { FETCH_PROFILE, BASE_URL } from './types'
 
 
 export const fetchProfile = (id) => {
   return dispatch => {
-    return fetch(`https://lets-kari-to-the-next.herokuapp.com/api/v1/users/${id}`, {
+    return fetch(`${BASE_URL}/api/v1/users/${id}`, {
       headers: {
         "Content-type": "application/json",
         "Accept": "application/json"

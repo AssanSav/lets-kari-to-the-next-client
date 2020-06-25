@@ -8,7 +8,7 @@ const messagesReducer = (state = { message: {}, receivedMessages: [], sentMessag
         case CREATE_MESSAGE: 
             return {
                 ...state,
-                messages: message
+                message: message
             }
         
         case FETCH_SENT_MESSAGES: 

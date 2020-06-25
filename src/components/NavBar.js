@@ -44,13 +44,13 @@ const NavBarComponent = (props) => {
                         </li>
                     </ul> :
                     <div>
-                          <li className="link" style={{ float: "left" }}>
-                        <Link to="/signup" style={{color:"gray"}}>Signup</Link>
-                    </li>
-                          
-                    <li className="link" style={{ float: "left" }}>
-                        <Link to="/login">Login</Link>
-                    </li>
+                        <li className="link" style={{ float: "left" }}>
+                            <Link to="/signup" >Signup</Link>
+                        </li>
+                            
+                        <li className="link" style={{ float: "left" }}>
+                            <Link to="/login">Login</Link>
+                        </li>
                     </div>
                 }
             </>

@@ -1,8 +1,8 @@
-import { SIGNUP } from "./types"
+import { SIGNUP, BASE_URL } from "./types"
 
 export const signupUser = (formData, ownProps) => {
     return dispatch => {
-        return fetch("https://lets-kari-to-the-next.herokuapp.com/api/v1/users", {
+        return fetch(`${BASE_URL}/api/v1/users`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

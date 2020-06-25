@@ -1,8 +1,9 @@
-import { LOGGED_IN, LOGGED_OUT } from "./types"
+import { LOGGED_IN, LOGGED_OUT, BASE_URL } from "./types"
+
 
 export const sessionStatus = () => {
     return dispatch => {
-        return fetch("https://lets-kari-to-the-next.herokuapp.com/api/v1/session/status", {
+        return fetch(`${BASE_URL}/api/v1/session/status`, {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",

@@ -1,8 +1,8 @@
-import { FETCH_SENT_MESSAGES } from "./types"
+import { FETCH_SENT_MESSAGES, BASE_URL  } from "./types"
 
 export const fetchSentMessages = () => {
     return dispatch => {
-        return fetch("https://lets-kari-to-the-next.herokuapp.com/api/v1/messages-outbox", {
+        return fetch(`${ BASE_URL }/api/v1/messages-outbox`, {
             headers: {
                 "Conent-Type": "application/json",
                 "Accept": "application/json"

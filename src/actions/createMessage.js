@@ -1,8 +1,8 @@
-import { CREATE_MESSAGE } from "./types"
+import { CREATE_MESSAGE, BASE_URL } from "./types"
 
 export const createMessage = (formData) => {
     return dispatch => {
-        return fetch("https://lets-kari-to-the-next.herokuapp.com/api/v1/messages", {
+        return fetch(`${ BASE_URL }/api/v1/messages`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

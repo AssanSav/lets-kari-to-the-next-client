@@ -18,11 +18,6 @@ ReactDOM.render(
         <App />
         
         </Provider>
-        <footer>
-            <div class="footer-copyright text-center py-3" style={{color: "white"}}>© 2020 Copyright:
-            <a href="mailto:assane.savadogo81@.com/" style={{fontStyle: "italic"}}> Assane</a>
-        </div>
-        </footer>
     </React.StrictMode> 
   ,
   document.getElementById('root')

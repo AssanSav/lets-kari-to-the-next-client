@@ -104,8 +104,9 @@ class Signup extends Component {
         const { username, email, password, password_confirmation, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
         
         return (
+           
             <div className="form">
-                <h1>Register</h1>
+                <h3 style={{color: "red"}}>Register To Meet New Friends!</h3>
                 <ul>
                     <Form onSubmit={this.handleSubmit} className="signup">
                         <Form.Group>
