@@ -4,6 +4,7 @@ export const loginUser = (formData, ownProps) => {
     return dispatch => {
         return fetch(`${BASE_URL}/api/v1/login`, {
             method: "POST",
+            mode: 'cors',
             headers: {
                 "Content-type": "application/json",
                 "Accept": "application/json"
