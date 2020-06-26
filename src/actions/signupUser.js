@@ -4,6 +4,7 @@ export const signupUser = (formData, ownProps) => {
     return dispatch => {
         return fetch(`${BASE_URL}/api/v1/users`, {
             method: "POST",
+            mode: 'cors',
             headers: {
                 "Content-type": "application/json",
                 "Accept": "application/json"
