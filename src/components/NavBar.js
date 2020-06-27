@@ -13,51 +13,51 @@ const NavBarComponent = (props) => {
     }
   }
 
-  return (
-      <div className="header">
+    return (
+        <div className="header">
           <div className="navbar">
-            <>
                 {props.status ?
                     <ul >
                         <li className="link" style={{ float: "right" }}>
-                            <Link  to="/" onClick={(e) => handleClick(e)} >Logout</Link>
+                            <Link  to="/" onClick={(e) => handleClick(e)} >Logout</Link> |
                         </li>
                         
                         <li className="link" style={{ float: "right" }}>
-                              <Link to="/matches">Matches</Link>
+                              <Link to="/matches">Matches</Link> |
                         </li>
                             
                         <li className="link" style={{ float: "right" }}>
-                              <Link to={`/my-profile/${props.user.id}`}>| Welcome, {props.user.username} |</Link>
+                            |  <Link to={`/my-profile/${props.user.id}`} > Welcome, {props.user.username} </Link>|
                         </li>
 
                         <li className="link" style={{ float: "left" }}>
-                              <Link to="/sent-messages"> Outbox</Link>
-                        </li>
-                        
+                             | <Link to="/sent-messages"> Outbox</Link> |
+                        </li> 
+                          {
+                              <li className="link" style={{ float: "left" }}>
+                                  <Link to="/received-messages">Inbox </Link>|
+                              </li>
+                          }
                         <li className="link" style={{ float: "left" }}>
-                              <Link to="/received-messages">Inbox</Link>
-                        </li>
-                        
-                        <li className="link" style={{ float: "left" }}>
-                              <Link to="/users">Users </Link>
+                              <Link to="/users">Users </Link> |
                         </li>
                     </ul> :
                     <div>
                         <li className="link" style={{ float: "left" }}>
-                            <Link to="/signup" >Signup</Link>
+                           | <Link to="/signup" >Signup</Link> 
                         </li>
                             
                         <li className="link" style={{ float: "left" }}>
-                            <Link to="/login">Login</Link>
+                          |  <Link to="/login">Login</Link> |
                         </li>
                     </div>
                 }
-            </>
           </div>
       </div>
   )
 }
+
+
 
 export default connect(null, {logoutUser})(NavBarComponent)
 

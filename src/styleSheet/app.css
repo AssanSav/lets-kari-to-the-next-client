@@ -325,7 +325,31 @@ footer {
   right:0;
 }
 
-/* New mesage form */
-/* #root > div.wraper > div > div > form > button{
-  float: right;
-} */
+/* Upload file */
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+  background: #ddd;
+  border: 1px solid #aaa;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color:blue;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255, 255, 255, .75);
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-left: 155px;
+  line-height: normal;
+  padding: 8px 10px; 
+}
+
+.custom-file-upload:hover {
+  background-color: red;
+}

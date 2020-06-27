@@ -12,14 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk, logger)))
+
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-        <App />
-        
+          <App />
         </Provider>
-    </React.StrictMode> 
-  ,
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
