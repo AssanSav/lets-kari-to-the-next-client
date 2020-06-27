@@ -1,5 +1,5 @@
-export const BASE_URL ="http://localhost:3001"
-    // "https://lets-kari-to-the-next.herokuapp.com"
+export const BASE_URL = "https://lets-kari-to-the-next.herokuapp.com"
+    // "http://localhost:3001"
 
 
 
