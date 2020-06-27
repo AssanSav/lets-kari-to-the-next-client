@@ -3,7 +3,6 @@ export const BASE_URL = process.env.REACT_APP_BASE_API_URL
     // "http://localhost:3001"
 
 
-
 export const FAILED = "FAILED"
 export const LOGGED_IN = "LOGGED_IN"
 export const LOGGED_OUT = "LOGGED_OUT"
