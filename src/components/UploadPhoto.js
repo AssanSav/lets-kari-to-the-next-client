@@ -64,7 +64,10 @@ class UploadPhoto extends Component {
             <div className="upload-photo">
                 <br/>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} type="file" id="file" />
+                    <label for="file-upload" className="custom-file-upload">
+                        Pick from our Computer
+                    </label>
+                    <input id="file-upload" onChange={this.handleChange} type="file" />
 
                     {this.state.isCameraVisible &&
                         <Camera
