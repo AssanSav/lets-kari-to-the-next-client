@@ -47,6 +47,7 @@ class UsersList extends Component {
 
 
     handleChange(e) {
+    
         if (e.target) {
             this.setState({
                 [e.target.name]: e.target.value,
@@ -76,7 +77,7 @@ class UsersList extends Component {
             body_shape: "",
             children: "",
             relationship: "",
-            education: ""
+            education: "",
         })
         // document.getElementById("index_0").checked = false
     }
@@ -90,19 +91,18 @@ class UsersList extends Component {
             return (
                 <div >
                     <h1 style={{textAlign: "center"}}>Find A Date</h1>
-
                     <Form onSubmit={this.handleSubmit} className="form">
                         <Row>
                             <Col>
                                 <Form.Control as="select" name="gender" value={gender} placeholder="" onChange={this.handleChange}>
-                                    <option>Gender</option>
+                                    <option disabled value="" selected hidden>Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </Form.Control>
                             </Col>
                             <Col>
                                 <Form.Control as="select" name="orientation" value={orientation} placeholder="" onChange={this.handleChange}>
-                                    <option>Orientation</option>
+                                    <option disabled value="" selected hidden>Orientation</option>
                                     <option value="Gay">Gay</option>
                                     <option value="Straight">Straight</option>
                                     <option value="Lesbian">Lesbian</option>
@@ -113,7 +113,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control as="select" name="ethnicity" value={ethnicity} onChange={this.handleChange}>
-                                    <option>Ethnicity</option>
+                                    <option  disabled value="" selected hidden>Ethnicity</option>
                                     <option value="Hispanic or Latino">Hispanic or Latino</option>
                                     <option value="Black/African descent">Black/African descent</option>
                                     <option value="White">White</option>
@@ -122,7 +122,7 @@ class UsersList extends Component {
                             </Col>
                             <Col>
                                 <Form.Control as="select" name="body_shape" value={body_shape} onChange={this.handleChange}>
-                                    <option>Body Shape</option>
+                                    <option  disabled value="" selected hidden>Body Shape</option>
                                     <option value="Athletic">Athletic</option>
                                     <option value="Curvy">Curvy</option>
                                     <option value="Skinny">Skinny</option>
@@ -133,7 +133,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
-                                    <option>Relationship</option>
+                                    <option  disabled value="" selected hidden>Relationship</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>
                                     <option value="In a Relationship">In a Relationship</option>
@@ -145,7 +145,7 @@ class UsersList extends Component {
                             </Col>
                             <Col>
                                 <Form.Control as="select" name="education" value={education} onChange={this.handleChange} >
-                                    <option>Education</option>
+                                    <option  disabled value="" selected hidden>Education</option>
                                     <option value="Doctorate">Doctorate</option>
                                     <option value="Masters">Masters</option>
                                     <option value="Bachelors">Bachelors</option>
@@ -195,7 +195,7 @@ class UsersList extends Component {
                         </Row>
                 
                         <div /><br />
-                        <Button variant="outline-success" type="submit">Search</Button>
+                        <Button variant="outline-success" type="submit" >Search</Button>
                     </Form>
                     <h1 style={{textAlign: "center"}}>Users</h1>
                     <div className="container">
