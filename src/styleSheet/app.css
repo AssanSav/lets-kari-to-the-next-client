@@ -13,7 +13,7 @@ body {
  } 
 
 .header {
-  width: 1300px;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: -10px;
   position: relative;
@@ -27,7 +27,7 @@ body {
 }
 
 div.wraper {
-  width: 1300px;
+  width: 100%;
   margin: 0 auto;
   margin-top: -25px;
   border-radius: 10px;
@@ -67,7 +67,7 @@ div.wraper {
 .navbar ul {
   list-style-type: none;
   position: relative;
-  width: 1300px;
+  width: 100%;
 }
 
 .navbar li {
