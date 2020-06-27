@@ -8,7 +8,7 @@ export const sessionStatus = () => {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
             },
-            credentials: "include"
+            // credentials: "include"
         })
             .then(resp => resp.json())
             .then(data => {
