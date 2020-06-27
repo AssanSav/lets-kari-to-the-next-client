@@ -8,21 +8,21 @@ class EditProfile extends Component {
     constructor(props) {
         super()
         this.state = {
-            username: props.user.username,
-            email: props.user.email,
-            id: props.user.id ,
-            city: props.user.city,
-            age: props.user.age,
-            gender: props.user.gender,
-            orientation: props.user.orientation,
-            ethnicity: props.user.city,
-            height: props.user.height,
-            body_shape: props.user.body_shape,
-            children: props.user.children,
-            relationship: props.user.relationship,
-            education: props.user.education,
-            bio: props.user.bio,
-            visibility: props.user.visibility
+            username: "",
+            email: "",
+            id: "" ,
+            city: "",
+            age: "",
+            gender: "",
+            orientation: "",
+            ethnicity: "",
+            height: "",
+            body_shape: "",
+            children: "",
+            relationship: "",
+            education: "",
+            bio: "",
+            visibility: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -77,7 +77,7 @@ class EditProfile extends Component {
 
 
     render() {
-        const { username, email, password, visibility, password_confirmation, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
+        const { username, email, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
         let genders = ["Male", "Female"]
         let orientations = ["Straight", "Lesbian", "Gay"]
         let ethnicities = ["Black/African descent", "White", "Hispanic or Latino", "Asian/Pacific Islander"]
@@ -199,26 +199,6 @@ class EditProfile extends Component {
                             value={bio} />
                     </Form.Group>
 
-                    {this.props.user.id ? null :
-                        <div>
-                            <input
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                autoComplete={password}
-                                value={password}
-                                onChange={this.handleChange}
-                            />
-                            <input
-                                placeholder="password_confirmation"
-                                type="password"
-                                name="password_confirmation"
-                                autoComplete={password_confirmation}
-                                value={password_confirmation}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    }
                     <Button type="submit" value="Edit">
                         Edit
                     </Button>
