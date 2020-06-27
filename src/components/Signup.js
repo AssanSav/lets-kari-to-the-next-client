@@ -8,42 +8,41 @@ import {Link} from "react-router-dom"
 
 
 class Signup extends Component {
-    constructor(props) {
+    constructor() {
         super()
         this.state = {
-            username:  "",
-            email:  "",
-            password: "",
-            password_confirmation: "",
-            interest_ids:  [],
-            city: "",
-            age:  "",
-            gender:"",
-            orientation:  "",
-            ethnicity:  "",
-            height:  "",
-            body_shape:  "",
-            children: "",
-            relationship:  "",
-            education:  "",
-            bio: "",
-            visibility: ""
+            fields: {
+                gender: "",
+                orientation: "",
+                ethnicity:  "",
+                height:  "",
+                body_shape:  "",
+                children: "",
+                relationship:  "",
+                education:  "",
+                bio: "",
+                visibility: "",
+                interest_ids: [],
+                city: "",
+                age: ""
+            },
+            errors: {},
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleCkecked = this.handleCkecked.bind(this)
+        this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
     }
 
 
     componentDidMount() {
         this.props.fetchInterests()
     }
-
+    
 
     handleCkecked(e){
-        let interestsChecked = this.state.interest_ids
+        let interestsChecked = this.state.fields.interest_ids
         let interestValue = e.target.value
-
+        
         if (e.target.checked === true) {
             interestsChecked.push(interestValue)
             this.setState({
@@ -53,69 +52,108 @@ class Signup extends Component {
         else {
             let interestIndex = interestsChecked.indexOf(interestValue)
             interestsChecked.splice(interestIndex, 1)
-
+            
             this.setState({
                 interest_ids: interestsChecked
             })
         }
     }
+    
+
+    submituserRegistrationForm(e) {
+        e.preventDefault()
+        if (this.validateForm()) {
+            let fields = {};
+            fields["email"] = "";
+            fields["password"] = "";
+            fields["password_confirmation"] = "";
+            fields["username"] = ""
+            this.setState({
+                fields: fields
+            });
+        }
+        this.props.signupUser(this.state.fields)
+    }
+
+
+    validateForm() {
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        if (!fields["username"]) {
+            formIsValid = false;
+            errors["username"] = "*Please enter a username!"
+        }
+        if (!fields["email"]) {
+            formIsValid = false;
+            errors["email"] = "*Please enter your email-ID.";
+        }
+        if (typeof fields["email"] !== "undefined") {
+            //regular expression for email validation
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            if (!pattern.test(fields["email"])) {
+                formIsValid = false;
+                errors["email"] = "*Please enter valid email-ID.";
+            }
+        }
+        if (!fields["password"]) {
+            formIsValid = false;
+            errors["password"] = "*Please enter your password.";
+        }
+        if (typeof fields["password"] !== "undefined") {
+            // if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+            formIsValid = false;
+            errors["password"] = "*Wrong Password!";
+            // }
+        }
+        if (!fields["password_confirmation"]) {
+            formIsValid = false;
+            errors["password_confirmation"] = "*Please confirm your password.";
+        }
+        if (typeof fields["password_confirmation"] !== fields["password_confirmation"]) {
+            formIsValid = false;
+            errors["password_confirmation"] = "*Wrong Confirmed Password!";
+        }
+        this.setState({
+            errors: errors
+        });
+        return formIsValid;
+    }
 
 
     handleChange(e) {
+        let fields = this.state.fields
+        fields[e.target.name] = e.target.value
         if (e.target) {
             this.setState({
-                [e.target.name]: e.target.value
+                fields
             })
         }
         else {
             this.setState({
-                [e.name]: e.value
+                interest_ids: e.value
             })
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
-        
-        this.props.signupUser(this.state)
-        
-        this.setState({
-            username: "",
-            email: "",
-            password: "",
-            password_confirmation: "",
-            city: "",
-            age: "",
-            gender: "",
-            orientation: "",
-            ethnicity: "",
-            height: "",
-            body_shape: "",
-            children: "",
-            relationship: "",
-            education: "",
-            bio: "",
-            visibility: ""
-        })
-    }
-
 
     render() {
-        const { username, email, password, password_confirmation, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
-        
+        const { email, username, password, password_confirmation, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
         return (
            
             <div className="form">
                 <h3 style={{color: "red"}}>Register To Meet New Friends!</h3>
                 <ul>
-                    <Form onSubmit={this.handleSubmit} className="signup">
+                    <Form onSubmit={this.submituserRegistrationForm} className="signup">
                         <Form.Group>
                             <Form.Control
                                 type="text"
                                 placeholder="username"
                                 name="username"
                                 value={username}
-                                onChange={this.handleChange}/>
+                                onChange={this.handleChange} />
+                            <div style={{ color: "red" }}>{this.state.errors.username}</div>
                         </Form.Group>
 
                         <Form.Group>
@@ -125,6 +163,7 @@ class Signup extends Component {
                                 name="email"
                                 value={email}
                                 onChange={this.handleChange} />
+                            <div style={{ color: "red" }}>{this.state.errors.email}</div>
                         </Form.Group>
 
                         <Form.Group>
@@ -271,7 +310,8 @@ class Signup extends Component {
                                     name="password"
                                     autoComplete={password}
                                     value={password}
-                                    onChange={this.handleChange}/>
+                                    onChange={this.handleChange} />
+                                <div style={{ color: "red" }}>{this.state.errors.password}</div>
                             </Col>
                             <Col>
                                 <Form.Control
@@ -280,7 +320,8 @@ class Signup extends Component {
                                     name="password_confirmation"
                                     autoComplete={password_confirmation}
                                     value={password_confirmation}
-                                    onChange={this.handleChange}/>
+                                    onChange={this.handleChange} />
+                                <div style={{ color: "red" }}>{this.state.errors.password_confirmation}</div>
                             </Col>
                         </Row>
                         <div /><br/>
