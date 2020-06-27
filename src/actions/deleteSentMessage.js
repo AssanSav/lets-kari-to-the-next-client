@@ -9,7 +9,7 @@ export const deleteSentMessage = (message) => {
                 "Content-type": "application/json",
                 "Accept": "application/json"
             },
-            credentials: "include",
+            // credentials: "include",
             body: JSON.stringify(message)
         })
             .then(resp => resp.json())

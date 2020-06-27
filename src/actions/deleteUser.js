@@ -11,7 +11,7 @@ export const deleteUser = (profile) => {
                 "Content-type": "application/json",
                 "Accept": "application/json"
             },
-            credentials: "include",
+            // credentials: "include",
             body: JSON.stringify(profile)
         })
             .then(resp => resp.json())
