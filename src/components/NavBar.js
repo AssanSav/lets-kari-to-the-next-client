@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { logoutUser } from "../actions/logoutUser"
 import { connect } from "react-redux"
+import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 
 
 const NavBarComponent = (props) => {
@@ -13,47 +13,40 @@ const NavBarComponent = (props) => {
     }
   }
 
-    return (
-        <div className="header">
-          <div className="navbar">
-                {props.status ?
-                    <ul >
-                        <li className="link" style={{ float: "right" }}>
-                            <Link  to="/" onClick={(e) => handleClick(e)} >Logout</Link> |
-                        </li>
-                        
-                        <li className="link" style={{ float: "right" }}>
-                              <Link to="/matches">Matches</Link> |
-                        </li>
-                            
-                        <li className="link" style={{ float: "right" }}>
-                            |  <Link to={`/my-profile/${props.user.id}`} > Welcome, {props.user.username} </Link>|
-                        </li>
-
-                        <li className="link" style={{ float: "left" }}>
-                             | <Link to="/sent-messages"> Outbox</Link> |
-                        </li> 
-                          {
-                              <li className="link" style={{ float: "left" }}>
-                                  <Link to="/received-messages">Inbox </Link>|
-                              </li>
-                          }
-                        <li className="link" style={{ float: "left" }}>
-                              <Link to="/users">Users </Link> |
-                        </li>
-                    </ul> :
-                    <div>
-                        <li className="link" style={{ float: "left" }}>
-                           | <Link to="/signup" >Signup</Link> 
-                        </li>
-                            
-                        <li className="link" style={{ float: "left" }}>
-                          |  <Link to="/login">Login</Link> |
-                        </li>
-                    </div>
-                }
-          </div>
-      </div>
+  return (
+    <Navbar className="pb-10">
+    {props.status ? 
+      <>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" id="nav"/>
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/users">Users</NavDropdown.Item>
+              <NavDropdown.Item href="/matches">Matches</NavDropdown.Item>
+              <NavDropdown.Item href="/received-messages">Inbox</NavDropdown.Item>
+              <NavDropdown.Item href="sent-messages">Outbox</NavDropdown.Item>
+              <NavDropdown.Divider />
+            </NavDropdown>
+            <Nav.Link href="/sent-messages" className="mb-0">Outbox</Nav.Link>
+            <Nav.Link href="/received-messages">Inbox</Nav.Link>
+            <Nav.Link href="/users">Users</Nav.Link>
+          </Nav>
+          <Nav>
+              <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
+              <Nav.Link href="/matches">Matches</Nav.Link>
+            <Nav.Link href="/" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </>
+      :
+      <>
+        <Nav>
+          <Navbar.Brand style={{color: "red", fontStyle: "bold"}}>Let's Meetup!</Navbar.Brand>
+          <Nav.Link href="/signup">Signup</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
+        </Nav>
+      </>}
+    </Navbar>
   )
 }
 
