@@ -10,12 +10,12 @@ const myHeaders = new Headers({
 export const sessionStatus = () => {
     return dispatch => {
         return fetch(`${BASE_URL}/api/v1/session/status`, {
-            headers: {
+            // headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
                 // "Allow-Control-Allow-Origin": 'https://lets-meetup-app.herokuapp.com',
                 // "Access-Control-Allow-Credentials": "true"
-            },
+            // },
             credentials: "include",
             myHeaders
         })
