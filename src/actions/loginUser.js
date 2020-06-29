@@ -6,11 +6,9 @@ export const loginUser = (formData, ownProps) => {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "Accept": "application/json",
-                "Access-Control-Allow-Origin": "*",
-                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                "Accept": "application/json"
             },
-            // credentials: "include",
+            credentials: "include",
             body: JSON.stringify(formData)
             })
             .then(resp => resp.json())
