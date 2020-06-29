@@ -1,5 +1,4 @@
-export const BASE_URL = "http://localhost:3001"
-    // "https://lets-kari-to-the-next.herokuapp.com"
+export const BASE_URL = "https://lets-kari-to-the-next.herokuapp.com"
     // "https://lets-kari-to-the-next.herokuapp.com"
     // process.env.REACT_APP_BASE_API_URL
     // "http://localhost:3001"
