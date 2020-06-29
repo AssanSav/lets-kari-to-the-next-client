@@ -20,10 +20,10 @@ class SentMessages extends Component {
     else {
       return (
         <div>
-          <h2 style={{ textAlign: 'center' }}>Sent Messages</h2>
+          <h4 style={{ textAlign: 'center', color: ""  }}>Sent Messages</h4>
           <table >
             <tbody>
-                <tr>
+              <tr style={{ color: "red" }}>
                   <th>Date:</th>
                   <th>Sent to:</th>
                   <th>Content:</th>

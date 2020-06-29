@@ -8,7 +8,7 @@ export const createMessage = (formData) => {
                 "Content-type": "application/json",
                 "Accept": "application/json"
             },
-            // credentials: "include",
+            credentials: "include",
             body: JSON.stringify(formData)
         })
             .then(resp => resp.json())

@@ -90,7 +90,7 @@ class UsersList extends Component {
         if (this.props.users !== []) {
             return (
                 <div >
-                    <h1 style={{textAlign: "center"}}>Find A Date</h1>
+                    <h4 style={{ textAlign: "center", color: "antiquewhite"}}>Find A Date</h4>
                     <Form onSubmit={this.handleSubmit} className="form">
                         <Row>
                             <Col>
@@ -197,7 +197,7 @@ class UsersList extends Component {
                         <div /><br />
                         <Button variant="outline-success" type="submit" >Search</Button>
                     </Form>
-                    <h1 style={{textAlign: "center"}}>Users</h1>
+                    <h4 style={{ textAlign: "center", color: "antiquewhite"}}>Users</h4>
                     <div className="container">
                         {users.map(user => <UserCard user={user}/> )}
                     </div>

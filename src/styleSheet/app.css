@@ -2,104 +2,37 @@
   text-align: center;
 }
 
+/* NavBar */
+a.nav-link {
+  font-size: bold !important
+}
+a.nav-link:hover {
+  color: red !important
+}
 
+#root > nav {
+  background-color: white !important
+}
 /* Main Body */
 body {
-   background-image: url("https://images.unsplash.com/photo-1545073255-7d382c4e78ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
-   /* background-color: black; */
+   background-image: url("https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F510644%2Fheart-book-pages-folded-in-to-form-heart-with-sunset-in-the-background.jpg&w=700&op=resize");
    background-size: cover;
    background-attachment: fixed;
    background-repeat: no-repeat;
  } 
 
-.header {
-   width: 100%;
-  margin: 0 auto;
-  margin-bottom: -10px;
-  position: relative;
-  top: -10px;
-
-  /* background-color: black;
-  height: 100px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  z-index: 1;  */
-}
-
 div.wraper {
   width: 100%;
   margin: 0 auto;
-  margin-top: -25px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .7);
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
   margin-bottom: -50px;
+  /* padding-bottom:60px; */
   overflow: hidden;
-}
-
-.main-wrapper {
-  margin: 25px auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 25px;
-  width: 250px;
-  height: 300px;
-  margin-top: 90px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, .8);
-}
-
-
-
-/* NavBar */
-#root > div.header > div {
-  position: relative;
-  font-family: 'Questrial', sans-serif;
-  font-weight: bold;
-  padding-top: 10px;
-  padding-bottom: 25px;
-  padding-left: 0px;
-  color: white;
-}
-
-.navbar ul {
-  list-style-type: none;
-  position: relative;
-  width: 100%;
-}
-
-.navbar li {
-  display: inline;
-  padding: 5px;
-  font-family: 'Raleway', sans-serif;
-
-  
-/* font-weight: bold; */
-color: white;
-list-style-type: none;
-position: relative;
-font-size: 20px;
-display: inline;
-padding: 5px;
-font-family: 'Raleway', sans-serif;
-}
-
-.link {
-  padding-left: 10px;
-  font-weight: bold;
-  list-style-type: none;
-  font-family: 'Raleway', sans-serif;
-  position: relative;
-  margin-top: 40px;
-  font-size: 17;
-  margin-left: 0px;
-}
-
-.link a:hover {
-  color: red;
-  text-decoration: none;
+  /* background-color: black; */
 }
 
 /* Signup and Login Forms */
@@ -294,7 +227,7 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid black;
   text-align: left;
   padding: 5px;
 }

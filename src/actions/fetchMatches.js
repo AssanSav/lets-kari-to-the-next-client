@@ -7,7 +7,7 @@ export const fetchMatches = () => {
                 "Conent-Type": "application/json",
                 "Accept": "application/json"
             },
-            // credentials: "include"
+            credentials: "include"
         })
             .then(resp => resp.json())
             .then(({ matches }) => {

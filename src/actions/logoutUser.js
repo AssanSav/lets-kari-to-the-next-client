@@ -8,7 +8,7 @@ export const logoutUser = (id) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            // credentials: "include"
+            credentials: "include"
         })
             .then(resp => dispatch({ type: LOGOUT }))
     }
