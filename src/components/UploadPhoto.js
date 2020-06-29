@@ -82,9 +82,9 @@ class UploadPhoto extends Component {
                         <Button variant="outline-secondary" onClick={this.showCamera}>
                             Hide Camera
                         </Button>} <br /> <br/>
-                    
-                    <img src={this.state.inputFile} alt={this.state.inputFile} /><br/><br/>
-
+                    <div >
+                        <img style={{ width: "80%", height: "auto" }} src={this.state.inputFile} alt={this.state.inputFile} /><br/><br/>
+                    </div>
                     <Button variant="outline-success" type="submit" value="Upload" >
                         Upload
                     </Button>

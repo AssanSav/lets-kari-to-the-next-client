@@ -26,7 +26,7 @@ const MyProfile = (props) => {
             {username}
             </h2>
             <div className="avatar_flip">
-                <Image src={image} roundedCircle/> 
+                <Image style={{ width: "80%", height: "auto" }} src={image} roundedCircle/> 
             </div>
             <img  alt="" />
             <Link to={`/upload-photos/${id}`}>

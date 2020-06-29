@@ -143,7 +143,7 @@ class Signup extends Component {
         return (
            
             <div className="form">
-                <h4 style={{color: "red", fontStyle: "bold"}}>Create Account!</h4>
+                <h4 style={{textAlign: "center", fontStyle: "bold"}}>Create Account!</h4>
                 <ul>
                     <Form onSubmit={this.submituserRegistrationForm} className="signup">
                         <Form.Group>

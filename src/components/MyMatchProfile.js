@@ -22,7 +22,7 @@ class MyMatchProfile extends Component {
                         {username}
                     </h2>
                     <div className="avatar_flip" >
-                            <Image src={image} roundedCircle />
+                        <Image style={{ width: "80%", height: "auto" }} src={image} roundedCircle />
                     </div>
                     <h2 >Bio</h2>
                     <p className="bio">

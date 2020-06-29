@@ -76,7 +76,7 @@ class Login extends Component {
         const {email, password} = this.state
         return (
             <div className="form">
-                <h1>Login</h1>
+                <h1 style={{textAlign: "center"}}>Login</h1>
                 <Form onSubmit={this.submituserRegistrationForm} className="loginUser">
                     <Form.Group>
                         <Form.Control
