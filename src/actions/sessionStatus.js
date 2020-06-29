@@ -7,8 +7,8 @@ export const sessionStatus = () => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Access-Control-Allow-Origin": "https://lets-meetup-app.herokuapp.com"
             },
+            Origin: "https://lets-meetup-app.herokuapp.com",
             credentials: "include"
         })
             .then(resp => resp.json())
