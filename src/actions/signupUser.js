@@ -7,9 +7,10 @@ export const signupUser = (formData, ownProps) => {
             mode: 'cors',
             headers: {
                 "Content-type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Access-Control-Allow-Origin": "*"
             },
-            credentials: "include",
+            // credentials: "include",
             body: JSON.stringify(formData)
         })
             .then(resp => resp.json())

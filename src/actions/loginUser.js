@@ -6,9 +6,10 @@ export const loginUser = (formData, ownProps) => {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Access-Control-Allow-Origin": "*"
             },
-            credentials: "include",
+            // credentials: "include",
             body: JSON.stringify(formData)
             })
             .then(resp => resp.json())
