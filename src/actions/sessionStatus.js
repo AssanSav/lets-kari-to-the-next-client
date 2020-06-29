@@ -7,7 +7,8 @@ export const sessionStatus = () => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
             },
             // credentials: "include"
         })
