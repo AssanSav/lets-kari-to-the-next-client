@@ -102,10 +102,10 @@ class Signup extends Component {
             errors["password"] = "*Please enter your password.";
         }
         if (typeof fields["password"] !== "undefined") {
-            // if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+            if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
             formIsValid = false;
             errors["password"] = "*Wrong Password!";
-            // }
+            }
         }
         if (!fields["password_confirmation"]) {
             formIsValid = false;
@@ -143,7 +143,7 @@ class Signup extends Component {
         return (
            
             <div className="form">
-                <h3 style={{color: "red"}}>Register To Meet New Friends!</h3>
+                <h4 style={{color: "red", fontStyle: "bold"}}>Create Account!</h4>
                 <ul>
                     <Form onSubmit={this.submituserRegistrationForm} className="signup">
                         <Form.Group>
