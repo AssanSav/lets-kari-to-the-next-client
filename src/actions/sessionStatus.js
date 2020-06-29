@@ -7,9 +7,9 @@ export const sessionStatus = () => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "Access-Control-Allow-Origin": "*"
+                // "Access-Control-Allow-Origin": "*"
             },
-            // credentials: "include"
+            credentials: "include"
         })
             .then(resp => resp.json())
             .then(data => {
