@@ -58,16 +58,17 @@ class Login extends Component {
             formIsValid = false;
             errors["password"] = "*Please enter your password.";
         }
-        // if (typeof fields["password"] !== "undefined") {
-        //     // if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-        //         formIsValid = false;
-        //         errors["password"] = "*Wrong Password!";
-        //     // }
-        // }
+        if (typeof fields["password"] !== "undefined") {
+            if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+                formIsValid = false;
+                errors["password"] = "*Wrong Password!";
+            }
+        }
 
         this.setState({
             errors: errors
         });
+        document.querySelector(".loginUser").reset()
         return formIsValid;
     }
 
@@ -76,7 +77,7 @@ class Login extends Component {
         return (
             <div className="form">
                 <h1>Login</h1>
-                <Form onSubmit={this.submituserRegistrationForm}>
+                <Form onSubmit={this.submituserRegistrationForm} className="loginUser">
                     <Form.Group>
                         <Form.Control
                             placeholder="email"
