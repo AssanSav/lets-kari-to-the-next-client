@@ -1,5 +1,8 @@
 import { LOGGED_IN, LOGGED_OUT, BASE_URL } from "./types"
 
+var myHeaders = new Headers() 
+myHeaders.append("Allow-Control-Allow-Origin", 'https://lets-meetup-app.herokuapp.com')
+myHeaders.append("Access-Control-Allow-Credentials", "true")
 
 export const sessionStatus = () => {
     return dispatch => {
@@ -10,7 +13,8 @@ export const sessionStatus = () => {
                 "Allow-Control-Allow-Origin": 'https://lets-meetup-app.herokuapp.com',
                 "Access-Control-Allow-Credentials": "true"
             },
-            credentials: "include",
+            myHeaders,
+            credentials: "include"
         })
             .then(resp => resp.json())
             .then(data => {
