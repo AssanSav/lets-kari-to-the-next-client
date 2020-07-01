@@ -10,12 +10,12 @@ function App() {
   return (
     <>
       <Router>
-        <SessionStatus />
         <div className="wraper">
           <div className="main"> 
             < Routes /> 
           </div>
         </div> 
+        <SessionStatus />
       </Router>
       <Navbar className="fixed-bottom">
           <Container  >
