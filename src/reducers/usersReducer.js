@@ -26,7 +26,6 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [] 
 
       case LOGGED_IN:
           return {
-          ...state,
           status: true,
           user: user
           }
