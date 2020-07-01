@@ -8,10 +8,10 @@ const NavBarComponent = (props) => {
 
   const handleClick = () => {
     const { logoutUser, status, user } = props
-    // if (status) {
-    debugger
-        props.logoutUser(user.id)
-    // }
+    if (status) {
+    // debugger
+        logoutUser(user.id)
+    }
   }
 
   return (
@@ -36,7 +36,7 @@ const NavBarComponent = (props) => {
             <Nav>
                 <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
                 <Nav.Link href="/matches">Matches</Nav.Link>
-              <Nav.Link href="/login" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
+              <Nav.Link href="/login" onClick={handleClick}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </>
