@@ -36,7 +36,7 @@ const NavBarComponent = (props) => {
             <Nav>
               <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
               <Nav.Link href="/matches">Matches</Nav.Link>
-              <Nav.Link href="/" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
+              <Nav.Link href="/login" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </>

@@ -19,7 +19,7 @@ const Routes = () => {
     <>
       <Switch>
         <Route exact path="/">
-          <Login  />
+          <Signup  />
         </Route>
 
         <Route exact path="/signup" render={(routerProps) =>
