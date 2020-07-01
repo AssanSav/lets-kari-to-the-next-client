@@ -9,13 +9,13 @@ import { Navbar, Container } from "react-bootstrap"
 function App() {  
   return (
     <>
+        <SessionStatus />
       <Router>
         <div className="wraper">
           <div className="main"> 
             < Routes /> 
           </div>
         </div> 
-        <SessionStatus />
       </Router>
       <Navbar className="fixed-bottom">
           <Container  >

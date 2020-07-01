@@ -13,7 +13,7 @@ export const sessionStatus = () => {
         })
             .then(resp => resp.json())
             .then(data => {
-                data.logged_in ? dispatch({ type: LOGGED_IN, user: data.user.data.attributes, interests: data.interests }) : dispatch({ type: LOGGED_OUT, payload: data })
+                data.logged_in === true ? dispatch({ type: LOGGED_IN, user: data.user.data.attributes, interests: data.interests }) : dispatch({ type: LOGGED_OUT, payload: data })
             })
     }
 }
