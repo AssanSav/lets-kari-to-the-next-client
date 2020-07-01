@@ -1,4 +1,4 @@
-import { FETCH_INTERESTS, LOGGED_IN, SIGNUP, LOGIN, EDIT_PROFILE, FETCH_PROFILE, UPLOAD_PHOTO, FETCH_USERS } from "../actions/types";
+import { FETCH_INTERESTS, LOGGED_IN, LOGOUT, SIGNUP, LOGIN, EDIT_PROFILE, FETCH_PROFILE, UPLOAD_PHOTO, FETCH_USERS } from "../actions/types";
 
 const interestsReducer = (state = { interests: [], profileInterests: [] }, action) => {
   const { payload, interests, type } = action 
@@ -16,6 +16,12 @@ const interestsReducer = (state = { interests: [], profileInterests: [] }, actio
               interests: interests
           }
       
+    case LOGOUT: 
+      return {
+        interests: [],
+        profileInterests: []
+      }
+    
       case SIGNUP:
           return {
               ...state,
