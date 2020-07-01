@@ -282,7 +282,7 @@ input[type="file"] {
 /* Chat room */
 .chatroom {
   margin-bottom: 40px;
-  width: 60%;
+  width: 40%;
   height: 600px;
   background-color: rgba(0,0,0, .7);
   border-radius: 5px;
