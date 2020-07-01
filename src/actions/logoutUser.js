@@ -12,6 +12,7 @@ export const logoutUser = (id) => {
           credentials: "include"
       })
         .then(resp => {
+          debugger
           dispatch({ type: LOGOUT })
         })
   }

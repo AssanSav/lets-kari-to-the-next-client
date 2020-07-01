@@ -2,6 +2,8 @@ export const BASE_URL = "https://lets-meetup-app-api.herokuapp.com"
     // "https://lets-meetup-app-api.herokuapp.com"
     //"http://localhost:3001"
 
+// debugger
+
 export const FAILED = "FAILED"
 export const LOGGED_IN = "LOGGED_IN"
 export const LOGGED_OUT = "LOGGED_OUT"
