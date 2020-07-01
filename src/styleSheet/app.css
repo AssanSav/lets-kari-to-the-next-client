@@ -2,17 +2,7 @@
   text-align: center;
 }
 
-/* NavBar */
-a.nav-link {
-  font-size: bold !important
-}
-a.nav-link:hover {
-  color: red !important
-}
 
-#root > nav {
-  background-color: white !important
-}
 /* Main Body */
 body {
    background-image: url("https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F510644%2Fheart-book-pages-folded-in-to-form-heart-with-sunset-in-the-background.jpg&w=700&op=resize");
@@ -21,22 +11,36 @@ body {
    background-repeat: no-repeat;
  } 
 
+
+/* NavBar */
+a.nav-link {
+  font-size: bold !important
+}
+
+a.nav-link:hover {
+  color: red !important
+}
+
+#root > nav {
+  background-color: white !important
+}
+
 div.wraper {
   width: 100%;
   margin: 0 auto;
-  border-radius: 10px;
+  background-color: purple;
   background-color: rgba(255, 255, 255, .7);
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
-  margin-bottom: -50px;
-  /* padding-bottom:60px; */
+  margin-bottom: 50px;
   overflow: hidden;
-  /* background-color: black; */
 }
+
 
 /* Signup and Login Forms */
 .form {
+  text-align: center;
   max-width:500px;
   margin:25px auto;
   background:#fff;
@@ -46,35 +50,33 @@ div.wraper {
 }
 
 .form ul {
-   list-style:none;
-    padding:0;
-    margin:0;
-
-    display: block;
-    padding: 9px;
-    border:3px solid #DDDDDD;
-    margin-bottom: 30px;
-    border-radius: 5px;
+  list-style:none;
+  margin:0;
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }
 
 .form-group {
-    display: block;
-    padding: 9px;
-    border:3px solid #DDDDDD;
-    margin-bottom: 30px;
-    border-radius: 3px;
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px;
 }
+
 
 .check-me{
   text-align: center;
   max-width:500px;
-  margin-top: 40px;
-  padding: 8px;
+  padding: 15px;
   background:#fff;
   border-radius:2px;
   font-family: 'Raleway', sans-serif;
-  display: block;
-  border:3px solid #DDDDDD;
+  display: inline-block;
+  border:1px solid #DDDDDD;
   border-radius: 3px;
 }
 
@@ -98,16 +100,8 @@ div.col {
     border-radius:2px;
     font-family: 'Raleway', sans-serif;
     display: block;
-    border:3px solid #DDDDDD;
+    border:1px solid #DDDDDD;
     border-radius: 3px;
-}
-
-form > button{
-  margin-left: 190px;
-}
-.bottom_link {
-  margin-top: 10px;
-  text-align: center;
 }
 
 
@@ -127,8 +121,8 @@ form > button{
   font-family: 'Questrial', sans-serif;
 }
 
-.avatar-flip {
-  border-radius: 100px;
+#root > div > div > div > div.avatar_flip {
+  border-radius: 50px;
   overflow: hidden;
   height: 400px;
   width: 400px;
@@ -136,14 +130,26 @@ form > button{
   margin: auto;
   top: -60px;
   box-shadow: 0 0 0 13px #f0f0f0;
-  -webkit-box-shadow: 0 0 0 13px #f0f0f0;
+  -webkit-box-shadow: 0 0 0 5px #f0f0f0;
   -moz-box-shadow: 0 0 0 13px #f0f0f0;
+  margin-bottom: -40px;
+}
+
+.profile_pic {
+  /* text-align: center;
+  font-family: 'Questrial', sans-serif;
+  height: 400px;
+  max-width: 400px; */
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+  height: 400px;
+  max-width: 450px;
 }
 
 #root > div.wraper > div > div > p {
   text-align: left;
   max-width: 605px;
-  font-size: 20px;
+  font-size: 18px;
   margin: auto;
   line-height: 1.2em;
   border: 2px;
@@ -152,6 +158,7 @@ form > button{
   border-radius: 5px;
   background-color: #d5d2df;
 }
+
 
  /* index page */
  .container {
@@ -191,7 +198,6 @@ form > button{
 
 
 /* Outbox And Inbox */
-
 #link a:link{
   color: blue;
   text-decoration: none;
@@ -219,7 +225,7 @@ form > button{
 }
 
 table {
-  background-color: paleturquoise;
+  /* background-color: paleturquoise; */
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -227,7 +233,7 @@ table {
 }
 
 td, th {
-  border: 1px solid black;
+  border: 1px solid;
   text-align: left;
   padding: 5px;
 }
@@ -237,9 +243,9 @@ tr:nth-child(even) {
 }
 
 #last_link.btn {
-  background-color: orange; 
+  /* background-color: orange;  */
   border: none; 
-  color: white; 
+  /* color: white;  */
   padding: 8px 10px; 
   font-size: 16px; 
   cursor: pointer; 
@@ -249,19 +255,12 @@ tr:nth-child(even) {
   background-color: red;
 }
 
-/* footer */
-footer {
-  position: relative;;
-  margin-top: 40px;
-  left:0;
-  bottom:0;
-  right:0;
-}
 
 /* Upload file */
 input[type="file"] {
     display: none;
 }
+
 .custom-file-upload {
   background: #ddd;
   border: 1px solid #aaa;
@@ -277,12 +276,120 @@ input[type="file"] {
   text-decoration: none;
   text-shadow: 0 1px rgba(255, 255, 255, .75);
   cursor: pointer;
-  margin-bottom: 20px;
-  margin-left: 155px;
   line-height: normal;
   padding: 8px 10px; 
 }
 
 .custom-file-upload:hover {
   background-color: red;
+}
+
+
+/* Chat room */
+.chatroom {
+  margin-bottom: 40px;
+  width: 60%;
+  height: 600px;
+  background-color: rgba(0,0,0, .7);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
+}
+
+.chatroom h3 {
+  font-family: 'Pacifico', cursive;
+  background-color: gray;
+  color: #FFF;
+  margin: 0;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatroom .chats {
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 10px 0 0;
+  height: 510px;
+  overflow-y: scroll;
+}
+
+.chatroom .chats .chat {
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  padding: 5px 13px;
+  font-size: 14px;
+  border-radius: 10px;
+  list-style: none;
+  float: left;
+  clear: both;
+  margin: 10px 0;
+  max-width: 200px;
+  font-size: 15px;
+}
+
+.chatroom .chats .chat img {
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: 0px;
+}
+
+.chatroom .chats .chat.left{
+  background-color: greenyellow
+}
+
+.chatroom .chats .chat.right {
+  float: right;
+  clear: both;
+}
+
+.chatroom .chats .chat a {
+  text-decoration: none;
+  color:#3498DB;
+}
+
+.chatroom .input {
+  height: 40px;
+  width: 100%;
+  /* background: red; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chatroom .input input[type="texterea"] {
+  background: rgba(255, 255, 255, 0.5);
+  outline: 0;
+  border: 2px solid #1EE494;
+  padding: 0 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: 10px;
+  height: 30px;
+  width: 270px;
+  box-sizing: border-box;
+}
+
+.chatroom .input input[type="submit"] {
+  background: transparent;
+  border: 1px solid #1EE494;
+  height: 30px;
+  width: 70px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.chatroom .input input[type="submit"]:hover {
+  background: #1EE494;
+  color: #FFF;
 }

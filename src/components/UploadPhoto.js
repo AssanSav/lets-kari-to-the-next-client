@@ -61,35 +61,42 @@ class UploadPhoto extends Component {
 
     render() {
         return (
-            <div className="upload-photo">
-                <br/>
-                <form onSubmit={this.handleSubmit}>
-                    <label for="file-upload" className="custom-file-upload">
-                        Pick from our Computer
-                    </label>
-                    <input id="file-upload" onChange={this.handleChange} type="file" />
+          <div className="upload-photo">
+            <form onSubmit={this.handleSubmit}>
+              <div style={{ textAlign: "center" }}>
+                <label htmlFor="file-upload" className="custom-file-upload">
+                    Pick from our Computer
+                </label>
+                <input id="file-upload" onChange={this.handleChange} type="file" />
+              </div>
 
-                    {this.state.isCameraVisible &&
-                        <Camera
-                            onTakePhoto={this.handlePhoto}
-                            isImageMirror={false}/>
-                    } <br />
-                    
-                    {!this.state.isCameraVisible ?
-                        <Button variant="outline-primary" onClick={this.showCamera}>
-                            Camera
-                        </Button> :
-                        <Button variant="outline-secondary" onClick={this.showCamera}>
-                            Hide Camera
-                        </Button>} <br /> <br/>
-                    <div >
-                        <img style={{ width: "80%", height: "auto" }} src={this.state.inputFile} alt={this.state.inputFile} /><br/><br/>
-                    </div>
-                    <Button variant="outline-success" type="submit" value="Upload" >
-                        Upload
-                    </Button>
-                </form><br/>
-            </div>
+              {this.state.isCameraVisible &&
+                  <Camera
+                      onTakePhoto={this.handlePhoto}
+                      isImageMirror={false}/>}
+              
+              {!this.state.isCameraVisible ?
+                <div style={{textAlign: "center"}}>
+                  <Button  variant="outline-primary" onClick={this.showCamera}>
+                      Camera
+                  </Button>
+                </div> :
+                <div style={{ textAlign: "center" }}>
+                  <Button variant="outline-secondary" onClick={this.showCamera}>
+                      Hide Camera
+                  </Button>
+                </div>
+              }
+              <div style={{ textAlign: "center" }}>
+                <img style={{ width: "50%", height: "auto", marginTop: "10px" }} src={this.state.inputFile} alt={this.state.inputFile} />
+              </div>
+              <div style={{ textAlign: "center", marginTop: "10px" }}>
+                <Button variant="outline-success" type="submit" value="Upload" >
+                    Upload
+                </Button>
+              </div>
+            </form><br/>
+          </div>
         )
     }
 }

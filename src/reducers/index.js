@@ -6,8 +6,8 @@ import matchesReducer  from "./matchesReducer"
 
 
 export const rootReducer = combineReducers({
-    usersReducer,
-    messagesReducer,
-    interestsReducer,
-    matchesReducer
+  usersReducer,
+  messagesReducer,
+  interestsReducer,
+  matchesReducer
 })

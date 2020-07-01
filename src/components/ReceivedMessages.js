@@ -22,7 +22,7 @@ class ReceivedMessages extends Component {
           <h4 style={{ textAlign: 'center', color: ""}}>Received Messages</h4>
             <table>
                 <tbody>
-              <tr style={{ color: "red"}}>
+              <tr style={{ color: ""}}>
                       <th>Date:</th>
                       <th>From:</th>
                       <th>Content:</th>
@@ -32,7 +32,7 @@ class ReceivedMessages extends Component {
                       {this.props.receivedMessages.map(message =>
                         <tr key={message.id}>
                           <td>
-                            {message.created_at.split("T")[0]}
+                            {message.created_at.split("T")[0]} at {message.created_at.split("T")[1].split(".")[0]}
                           </td>
                           <td id="link" >
                             <Link to={`/match-profile/${message.user_id}`}>

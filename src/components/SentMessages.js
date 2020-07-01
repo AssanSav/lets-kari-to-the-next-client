@@ -23,7 +23,7 @@ class SentMessages extends Component {
           <h4 style={{ textAlign: 'center', color: ""  }}>Sent Messages</h4>
           <table >
             <tbody>
-              <tr style={{ color: "red" }}>
+              <tr style={{ color: "" }}>
                   <th>Date:</th>
                   <th>Sent to:</th>
                   <th>Content:</th>
@@ -45,7 +45,7 @@ class SentMessages extends Component {
                       </td>
                       <td id="link">
                         <Link  to={`/match-new-message/${message.match_id}`}>
-                        <Button variant="outline-success">
+                            <Button variant="outline-success">
                                 Send Again
                             </Button>
                         </Link>

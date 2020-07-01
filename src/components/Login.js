@@ -75,37 +75,39 @@ class Login extends Component {
     render() {
         const {email, password} = this.state
         return (
-            <div className="form">
-                <h1 style={{textAlign: "center"}}>Login</h1>
-                <Form onSubmit={this.submituserRegistrationForm} className="loginUser">
-                    <Form.Group>
-                        <Form.Control
-                            placeholder="email"
-                            type="text"
-                            name="email"
-                            value={email}
-                            onChange={this.handleChange} />
-                        <div style={{color: "red"}}>{this.state.errors.email}</div>
-                    </Form.Group>
-                    
-                    <Form.Group>
-                        <Form.Control
-                            placeholder="password"
-                            type="password"
-                            name="password"
-                            autoComplete={password}
-                            value={password}
-                            onChange={this.handleChange} />
-                        <div style={{ color: "red" }}>{this.state.errors.password}</div>
-                    </Form.Group> 
-                    <Button variant="outline-success" type="submit">Login</Button>
-                </Form>
-                <div className="bottom_link">
-                    Don't have an account?
-                    <Link to="/signup">
-                        Signup
-                    </Link>
-                </div>
+            <div className="form" style={{ display: "block", width: "500px", float: "center" }}>
+                <h1 style={{ textAlign: "center" }}>Login</h1>
+                <ul>
+                    <Form onSubmit={this.submituserRegistrationForm} className="loginUser">
+                        <Form.Group>
+                            <Form.Control
+                                placeholder="email"
+                                type="text"
+                                name="email"
+                                value={email}
+                                onChange={this.handleChange} />
+                            <div style={{color: "red"}}>{this.state.errors.email}</div>
+                        </Form.Group>
+                        
+                        <Form.Group>
+                            <Form.Control
+                                placeholder="password"
+                                type="password"
+                                name="password"
+                                autoComplete={password}
+                                value={password}
+                                onChange={this.handleChange} />
+                            <div style={{ color: "red" }}>{this.state.errors.password}</div>
+                        </Form.Group> 
+                        <Button variant="outline-success" type="submit">Login</Button>
+                    </Form>
+                    <div className="bottom_link">
+                        Don't have an account?
+                        <Link to="/signup">
+                            Signup
+                        </Link>
+                    </div>
+                </ul>
             </div>
         )
     }

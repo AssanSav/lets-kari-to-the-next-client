@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-import { Button, Image } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import {deleteUser} from "../actions/deleteUser"
 
 
@@ -20,17 +20,16 @@ const MyProfile = (props) => {
   else {
         const {id, age, image, username, city, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = props.user
     
-    return (
-        <div className="my-profile">
-            <h2>
-            {username}
-            </h2>
+      return (
+          <div className="my-profile">
             <div className="avatar_flip">
-                <Image style={{ width: "80%", height: "auto" }} src={image} roundedCircle/> 
+                <img className="profile_pic" src={image} alt=""/> 
             </div>
-            <img  alt="" />
+            <h2>
+              <strong>{username}</strong>
+            </h2>
             <Link to={`/upload-photos/${id}`}>
-                Upload Image
+                Upload Picture
             </Link>
             <h2>Bio</h2>
             <p className="bio">

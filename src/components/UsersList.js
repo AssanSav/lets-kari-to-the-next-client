@@ -85,12 +85,12 @@ class UsersList extends Component {
 
     render() {
         const { education, city, maxAge, gender, orientation, ethnicity, maxHeight, body_shape, children, relationship} = this.state
-        let users = this.state.users.length > 0 ? this.state.users : this.props.users
-
+      let users = this.state.users.length > 0 ? this.state.users : this.props.users
+      
         if (this.props.users !== []) {
             return (
                 <div >
-                    <h4 style={{ textAlign: "center", color: "antiquewhite"}}>Find A Date</h4>
+                <h4 style={{ textAlign: "center", color: "purple" }}>Find A Date</h4>
                     <Form onSubmit={this.handleSubmit} className="form">
                         <Row>
                             <Col>
@@ -159,7 +159,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control
-                                    placeholder="age"
+                                    placeholder="Age"
                                     type="text"
                                     name="maxAge"
                                     value={maxAge}
@@ -167,7 +167,7 @@ class UsersList extends Component {
                             </Col>
                             <Col>
                                 <Form.Control
-                                    placeholder="height"
+                                    placeholder="Height"
                                     type="text"
                                     name="maxHeight"
                                     value={maxHeight}
@@ -178,7 +178,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control
-                                    placeholder="city"
+                                    placeholder="City"
                                     type="text"
                                     name="city"
                                     value={city}
@@ -186,7 +186,7 @@ class UsersList extends Component {
                             </Col>
                             <Col>
                                 <Form.Control
-                                    placeholder="children"
+                                    placeholder="Children"
                                     type="text"
                                     name="children"   
                                     value={children}
@@ -197,9 +197,9 @@ class UsersList extends Component {
                         <div /><br />
                         <Button variant="outline-success" type="submit" >Search</Button>
                     </Form>
-                    <h4 style={{ textAlign: "center", color: "antiquewhite"}}>Users</h4>
+                    <h4 style={{ textAlign: "center", color: "purple"}}>Users</h4>
                     <div className="container">
-                        {users.map(user => <UserCard user={user}/> )}
+                        {users.map(user =><span key={user.id}> <UserCard user={user}/></span> )}
                     </div>
                 </div>
             )

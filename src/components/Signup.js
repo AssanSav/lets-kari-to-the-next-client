@@ -142,8 +142,8 @@ class Signup extends Component {
         const { email, username, password, password_confirmation, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
         return (
            
-            <div className="form">
-                <h4 style={{textAlign: "center", fontStyle: "bold"}}>Create Account!</h4>
+            <div className="form" style={{display: "block", width: "500px", float: "center"}} >
+                <h4 style={{textAlign: "center", fontStyle: "bold", width: "100%", padding: "0%"}}>Create Account!</h4>
                 <ul>
                     <Form onSubmit={this.submituserRegistrationForm} className="signup">
                         <Form.Group>
@@ -229,7 +229,7 @@ class Signup extends Component {
 
                         <Form.Group>
                             <Form.Control
-                                placeholder="age"
+                                placeholder="Age"
                                 type="text"
                                 name="age"
                                 autoComplete={age}
@@ -239,7 +239,7 @@ class Signup extends Component {
 
                         <Form.Group>
                             <Form.Control
-                            placeholder="height"
+                            placeholder="Height"
                                 type="text"
                                 name="height"
                                 autoComplete={height}
@@ -249,7 +249,7 @@ class Signup extends Component {
 
                         <Form.Group>
                             <Form.Control
-                                placeholder="city"
+                                placeholder="City"
                                 type="text"
                                 name="city"
                                 autoComplete={city}
@@ -259,24 +259,24 @@ class Signup extends Component {
 
                         <Form.Group>
                             <Form.Control
-                                placeholder="children"
+                                placeholder="Children"
                                 type="text"
                                 name="children"
                                 autoComplete={children}
                                 value={children}
                                 onChange={this.handleChange}/>
                         </Form.Group>
-
+                    
                         <Form.Group>
-                            <label><strong>Little Bit About Yourself</strong></label> <br />
+                            <label style={{ textAlign: "center"}}><strong >Little Bit About Yourself</strong></label> <br />
                             <Form.Control
                                 as="textarea"
                                 name="bio"
                                 onChange={this.handleChange}
                                 value={bio}/>
                         </Form.Group>
-
                             <div className="check-me">
+                                <label><strong>Select Interests!</strong></label> <br />
                                 <div className="interests">
                                     { this.props.interests.map((interest, index) => {
                                         return (
@@ -327,12 +327,12 @@ class Signup extends Component {
                         <div /><br/>
                         <Button variant="outline-success" type="submit">Signup</Button>
                     </Form>
-                    <div className="bottom_link">
+                    <span className="bottom_link">
                         Have an account!
                         <Link to="/login" >
                                 Login
                         </Link>      
-                    </div>
+                    </span>
                 </ul>
             </div>
         )
