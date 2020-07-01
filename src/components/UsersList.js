@@ -87,7 +87,10 @@ class UsersList extends Component {
         const { education, city, maxAge, gender, orientation, ethnicity, maxHeight, body_shape, children, relationship} = this.state
       let users = this.state.users.length > 0 ? this.state.users : this.props.users
       
-        if (this.props.users !== []) {
+      if (this.props.users === [] || !this.props.users) {
+          return <div></div>
+      }
+      else {
             return (
                 <div >
                 <h4 style={{ textAlign: "center", color: "purple" }}>Find A Date</h4>
