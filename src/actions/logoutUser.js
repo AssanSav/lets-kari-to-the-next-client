@@ -11,7 +11,9 @@ export const logoutUser = (id) => {
           },
           credentials: "include"
       })
-          .then(resp => dispatch({ type: LOGOUT }))
+        .then(resp => {
+          dispatch({ type: LOGOUT })
+        })
   }
 }
 

@@ -7,11 +7,10 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 const NavBarComponent = (props) => {
 
   const handleClick = () => {
-    const { logoutUser, user } = props
-    logoutUser(user.id)
-      .then(() => {
-        props.history.push("/")
-    })
+    const { logoutUser, status, user } = props
+    if (status) {
+        logoutUser(user.id)
+    }
   }
 
   return (
@@ -27,15 +26,15 @@ const NavBarComponent = (props) => {
                 <NavDropdown.Item href="/received-messages">Inbox</NavDropdown.Item>
                 <NavDropdown.Item href="sent-messages">Outbox</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/" onClick={(e) => handleClick(e)}>Logout</NavDropdown.Item>
+                <NavDropdown.Item href="/login" onClick={(e) => handleClick(e)}>Logout</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/sent-messages" className="mb-0">Outbox</Nav.Link>
               <Nav.Link href="/received-messages">Inbox</Nav.Link>
               <Nav.Link href="/users">Users</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
-              <Nav.Link href="/matches">Matches</Nav.Link>
+                <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
+                <Nav.Link href="/matches">Matches</Nav.Link>
               <Nav.Link href="/login" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
