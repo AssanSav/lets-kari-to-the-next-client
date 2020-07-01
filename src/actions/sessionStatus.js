@@ -6,7 +6,8 @@ myHeaders.append("Access-Control-Allow-Credentials", "true")
 
 export const sessionStatus = () => {
     return dispatch => {
-        return fetch(`${BASE_URL}/api/v1/session/status`, {
+      return fetch(`${BASE_URL}/api/v1/session/status`, {
+          mode: "cors",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
