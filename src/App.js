@@ -3,27 +3,29 @@ import { BrowserRouter as Router} from "react-router-dom"
 import './styleSheet/app.css';
 import Routes from './components/Routes';
 import SessionStatus from './containers/SessionStatus';
+import { Navbar, Container } from "react-bootstrap"
 
-function App() {
-    
-    return (
-        <Router>
-            <>
-            <SessionStatus />
-                <div className="wraper">
-                    <div className="main"> 
-                        <Routes /> 
-                        <footer>
-                            <div className="footer-copyright text-center py-3" style={{ color: "black" }}>© 2020 Copyright:
-                            <a href="mailto:assane.savadogo81@.com/" style={{ fontStyle: "italic" }}> Assane</a>
-                            </div>
-                        </footer>
-                    </div>
-                </div> 
-            </>
-        </Router>
-        
-    );
+
+function App() {  
+  return (
+    <>
+      <Router>
+        <SessionStatus />
+        <div className="wraper">
+          <div className="main"> 
+            < Routes /> 
+          </div>
+        </div> 
+      </Router>
+      <Navbar className="fixed-bottom">
+          <Container  >
+            <Navbar.Brand href="mailto:assane.savadogo81@.com/">
+              © 2020 Copyright: <span style={{ fontStyle: "italic", color: "red" }}>Assane</span>
+            </Navbar.Brand>
+          </Container>
+      </Navbar>
+    </>
+  );
 }
 
 export default App;
