@@ -59,7 +59,6 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [] 
 
       case LOGOUT:
           return {
-          ...state,
           status: false,
           user: {}
           }

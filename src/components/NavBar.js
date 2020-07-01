@@ -2,6 +2,8 @@ import React from "react"
 import { logoutUser } from "../actions/logoutUser"
 import { connect } from "react-redux"
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { withRouter } from 'react-router'
 
 
 const NavBarComponent = (props) => {
@@ -9,8 +11,10 @@ const NavBarComponent = (props) => {
   const handleClick = () => {
     const { logoutUser, status, user } = props
     if (status) {
-    // debugger
-        logoutUser(user.id)
+      logoutUser(user.id)
+        .then(() => {
+        props.history.push("/login")
+      })
     }
   }
 
@@ -36,7 +40,11 @@ const NavBarComponent = (props) => {
             <Nav>
                 <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
                 <Nav.Link href="/matches">Matches</Nav.Link>
-              <Nav.Link href="/login" onClick={handleClick}>Logout</Nav.Link>
+              {/* <Link href="/login"> */}
+                <button onClick={handleClick}>
+                  Logout
+                </button>
+                {/* </Link> */}
             </Nav>
           </Navbar.Collapse>
         </>
@@ -54,7 +62,7 @@ const NavBarComponent = (props) => {
 
 
 
-export default connect(null, {logoutUser})(NavBarComponent)
+export default withRouter(connect(null, {logoutUser})(NavBarComponent))
 
 
 

@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Router>
-        <SessionStatus />
+      <SessionStatus />
         <div className="wraper">
           <div className="main"> 
             < Routes /> 
