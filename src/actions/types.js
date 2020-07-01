@@ -1,4 +1,4 @@
-export const BASE_URL = "https://lets-meetup-app-api.herokuapp.com"
+export const BASE_URL = "http://localhost:3001"
     // "https://lets-meetup-app-api.herokuapp.com"
     //"http://localhost:3001"
 
@@ -27,5 +27,5 @@ export const FETCH_SENT_MESSAGES = "FETCH_SENT_MESSAGES"
 export const FETCH_RECEIVED_MESSAGES = "FETCH_RECEIVED_MESSAGES"
 export const DELETE_SENT_MESSAGE = "DELETE_SENT_MESSAGE"
 export const DELETE_RECEIVED_MESSAGE = "DELETE_RECEIVED_MESSAGE"
-export const FETCH_MESSAGES = "FETCH_MESSAGES"
+export const FETCH_MESSAGES = FETCH_MESSAGES
 
