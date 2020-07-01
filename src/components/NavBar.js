@@ -7,10 +7,11 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 const NavBarComponent = (props) => {
 
   const handleClick = () => {
-    const { logoutUser, status, user } = props
-    if (status) {
-        logoutUser(user.id)
-    }
+    const { logoutUser, user } = props
+    logoutUser(user.id)
+      .then(() => {
+        props.history.push("/")
+    })
   }
 
   return (
@@ -33,8 +34,8 @@ const NavBarComponent = (props) => {
               <Nav.Link href="/users">Users</Nav.Link>
             </Nav>
             <Nav>
-                <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
-                <Nav.Link href="/matches">Matches</Nav.Link>
+              <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
+              <Nav.Link href="/matches">Matches</Nav.Link>
               <Nav.Link href="/" onClick={(e) => handleClick(e)}>Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
