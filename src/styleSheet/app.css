@@ -136,10 +136,6 @@ div.col {
 }
 
 .profile_pic {
-  /* text-align: center;
-  font-family: 'Questrial', sans-serif;
-  height: 400px;
-  max-width: 400px; */
   text-align: center;
   font-family: 'Questrial', sans-serif;
   height: 400px;
@@ -225,7 +221,7 @@ div.col {
 }
 
 table {
-  /* background-color: paleturquoise; */
+  background-color: white;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -233,7 +229,7 @@ table {
 }
 
 td, th {
-  border: 1px solid;
+  border: 0.01px solid;
   text-align: left;
   padding: 5px;
 }
@@ -243,9 +239,7 @@ tr:nth-child(even) {
 }
 
 #last_link.btn {
-  /* background-color: orange;  */
   border: none; 
-  /* color: white;  */
   padding: 8px 10px; 
   font-size: 16px; 
   cursor: pointer; 
@@ -362,16 +356,15 @@ input[type="file"] {
   align-items: center;
 }
 
-.chatroom .input input[type="texterea"] {
-  background: rgba(255, 255, 255, 0.5);
+.chatroom .input textarea[type="text"] {
   outline: 0;
   border: 2px solid #1EE494;
   padding: 0 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
   margin-left: 10px;
-  height: 30px;
-  width: 270px;
+  height: 100px;
+  margin-bottom: 70px;
+  width: 300px;
   box-sizing: border-box;
 }
 
@@ -382,8 +375,8 @@ input[type="file"] {
   width: 70px;
   font-size: 14px;
   box-sizing: border-box;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
   cursor: pointer;
   color: white;
   transition: all 0.3s ease;

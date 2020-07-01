@@ -19,7 +19,7 @@ class ReceivedMessages extends Component {
     else {
       return (
         <div >
-          <h4 style={{ textAlign: 'center', color: ""}}>Received Messages</h4>
+          <h6 style={{ textAlign: 'center', color: ""}}>Received Messages</h6>
             <table>
                 <tbody>
               <tr style={{ color: ""}}>

@@ -66,7 +66,8 @@ class CreateMessage extends Component {
           }
         </ul>
         <form className="input" onSubmit={this.handleSubmit}>
-          <input name="content" value={this.state.content} type="texterea" ref="msg" onChange={this.handleChange} />
+          <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
+          </textarea>
           <input type="submit" value="Submit" />
         </form>
       </div>

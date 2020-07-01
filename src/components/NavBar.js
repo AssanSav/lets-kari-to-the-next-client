@@ -26,6 +26,7 @@ const NavBarComponent = (props) => {
                 <NavDropdown.Item href="/received-messages">Inbox</NavDropdown.Item>
                 <NavDropdown.Item href="sent-messages">Outbox</NavDropdown.Item>
                 <NavDropdown.Divider />
+                <NavDropdown.Item href="/" onClick={(e) => handleClick(e)}>Logout</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/sent-messages" className="mb-0">Outbox</Nav.Link>
               <Nav.Link href="/received-messages">Inbox</Nav.Link>
