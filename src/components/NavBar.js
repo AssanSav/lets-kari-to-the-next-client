@@ -1,8 +1,7 @@
 import React from "react"
 import { logoutUser } from "../actions/logoutUser"
 import { connect } from "react-redux"
-import { Navbar, Nav, NavDropdown } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Navbar, Nav, NavDropdown, Button} from "react-bootstrap"
 import { withRouter } from 'react-router'
 
 
@@ -25,7 +24,7 @@ const NavBarComponent = (props) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" id="nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavDropdown title="" id="collasible-nav-dropdown">
+              <NavDropdown title="Options" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/users">Users</NavDropdown.Item>
                 <NavDropdown.Item href="/matches">Matches</NavDropdown.Item>
                 <NavDropdown.Item href="/received-messages">Inbox</NavDropdown.Item>
@@ -40,11 +39,9 @@ const NavBarComponent = (props) => {
             <Nav>
                 <Nav.Link href={`/my-profile/${props.user.id}`}>Welcome, {props.user.username} </Nav.Link>
                 <Nav.Link href="/matches">Matches</Nav.Link>
-              {/* <Link href="/login"> */}
-                <button onClick={handleClick}>
+                <Button variant="outline-warning" onClick={handleClick}>
                   Logout
-                </button>
-                {/* </Link> */}
+                </Button> 
             </Nav>
           </Navbar.Collapse>
         </>
