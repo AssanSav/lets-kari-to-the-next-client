@@ -9,8 +9,8 @@ import { Navbar, Container } from "react-bootstrap"
 function App() {  
   return (
     <>
-        <SessionStatus />
       <Router>
+        <SessionStatus />
         <div className="wraper">
           <div className="main"> 
             < Routes /> 

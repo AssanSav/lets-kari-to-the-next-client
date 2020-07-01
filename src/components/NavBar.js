@@ -8,9 +8,10 @@ const NavBarComponent = (props) => {
 
   const handleClick = () => {
     const { logoutUser, status, user } = props
-    if (status) {
-        logoutUser(user.id)
-    }
+    // if (status) {
+    debugger
+        props.logoutUser(user.id)
+    // }
   }
 
   return (
