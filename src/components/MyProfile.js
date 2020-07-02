@@ -68,7 +68,7 @@ const MyProfile = (props) => {
                     Edit Profile
             </Button>
             </div> 
-            <Button variant="danger" onClick={removeUser} style={{marginTop: "10px"}}>
+          <Button variant="danger" onClick={() => { if (window.confirm('Are you sure you wish to delete your account?')) removeUser() }} style={{marginTop: "10px"}}>
                 Delete Account
             </Button>
         </div>
