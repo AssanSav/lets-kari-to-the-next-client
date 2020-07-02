@@ -50,7 +50,23 @@ class CreateMessage extends Component {
   }
 
   render() {
-    return (
+    if (!this.props.messages || this.props.messages.length === 0) {
+      return (
+        <div className="chatroom">
+          <h3>Chat Room</h3>
+          <ul className="chats" ref="chats"></ul>
+        <div>
+          <form className="input" onSubmit={this.handleSubmit}>
+              <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
+              </textarea>
+            <input type="submit" value="Submit" />
+          </form>
+          </div>
+          </div>
+      )
+    }
+    else {
+      return (
       <div className="chatroom">
         <h3>Chat Room</h3>
         <ul className="chats" ref="chats">
@@ -66,20 +82,28 @@ class CreateMessage extends Component {
           }
         </ul>
         <form className="input" onSubmit={this.handleSubmit}>
-          <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
-          </textarea>
+            <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
+            </textarea>
           <input type="submit" value="Submit" />
         </form>
       </div>
       )
+    }
+    
   }
 }
 
-const mapStateToProps = ({ usersReducer, messagesReducer }) => {
-  return {
+const mapStateToProps = ({ usersReducer, messagesReducer }, ownProps) => {
+  const id = ownProps.routerProps.match.params.id
+  const userId = usersReducer.user.id
+  const received_messages = messagesReducer.messages.filter(message => message.user_id == id && message.match_id == userId)
+  const sent_messages = messagesReducer.messages.filter(message => message.user_id == userId && message.match_id == id)
+  const messages = received_messages.concat(sent_messages)
+
+    return {
     user: usersReducer,
-    messages: messagesReducer.messages
-  }
+    messages: messages
+  } 
 }
 
 export default connect(mapStateToProps, {createMessage, fetchMessages})(CreateMessage)
