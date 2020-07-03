@@ -9,67 +9,22 @@ class Login extends Component {
     constructor() {
         super()
         this.state = {
-            fields: {},
-            errors: {}
+          email: "",
+          password: ""
         }
         this.handleChange = this.handleChange.bind(this)
-        this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    submituserRegistrationForm(e) {
+    handleSubmit(e) {
         e.preventDefault();
-        if (this.validateForm()) {
-            let fields = {};
-            fields["email"] = "";
-            fields["password"] = "";
-            this.setState({
-                fields: fields
-            });
-        }
-        this.props.loginUser({ email: this.state.fields.email, password: this.state.fields.password })
+        this.props.loginUser({ email: this.state.email, password: this.state.password })
     }
 
     handleChange(e) {
-        let fields = this.state.fields
-        fields[e.target.name] = e.target.value
-        this.setState({
-            fields
-        })
-    }
-
-
-    validateForm() {
-        let fields = this.state.fields;
-        let errors = {};
-        let formIsValid = true;
-
-        if (!fields["email"]) {
-            formIsValid = false;
-            errors["email"] = "*Please enter your email-ID.";
-        }
-        if (typeof fields["email"] !== "undefined") {
-            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-            if (!pattern.test(fields["email"])) {
-                formIsValid = false;
-                errors["email"] = "*Please enter valid email-ID.";
-            }
-        }
-        if (!fields["password"]) {
-            formIsValid = false;
-            errors["password"] = "*Please enter your password.";
-        }
-        if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-                formIsValid = false;
-                errors["password"] = "*Wrong Password!";
-            }
-        }
-
-        this.setState({
-            errors: errors
-        });
-        document.querySelector(".loginUser").reset()
-        return formIsValid;
+      this.setState({
+         [e.target.name]: e.target.value 
+      })
     }
 
     render() {
@@ -78,7 +33,7 @@ class Login extends Component {
             <div className="form" style={{ display: "block", width: "500px", float: "center" }}>
                 <h1 style={{ textAlign: "center" }}>Login</h1>
                 <ul>
-                    <Form onSubmit={this.submituserRegistrationForm} className="loginUser">
+                    <Form onSubmit={this.handleSubmit} className="loginUser">
                         <Form.Group>
                             <Form.Control
                                 placeholder="email"
@@ -86,7 +41,7 @@ class Login extends Component {
                                 name="email"
                                 value={email}
                                 onChange={this.handleChange} />
-                            <div style={{color: "red"}}>{this.state.errors.email}</div>
+                  <div style={{ color: "red" }}>{this.props.emailError}</div>
                         </Form.Group>
                         
                         <Form.Group>
@@ -97,7 +52,7 @@ class Login extends Component {
                                 autoComplete={password}
                                 value={password}
                                 onChange={this.handleChange} />
-                            <div style={{ color: "red" }}>{this.state.errors.password}</div>
+                  <div style={{ color: "red" }}>{this.props.passwordError}</div>
                         </Form.Group> 
                         <Button variant="outline-success" type="submit">Login</Button>
                     </Form>
@@ -113,14 +68,20 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = ({ usersReducer }) => {
+  return {
+    emailError: usersReducer.emailError,
+    passwordError: usersReducer.passwordError
+  }
+}
 
-const mapStateToProps = (dispatch, ownProps) => {
-    return {
-        loginUser: (formDAta) => dispatch(loginUser(formDAta, ownProps))
-    }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    loginUser: (formDAta) => dispatch(loginUser(formDAta, ownProps))
+  }
 }
 
 
-const customConnectComponent = connect(null, mapStateToProps )(Login)
+const customConnectComponent = connect(mapStateToProps, mapDispatchToProps )(Login)
 
 export default withRouter(customConnectComponent)

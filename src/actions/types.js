@@ -4,7 +4,8 @@ export const BASE_URL = "https://lets-meetup-app-api.herokuapp.com"
 
 // debugger
 
-export const FAILED = "FAILED"
+export const FAILED_SIGNUP = "FAILED_SIGNUP"
+export const FAILED_LOGIN = "FAILED_LOGIN"
 export const LOGGED_IN = "LOGGED_IN"
 export const LOGGED_OUT = "LOGGED_OUT"
 export const SIGNUP = "SIGNUP"
