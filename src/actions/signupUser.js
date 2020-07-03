@@ -1,4 +1,4 @@
-import { SIGNUP, BASE_URL } from "./types"
+import { SIGNUP, BASE_URL, FAILED_SIGNUP } from "./types"
 
 
 export const signupUser = (formData, ownProps) => {
@@ -14,9 +14,9 @@ export const signupUser = (formData, ownProps) => {
           body: JSON.stringify(formData)
       })
           .then(resp => resp.json())
-          .then(data => {
+        .then(data => {
               data.status === 200 ? dispatch({ type: SIGNUP, payload: data.user.data.attributes, interests: data.interests },
-                  ownProps.history.push(`/my-profile/${data.user.data.attributes.id}`)) : ownProps.history.push("/signup")
+                ownProps.history.push(`/my-profile/${data.user.data.attributes.id}`)) : dispatch({ type: FAILED_SIGNUP, usernameError: data.username_error, emailError: data.email_error, passwordError: data.passwordError, passwordConfirmationError: data.password_confirmation_error}, ownProps.history.push("/signup") ) 
           })
   }
 }
