@@ -1,8 +1,8 @@
 import { SIGNUP, FAILED_SIGNUP, FAILED_LOGIN, LOGGED_OUT, LOGGED_IN, LOGIN, LOGOUT, EDIT_PROFILE, FETCH_PROFILE, FETCH_USERS, UPLOAD_PHOTO, DELETE_USER} from "../actions/types"
 
 
-const usersReducer = (state = { status: false, user: {}, profile: {}, users: [], emailError: "", usernameError: "", passwordError: "", passwordConfirmationError: "" }, action) => {
-  const { payload, emailError, passwordError, passwordConfirmationError, usernameError, user, users, type } = action
+const usersReducer = (state = { status: false, user: {}, profile: {}, users: [], emailError: "", usernameError: "", passwordError: "", passwordConfirmationError: "", genderError: "" }, action) => {
+  const { payload, emailError, genderError, passwordError, passwordConfirmationError, usernameError, user, users, type } = action
   switch (type) {
       case SIGNUP:
           return {
@@ -14,10 +14,11 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [],
     case FAILED_SIGNUP: 
       return {
         ...state,
-        emailError: emailError.join(" "),
+        emailError: emailError[0],
         usernameError: usernameError,
         passwordError: passwordError,
-        passwordConfirmationError: passwordConfirmationError
+        passwordConfirmationError: passwordConfirmationError,
+        genderError: genderError
       }
     
     case FAILED_LOGIN: 
