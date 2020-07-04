@@ -84,7 +84,7 @@ class CreateMessage extends Component {
         <form className="input" onSubmit={this.handleSubmit}>
             <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
             </textarea>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Send" />
         </form>
       </div>
       )
@@ -99,7 +99,7 @@ const mapStateToProps = ({ usersReducer, messagesReducer }, ownProps) => {
   const received_messages = messagesReducer.messages.filter(message => message.user_id == id && message.match_id == userId)
   const sent_messages = messagesReducer.messages.filter(message => message.user_id == userId && message.match_id == id)
   const messages = received_messages.concat(sent_messages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
-  
+
     return {
     user: usersReducer,
     messages: messages

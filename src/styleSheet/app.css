@@ -28,8 +28,8 @@ a.nav-link:hover {
 div.wraper {
   width: 100%;
   margin: 0 auto;
-  background-color: purple;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: black;
+  /* background-color: rgba(255, 255, 255, .7); */
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
@@ -164,7 +164,7 @@ div.col {
 
  .profile_short {
   display: inline-grid;
-  width: 280px;
+  width: 250px;
   margin: 10px;
   background-color: white;
   padding: 5px;
@@ -292,8 +292,8 @@ input[type="file"] {
 
 .chatroom h3 {
   font-family: 'Pacifico', cursive;
-  background-color: gray;
-  color: #FFF;
+  background-color: white;
+  /* color: #FFF; */
   margin: 0;
   height: 40px;
   font-size: 20px;
@@ -304,6 +304,7 @@ input[type="file"] {
 
 .chatroom .chats {
   box-sizing: border-box;
+  background-color: white;
   padding: 0 20px;
   margin: 10px 0 0;
   height: 510px;
@@ -311,7 +312,6 @@ input[type="file"] {
 }
 
 .chatroom .chats .chat {
-  background: rgba(255, 255, 255, 0.8);
   position: relative;
   padding: 5px 13px;
   font-size: 14px;
@@ -350,7 +350,6 @@ input[type="file"] {
 .chatroom .input {
   height: 40px;
   width: 100%;
-  /* background: red; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -361,9 +360,9 @@ input[type="file"] {
   border: 2px solid #1EE494;
   padding: 0 5px;
   border-radius: 5px;
-  margin-left: 10px;
+  margin-left: 0px;
   height: 100px;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
   width: 300px;
   box-sizing: border-box;
 }
@@ -376,7 +375,10 @@ input[type="file"] {
   font-size: 14px;
   box-sizing: border-box;
   margin-left: 5px;
+  margin-top: -9px;
   border-radius: 5px;
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
   cursor: pointer;
   color: white;
   transition: all 0.3s ease;
