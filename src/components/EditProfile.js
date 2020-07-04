@@ -6,7 +6,7 @@ import { Form, Button } from "react-bootstrap"
 
 class EditProfile extends Component {
   constructor(props) {
-      super()
+    super()
       this.state = {
         username: "",
         email: "",
@@ -77,130 +77,147 @@ class EditProfile extends Component {
 
 
   render() {
-      const { username, email, visibility, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
-      let genders = ["Male", "Female"]
-      let orientations = ["Straight", "Lesbian", "Gay"]
-      let ethnicities = ["Black/African descent", "White", "Hispanic or Latino", "Asian/Pacific Islander"]
-      let body_shapes = ["Athletic", "Curvy", "Skinny"]
-      let educations = ["Doctorate", "Masters", "Bachelors", "Some College", "High School", "Did not complete High School"]
-      let relationships = ["Single", "Married", "In a Relationship", "Engaged", "Widowed", "Separated", "Divorced"]
+    const { username, email, visibility, city, age, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
+
       let visibilityChoice = ["true", "false"]
       return (
         <div className="form">
           <h4>Edit Profile</h4>
           <Form onSubmit={this.handleSubmit}>
-              <Form.Group>
-                  <Form.Control
-                      type="text"
-                      placeholder="username"
-                      name="username"
-                      value={username}
-                      onChange={this.handleChange} />
-              </Form.Group>
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="username"
+                name="username"
+                value={username}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control
+                placeholder="email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="education" value={education} onChange={this.handleChange} >
+                <option>Education</option>
+                <option value="Doctorate">Doctorate</option>
+                <option value="Masters">Masters</option>
+                <option value="Bachelors">Bachelors</option>
+                <option value="Some College">Some College</option>
+                <option value="High School">High School</option>
+                <option value="Did not complete High School">Did not complete High School</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="orientation" value={orientation} placeholder="" onChange={this.handleChange}>
+                <option>Orientation</option>
+                <option value="Gay">Gay</option>
+                <option value="Straight">Straight</option>
+                <option value="Lesbian">Lesbian</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="ethnicity" value={ethnicity} onChange={this.handleChange}>
+                <option>Ethnicity</option>
+                <option value="Hispanic or Latino">Hispanic or Latino</option>
+                <option value="Black/African descent">Black/African descent</option>
+                <option value="White">White</option>
+                <option value="Asian/Pacific Islander">Asian/Pacific Islander</ option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="body_shape" value={body_shape} onChange={this.handleChange}>
+                <option>Body Shape</option>
+                <option value="Athletic">Athletic</option>
+                <option value="Curvy">Curvy</option>
+                <option value="Skinny">Skinny</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
+                <option>Relationship</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="In a Relationship">In a Relationship</option>
+                <option value="Engaged">Engaged</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Divorced</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control
+                placeholder="Kids"
+                type="number"
+                min={0}
+                max={100}
+                name="children"
+                autoComplete={children}
+                value={children}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control
+                placeholder="Age"
+                type="number"
+                min={16}
+                max={100}
+                name="age"
+                autoComplete={age}
+                value={age}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control
+                placeholder="Height"
+                type="text"
+                name="height"
+                autoComplete={height}
+                value={height}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control
+                placeholder="City"
+                type="text"
+                name="city"
+                autoComplete={city}
+                value={city}
+                onChange={this.handleChange} />
+            </Form.Group>
 
               <Form.Group>
-                  <Form.Control
-                      placeholder="email"
-                      type="text"
-                      name="email"
-                      value={email}
-                      onChange={this.handleChange} />
+                  <label><strong>Bio</strong></label> <br />
+              <Form.Control
+                placeholder="Little Bit About Yourself"
+                rows="7" cols="50"
+                as="textarea"
+                name="bio"
+                onChange={this.handleChange}
+                value={bio} />
               </Form.Group>
 
-              <Form.Group>
-                  <Form.Control as="select" name="gender" value={gender} onChange={this.handleChange}>
-                      {genders.map((g, i) => <option key={i + 1} value={g} >{g}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control as="select" name="orientation" value={orientation} onChange={this.handleChange}>
-                      {orientations.map((o, i) => <option key={i + 1} value={o} >{o}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group >
-                  <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
-                      {relationships.map((e, i) => <option key={i + 1} value={e} >{e}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control as="select" name="body_shape" value={body_shape} onChange={this.handleChange}>
-                      {body_shapes.map((b, i) => <option key={i + 1} value={b} >{b}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control as="select" name="ethnicity" value={ethnicity} onChange={this.handleChange}>
-                      {ethnicities.map((e, i) => <option key={i + 1} value={e} >{e}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control as="select" name="education" value={education} onChange={this.handleChange}>
-                      {educations.map((e, i) => <option key={i + 1} value={e} >{e}</option>)}
-                  </Form.Control>
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control
-                      placeholder="age"
-                      type="text"
-                      name="age"
-                      autoComplete={age}
-                      value={age}
-                      onChange={this.handleChange} />
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control
-                      placeholder="height"
-                      type="text"
-                      name="height"
-                      autoComplete={height}
-                      value={height}
-                      onChange={this.handleChange} />
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control
-                      placeholder="city"
-                      type="text"
-                      name="city"
-                      autoComplete={city}
-                      value={city}
-                      onChange={this.handleChange} />
-              </Form.Group>
-
-              <Form.Group>
-                  <Form.Control
-                      placeholder="children"
-                      type="text"
-                      name="children"
-                      autoComplete={children}
-                      value={children}
-                      onChange={this.handleChange} />
-              </Form.Group>
-
-              <Form.Group>
+            <Form.Group>
+              <label>Want to go public?</label>
                   <Form.Control as="select" name="visibility" value={visibility} onChange={this.handleChange}>
                       {visibilityChoice.map((e, i) => <option key={i + 1} value={e} >{e}</option>)}
                   </Form.Control>
               </Form.Group>
-
-              <Form.Group>
-                  <label><strong>Bio</strong></label> <br />
-                  <Form.Control
-                      rows="7" cols="50"
-                      as="textarea"
-                      name="bio"
-                      onChange={this.handleChange}
-                      value={bio} />
-              </Form.Group>
-
               <Button type="submit" value="Edit">
-                  Edit
+                  Submit
               </Button>
           </Form>
         </div>
