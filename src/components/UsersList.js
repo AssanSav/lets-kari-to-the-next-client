@@ -93,7 +93,7 @@ class UsersList extends Component {
       else {
             return (
                 <div >
-                <h4 style={{ textAlign: "center", color: "antiquewhite" }}>Let's Hangout!!!</h4>
+                <h4 style={{ textAlign: "center", color: "purple" }}>Let's Hangout!!!</h4>
                     <Form onSubmit={this.handleSubmit} className="form">
                         <Row>
                             <Col>
@@ -200,7 +200,7 @@ class UsersList extends Component {
                         <div /><br />
                         <Button variant="outline-success" type="submit" >Search</Button>
                     </Form>
-                <h4 style={{ textAlign: "center", color: "antiquewhite"}}>Users</h4>
+                    <h4 style={{ textAlign: "center", color: "purple"}}>Users</h4>
                     <div className="container">
                         {users.map(user =><span key={user.id}> <UserCard user={user}/></span> )}
                     </div>
