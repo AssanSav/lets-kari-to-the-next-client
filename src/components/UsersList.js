@@ -33,14 +33,16 @@ class UsersList extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        const {  maxAge, maxHeight, education, city, gender, orientation, ethnicity, body_shape, children, relationship } = this.state
-
+      e.preventDefault()
+      const { maxAge, maxHeight, education, city, gender, orientation, ethnicity, body_shape, children, relationship } = this.state
+      const {users} = this.props
+      if (users.length > 0) {
         this.setState({
-            users: this.props.users.filter(u => {
-                return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight   
-            })
+          users: users.filter(u => {
+            return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight
+          })
         })
+      }
         // document.getElementById("index_0").checked = false
     }
 
