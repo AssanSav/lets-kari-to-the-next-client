@@ -22,42 +22,14 @@ class UsersList extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleCkecked = this.handleCkecked.bind(this)
     }
-
-
-    handleCkecked(e) {
-        let interestsChecked = this.state.interest_ids
-        let interestValue = e.target.value
-        if (e.target.checked === true) {
-            interestsChecked.push(interestValue)
-            this.setState({
-                interest_ids: interestsChecked
-            })
-            
-        }
-        else {
-            let interestIndex = interestsChecked.indexOf(interestValue)
-            interestsChecked.splice(interestIndex, 1)
-            this.setState({
-                interest_ids: interestsChecked
-            })
-        }
-    }
-
 
     handleChange(e) {
-    
-        if (e.target) {
-            this.setState({
-                [e.target.name]: e.target.value,
-            })
-        }
-        else {
-            this.setState({
-                [e.name]: e.value
-            })
-        }
+      if (e.target) {
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
+      }
     }
 
     handleSubmit(e) {
@@ -67,17 +39,7 @@ class UsersList extends Component {
         this.setState({
             users: this.props.users.filter(u => {
                 return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight   
-            }),
-            city: "",
-            maxAge: "",
-            gender: "",
-            orientation: "",
-            ethnicity: "",
-            maxHeight: "",
-            body_shape: "",
-            children: "",
-            relationship: "",
-            education: "",
+            })
         })
         // document.getElementById("index_0").checked = false
     }
