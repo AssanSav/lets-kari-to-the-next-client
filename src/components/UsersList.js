@@ -67,7 +67,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control as="select" name="gender" value={gender} placeholder="" onChange={this.handleChange}>
-                                    <option disabled defaultValue="" selected hidden>Gender</option>
+                                    <option disabled value="" selected hidden>Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </Form.Control>
