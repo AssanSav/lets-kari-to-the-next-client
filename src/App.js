@@ -3,7 +3,6 @@ import { BrowserRouter as Router} from "react-router-dom"
 import './styleSheet/app.css';
 import Routes from './components/Routes';
 import SessionStatus from './containers/SessionStatus';
-import { Navbar, Container } from "react-bootstrap"
 
 
 function App() {  
@@ -17,13 +16,9 @@ function App() {
           </div>
         </div> 
       </Router>
-      <Navbar className="fixed-bottom">
-          <Container  >
-            <Navbar.Brand href="mailto:assane.savadogo81@.com/">
-              © 2020 Copyright: <span style={{ fontStyle: "italic", color: "red" }}>Assane</span>
-            </Navbar.Brand>
-          </Container>
-      </Navbar>
+      <div className="footer" >
+        © 2020 Copyright: <a href="mailto:assane.savadogo81@.com/" style={{ fontStyle: "italic", color: "red" }}>Assane</a>
+      </div>
     </>
   );
 }
