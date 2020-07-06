@@ -17,7 +17,7 @@ class MyMatchProfile extends Component {
         else {
             const {id, age, image, username, city, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.props.profile
           return (
-              <div className="my-profile">
+            <div className="my-profile" >
                 <div className="avatar_flip">
                   <img className="profile_pic" src={image} alt="" />
               </div>
@@ -28,7 +28,7 @@ class MyMatchProfile extends Component {
                 <p className="bio">
                   {bio}
                 </p>
-                <table className="table">
+              <table className="table" style={{ color: "black", backgroundColor: "white"}}>
                   <tbody>
                     <tr>
                       <td>City: {city}</td>
@@ -56,7 +56,7 @@ class MyMatchProfile extends Component {
                 <h2>
                   {this.props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)}
                 </h2> 
-                    <Button variant="outline-success" href={`/match-new-message/${id}`}>
+                    <Button variant="success" href={`/match-new-message/${id}`}>
                         Send Message
                     </Button>
               </div>

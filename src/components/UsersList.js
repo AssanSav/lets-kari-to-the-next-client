@@ -162,7 +162,7 @@ class UsersList extends Component {
                         </Row>
                 
                         <div /><br />
-                        <Button variant="outline-success" type="submit" >Search</Button>
+                        <Button variant="success" type="submit" >Search</Button>
                     </Form>
                     <h4 style={{ textAlign: "center", color: "purple"}}>Users</h4>
                     <div className="container">

@@ -54,7 +54,7 @@ class Login extends Component {
                                 onChange={this.handleChange} />
                   <div style={{ color: "red" }}>{this.props.passwordError}</div>
                         </Form.Group> 
-                        <Button variant="outline-success" type="submit">Login</Button>
+                        <Button variant="success" type="submit">Login</Button>
                     </Form>
                     <div className="bottom_link">
                         Don't have an account?

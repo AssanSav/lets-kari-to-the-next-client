@@ -35,7 +35,7 @@ const MyProfile = (props) => {
             <p className="bio">
             {bio}
             </p>
-            <table className="table">
+          <table className="table" style={{ color: "black", backgroundColor: "white" }}>
                 <tbody>
                     <tr>
                     <td>City: {city}</td>
@@ -64,7 +64,7 @@ const MyProfile = (props) => {
             {props.interests.map(int => <span key={int.id}>{int.name}&nbsp; </span>)} 
             </h2> 
             <div>
-            <Button variant="outline-success" href={`/edit-profile/${props.user.id}`} >
+            <Button variant="success" href={`/edit-profile/${props.user.id}`} >
                     Click to Complete your Profile!
             </Button>
             </div> 

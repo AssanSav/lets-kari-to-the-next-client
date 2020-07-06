@@ -5,7 +5,7 @@
 
 /* Main Body */
 body {
-   background-image: url("https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F510644%2Fheart-book-pages-folded-in-to-form-heart-with-sunset-in-the-background.jpg&w=700&op=resize");
+   background-image: url("https://cdn.pixabay.com/photo/2018/02/12/10/45/heart-3147976_1280.jpg");
    background-size: cover;
    background-attachment: fixed;
    background-repeat: no-repeat;
@@ -28,8 +28,7 @@ a.nav-link:hover {
 div.wraper {
   width: 100%;
   margin: 0 auto;
-  background-color: purple;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.11);
   padding-left: 25px;
   padding-right: 25px;
   padding-top: 25px;
@@ -37,9 +36,13 @@ div.wraper {
   overflow: hidden;
 }
 
+#root > nav.pb-10.navbar.navbar-expand.navbar-light{
+  background-color: rgba(255, 255, 255, 0.658) !important
+}
 
 /* Signup and Login Forms */
 .form {
+  background-color: rgba(255, 255, 255, 0.342);
   text-align: center;
   max-width:500px;
   margin:25px auto;
@@ -48,6 +51,16 @@ div.wraper {
   padding:20px;
   font-family: 'Raleway', sans-serif;
 }
+
+#root > div > div > div > div > form{
+  background-color: rgba(255, 255, 255, 0.342);
+}
+
+#root > div > div > div {
+  background-color: rgba(255, 255, 255, 0.342);
+}
+
+
 
 .form ul {
   list-style:none;
@@ -385,4 +398,12 @@ input[type="file"] {
 .chatroom .input input[type="submit"]:hover {
   background: #1EE494;
   color: #FFF;
+}
+
+/* Footer */
+.footer {
+  position:fixed;
+  margin-left: 10px;
+  bottom:10px;
+  color: antiquewhite;
 }

@@ -78,7 +78,7 @@ class Signup extends Component {
       return (
         <div className="form" style={{ display: "block", width: "500px", float: "center" }} >
           
-          <h4 style={{textAlign: "center", fontStyle: "bold", width: "100%", padding: "0%"}}>Create Account!</h4>
+          <h4 style={{ textAlign: "center", fontStyle: "bold", width: "100%", padding: "0%"}}>Create Account!</h4>
           <ul>
             <Form onSubmit={this.handleSubmit} className="signup">
               <Form.Group>
@@ -160,7 +160,7 @@ class Signup extends Component {
                     </Col>
                 </Row>
                 <div /><br/>
-                <Button variant="outline-success" type="submit">Signup</Button>
+                <Button variant="success" type="submit">Signup</Button>
             </Form>
               <span className="bottom_link">
                   Have an account!
