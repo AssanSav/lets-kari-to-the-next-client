@@ -31,7 +31,7 @@ class EditProfile extends Component {
   componentWillReceiveProps(nextProps) {
       if (nextProps.routerProps.match.params.id) {
           const { id, username, visibility, email, city, age, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = nextProps.user
-          this.setState({
+        this.setState({
             username: username,
             email: email,
             id: id,
@@ -77,7 +77,7 @@ class EditProfile extends Component {
 
 
   render() {
-    const { username, email, visibility, city, age, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
+    const { username, gender, email, visibility, city, age, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.state
 
       let visibilityChoice = ["true", "false"]
       return (
@@ -103,6 +103,50 @@ class EditProfile extends Component {
             </Form.Group>
 
             <Form.Group>
+              <Form.Control as="select" name="gender" value={gender} placeholder="" onChange={this.handleChange}>
+                <option>Gender required!</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </Form.Control>
+              <div style={{ color: "red" }}>{this.props.genderError}</div>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="orientation" value={orientation} placeholder="" onChange={this.handleChange}>
+                <option>Orientation</option>
+                <option value="Gay">Gay</option>
+                <option value="Straight">Straight</option>
+                <option value="Lesbian">Lesbian</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
+                <option>Relationship</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="In a Relationship">In a Relationship</option>
+                <option value="Engaged">Engaged</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Divorced</option>
+              </Form.Control>
+            </Form.Group>
+
+
+            <Form.Group>
+              <Form.Control
+                placeholder="Kids"
+                type="number"
+                min={0}
+                max={100}
+                name="children"
+                autoComplete={children}
+                value={children}
+                onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group>
               <Form.Control as="select" name="education" value={education} onChange={this.handleChange} >
                 <option>Education</option>
                 <option value="Doctorate">Doctorate</option>
@@ -114,14 +158,6 @@ class EditProfile extends Component {
               </Form.Control>
             </Form.Group>
 
-            <Form.Group>
-              <Form.Control as="select" name="orientation" value={orientation} placeholder="" onChange={this.handleChange}>
-                <option>Orientation</option>
-                <option value="Gay">Gay</option>
-                <option value="Straight">Straight</option>
-                <option value="Lesbian">Lesbian</option>
-              </Form.Control>
-            </Form.Group>
 
             <Form.Group>
               <Form.Control as="select" name="ethnicity" value={ethnicity} onChange={this.handleChange}>
@@ -140,31 +176,6 @@ class EditProfile extends Component {
                 <option value="Curvy">Curvy</option>
                 <option value="Skinny">Skinny</option>
               </Form.Control>
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Control as="select" name="relationship" value={relationship} onChange={this.handleChange}>
-                <option>Relationship</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="In a Relationship">In a Relationship</option>
-                <option value="Engaged">Engaged</option>
-                <option value="Widowed">Widowed</option>
-                <option value="Separated">Separated</option>
-                <option value="Divorced">Divorced</option>
-              </Form.Control>
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Control
-                placeholder="Kids"
-                type="number"
-                min={0}
-                max={100}
-                name="children"
-                autoComplete={children}
-                value={children}
-                onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group>
