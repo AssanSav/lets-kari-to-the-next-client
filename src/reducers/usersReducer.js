@@ -1,4 +1,4 @@
-import { SIGNUP, FAILED_SIGNUP, FAILED_LOGIN, LOGGED_OUT, LOGGED_IN, LOGIN, LOGOUT, EDIT_PROFILE, FETCH_PROFILE, FETCH_USERS, UPLOAD_PHOTO, DELETE_USER} from "../actions/types"
+import { SIGNUP, SEARCH, FAILED_SIGNUP, FAILED_LOGIN, LOGGED_OUT, LOGGED_IN, LOGIN, LOGOUT, EDIT_PROFILE, FETCH_PROFILE, FETCH_USERS, UPLOAD_PHOTO, DELETE_USER} from "../actions/types"
 
 
 const usersReducer = (state = { status: false, user: {}, profile: {}, users: [], emailError: "", usernameError: "", passwordError: "", passwordConfirmationError: "", genderError: "" }, action) => {
@@ -86,6 +86,17 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [],
               status: false,
               user: {}
           }
+    
+    case SEARCH: 
+      const { maxAge, maxHeight, education, city, gender, orientation, ethnicity, body_shape, children, relationship } = payload
+      // debugger
+      return {
+        ...state,
+        users: state.users.filter(u => {
+          return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight
+        })
+      }
+    
       default: {
           return state
           }

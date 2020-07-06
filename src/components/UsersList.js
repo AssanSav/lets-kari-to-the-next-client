@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import { Form, Row, Col, Button } from "react-bootstrap"
 import UserCard from "./UserCard"
+import { connect } from "react-redux"
+import { searchUsers } from "../actions/searchUsers"
 
 
 class UsersList extends Component {
     constructor() {
         super()
         this.state = {
-            users: [],
             city: "",
             maxAge: "",
             gender: "",
@@ -34,22 +35,26 @@ class UsersList extends Component {
 
     handleSubmit(e) {
       e.preventDefault()
-      const { maxAge, maxHeight, education, city, gender, orientation, ethnicity, body_shape, children, relationship } = this.state
-      const {users} = this.props
-      if (users.length > 0) {
-        this.setState({
-          users: users.filter(u => {
-            return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight
-          })
-        })
-      }
+      this.props.searchUsers(this.state)
+      this.setState({
+        city: "",
+        maxAge: "",
+        gender: "",
+        orientation: "",
+        ethnicity: "",
+        maxHeight: "",
+        heightLimit: "",
+        body_shape: "",
+        children: "",
+        relationship: "",
+        education: ""
+      })
         // document.getElementById("index_0").checked = false
     }
 
 
     render() {
         const { education, city, maxAge, gender, orientation, ethnicity, maxHeight, body_shape, children, relationship} = this.state
-      let users = this.state.users.length > 0 ? this.state.users : this.props.users
       
       if (this.props.users === [] || !this.props.users) {
           return <div></div>
@@ -62,7 +67,7 @@ class UsersList extends Component {
                         <Row>
                             <Col>
                                 <Form.Control as="select" name="gender" value={gender} placeholder="" onChange={this.handleChange}>
-                                    <option disabled value="" selected hidden>Gender</option>
+                                    <option disabled defaultValue="" selected hidden>Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </Form.Control>
@@ -165,8 +170,9 @@ class UsersList extends Component {
                         <Button variant="success" type="submit" >Search</Button>
                     </Form>
                     <h4 style={{ textAlign: "center", color: "purple"}}>Users</h4>
-                    <div className="container">
-                        {users.map(user =><span key={user.id}> <UserCard user={user}/></span> )}
+                <div className="container">
+                  {this.props.users.length > 0 ?
+                    this.props.users.map(user => <span key={user.id}> <UserCard user={user} /></span>) : <h4 style={{ color: "red" }}>No Record Found!</h4> }
                     </div>
                 </div>
             )
@@ -175,8 +181,7 @@ class UsersList extends Component {
 }
 
 
-
-export default UsersList
+export default connect(null, {searchUsers})(UsersList)
 
 
 
