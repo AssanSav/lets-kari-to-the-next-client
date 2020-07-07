@@ -93,7 +93,7 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [],
       return {
         ...state,
         users: state.users.filter(u => {
-          return u.body_shape.includes(body_shape) && u.children.includes(children) && u.city.includes(city) && u.relationship.includes(relationship) && u.gender.includes(gender) && u.orientation.includes(orientation) && u.ethnicity.includes(ethnicity) && u.education.includes(education) && u.age >= maxAge && u.height >= maxHeight
+          return u.body_shape.indexOf(body_shape) > -1 && u.children.indexOf(children) > -1 && u.city.indexOf(city) > -1 && u.relationship.indexOf(relationship) > -1 && u.gender.indexOf(gender) > -1 && u.orientation.indexOf(orientation) > -1 && u.ethnicity.indexOf(ethnicity) > -1 && u.education.indexOf(education) > -1 && u.age >= maxAge && u.height >= maxHeight
         })
       }
     
