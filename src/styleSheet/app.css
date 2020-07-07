@@ -60,8 +60,6 @@ div.wraper {
   background-color: rgba(255, 255, 255, 0.342);
 }
 
-
-
 .form ul {
   list-style:none;
   margin:0;
@@ -234,6 +232,7 @@ div.col {
 }
 
 table {
+  table-layout: fixed;
   background-color: white;
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -295,7 +294,7 @@ input[type="file"] {
 /* Chat room */
 .chatroom {
   margin-bottom: 40px;
-  width: 40%;
+  width: 50%;
   height: 600px;
   background-color: rgba(0,0,0, .7);
   border-radius: 5px;
@@ -318,8 +317,9 @@ input[type="file"] {
 .chatroom .chats {
   box-sizing: border-box;
   padding: 0 20px;
-  margin: 10px 0 0;
-  height: 510px;
+  width: 100%;
+  margin-bottom: 100px;
+  height: 420px;
   overflow-y: scroll;
 }
 
@@ -333,8 +333,9 @@ input[type="file"] {
   float: left;
   clear: both;
   margin: 10px 0;
-  max-width: 200px;
+  width: 200px;
   font-size: 15px;
+  text-overflow: "----"; 
 }
 
 .chatroom .chats .chat img {
@@ -362,8 +363,7 @@ input[type="file"] {
 
 .chatroom .input {
   height: 40px;
-  width: 100%;
-  /* background: red; */
+  width: 80%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -377,7 +377,7 @@ input[type="file"] {
   margin-left: 10px;
   height: 100px;
   margin-bottom: 70px;
-  width: 300px;
+  width: 80%;
   box-sizing: border-box;
 }
 

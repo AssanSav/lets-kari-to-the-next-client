@@ -40,7 +40,7 @@ class SentMessages extends Component {
                           {message.match_name}
                         </Link>
                       </td>
-                      <td id="link">
+                      <td id="link" style={{overflow: "hidden"}}>
                           {message.content}
                       </td>
                       <td id="link">
