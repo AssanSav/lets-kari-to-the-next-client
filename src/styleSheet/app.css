@@ -37,8 +37,14 @@ div.wraper {
 }
 
 #root > nav.pb-10.navbar.navbar-expand.navbar-light{
-  background-color: rgba(255, 255, 255, 0.658) !important
+  z-index: 9999 !important;
+  overflow: hidden !important;
+  /* background-color: white !important; */
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
 }
+
 
 /* Signup and Login Forms */
 .form {
