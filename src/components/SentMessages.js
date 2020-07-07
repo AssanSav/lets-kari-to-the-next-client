@@ -19,9 +19,9 @@ class SentMessages extends Component {
     }
     else {
       return (
-        <div>
-          <h6 style={{ textAlign: 'center', color: ""  }}>Sent Messages</h6>
-          <table >
+        <>
+          <h4 style={{ textAlign: 'center', marginTop: "40px", color: "blue" }}>OUTBOX</h4>
+          <table  >
             <tbody>
               <tr style={{ color: "" }}>
                   <th>Date:</th>
@@ -58,7 +58,7 @@ class SentMessages extends Component {
                     </tr>)}
               </tbody>
             </table>
-        </div>
+        </>
       )
     }
   }

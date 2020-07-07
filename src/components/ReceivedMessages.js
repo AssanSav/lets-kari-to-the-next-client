@@ -18,11 +18,11 @@ class ReceivedMessages extends Component {
     }
     else {
       return (
-        <div >
-          <h6 style={{ textAlign: 'center', color: ""}}>Received Messages</h6>
-            <table>
+        < >
+          <h4 style={{ textAlign: 'center', marginTop: "40px", color: "blue"}}>INBOX</h4>
+          <table >
                 <tbody>
-              <tr style={{ color: ""}}>
+              <tr>
                       <th>Date:</th>
                       <th>From:</th>
                       <th>Content:</th>
@@ -50,14 +50,14 @@ class ReceivedMessages extends Component {
                               </Link>
                           </td>
                           <td id="last_link">
-                            <button className="btn" onClick={() => this.props.deleteReceivedMessage(message)}>
-                              X
-                            </button>
+                            <Button variant="danger" onClick={() => this.props.deleteReceivedMessage(message)}>
+                              Delete Message
+                            </Button>
                           </td>
                         </tr>)}
                 </tbody>
             </table>
-        </div>
+        </>
       )
     }
   }

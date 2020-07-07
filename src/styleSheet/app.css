@@ -299,6 +299,7 @@ input[type="file"] {
 
 /* Chat room */
 .chatroom {
+  margin-top: 60px;
   margin-bottom: 40px;
   width: 50%;
   height: 600px;
