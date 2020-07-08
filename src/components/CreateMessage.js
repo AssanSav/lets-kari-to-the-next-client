@@ -67,7 +67,8 @@ class CreateMessage extends Component {
     }
     else {
       return (
-      <div className="chatroom">
+        <div className="chatroom">
+          <div style={{ color: "red" }}>{this.props.error}</div>
         <h3>Chat Room</h3>
         <ul className="chats" ref="chats">
           {
@@ -80,7 +81,7 @@ class CreateMessage extends Component {
               </li>
             )
           }
-        </ul>
+          </ul>
         <form className="input" onSubmit={this.handleSubmit}>
             <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
             </textarea>
@@ -100,7 +101,8 @@ const mapStateToProps = ({ usersReducer, messagesReducer }, ownProps) => {
   const sent_messages = messagesReducer.messages.filter(message => message.user_id == userId && message.match_id == id)
   const messages = received_messages.concat(sent_messages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
 
-    return {
+  return {
+    error: messagesReducer.error,
     user: usersReducer,
     messages: messages
   } 

@@ -1,14 +1,21 @@
-  import { CREATE_MESSAGE, FETCH_RECEIVED_MESSAGES, FETCH_SENT_MESSAGES, DELETE_SENT_MESSAGE, DELETE_RECEIVED_MESSAGE, FETCH_MESSAGES } from "../actions/types"
+import { CREATE_MESSAGE, FAILED_TO_CREATE, FETCH_RECEIVED_MESSAGES, FETCH_SENT_MESSAGES, DELETE_SENT_MESSAGE, DELETE_RECEIVED_MESSAGE, FETCH_MESSAGES } from "../actions/types"
 
 
-  const messagesReducer = (state = {  messages: [], receivedMessages: [], sentMessages: [] }, action) => {
+  const messagesReducer = (state = {  messages: [], receivedMessages: [], sentMessages: [], error: "" }, action) => {
   const { message, messages, receivedMessages, sentMessageToDelete, receivedMessageToDelete, sentMessages, type} = action
 
   switch (type) {
     case CREATE_MESSAGE: 
       return {
         ...state,
-        messages: state.messages.concat(message)
+        messages: state.messages.concat(message),
+        error: ""
+      }
+    
+    case FAILED_TO_CREATE: 
+      return {
+        ...state,
+        error: "Content".concat(' ', action.payload)
       }
     
     case FETCH_MESSAGES: 

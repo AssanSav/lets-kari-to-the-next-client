@@ -308,7 +308,8 @@ input[type="file"] {
   margin-top: 60px;
   margin-bottom: 40px;
   width: 50%;
-  height: 600px;
+  height: 100%;
+  border: 1px solid;
   background-color: rgba(0,0,0, .7);
   border-radius: 5px;
   overflow: hidden;
@@ -389,9 +390,9 @@ input[type="file"] {
   border-radius: 5px;
   margin-left: 10px;
   height: 100px;
-  margin-bottom: 70px;
   width: 80%;
   box-sizing: border-box;
+  margin-bottom: 70px;
 }
 
 .chatroom .input input[type="submit"] {
