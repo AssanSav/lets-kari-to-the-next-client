@@ -89,11 +89,11 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [],
     
     case SEARCH: 
       const { maxAge, maxHeight, education, city, gender, orientation, ethnicity, body_shape, children, relationship } = payload
-      // debugger
       return {
         ...state,
         users: state.users.filter(u => {
-          return u.body_shape.indexOf(body_shape) > -1 && u.children.indexOf(children) > -1 && u.city.indexOf(city) > -1 && u.relationship.indexOf(relationship) > -1 && u.gender.indexOf(gender) > -1 && u.orientation.indexOf(orientation) > -1 && u.ethnicity.indexOf(ethnicity) > -1 && u.education.indexOf(education) > -1 && u.age >= maxAge && u.height >= maxHeight
+          debugger
+          return u.gender.indexOf(gender) > -1 && u.orientation.indexOf(orientation) > -1 && ethnicity.indexOf(ethnicity) > -1 && u.body_shape.indexOf(body_shape) > -1 && u.children.indexOf(children) > -1 && u.city.indexOf(city) > -1 && u.relationship.indexOf(relationship) > -1 && u.u.education.indexOf(education) > -1 && u.age >= maxAge && u.height >= maxHeight
         })
       }
     
