@@ -17,7 +17,7 @@ class MyMatchProfile extends Component {
         else {
             const {id, age, image, username, city, gender, orientation, ethnicity, height, body_shape, children, relationship, education, bio } = this.props.profile
           return (
-            <div className="my-profile" >
+            <div className="my-profile">
                 <div className="avatar_flip">
                   <img className="profile_pic" src={image} alt="" />
               </div>

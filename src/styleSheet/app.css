@@ -63,6 +63,7 @@ div.wraper {
 }
 
 #root > div > div > div {
+  margin-top: 60px;
   background-color: rgba(255, 255, 255, 0.342);
 }
 
@@ -139,6 +140,7 @@ div.col {
 }
 
 #root > div > div > div > div.avatar_flip {
+  margin-top: 40px;
   border-radius: 50px;
   overflow: hidden;
   height: 400px;
@@ -157,6 +159,10 @@ div.col {
   font-family: 'Questrial', sans-serif;
   height: 400px;
   max-width: 450px;
+}
+
+#root > div.wraper > div > div{
+  margin-top: 120px;
 }
 
 #root > div.wraper > div > div > p {

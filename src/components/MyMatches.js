@@ -14,7 +14,7 @@ class MyMatches extends Component {
 
   render() {
     if (!this.props.matches || this.props.matches.length === 0) {
-      return <h4 style={{textAlign: "center"}}>No Match Yet!</h4>
+      return <h4 style={{textAlign: "center"}}>Loading...</h4>
     }
     else {
       return (

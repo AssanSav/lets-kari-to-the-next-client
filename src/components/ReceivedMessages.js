@@ -51,7 +51,7 @@ class ReceivedMessages extends Component {
                           </td>
                           <td id="last_link">
                             <Button variant="danger" onClick={() => this.props.deleteReceivedMessage(message)}>
-                              Delete Message
+                              Delete
                             </Button>
                           </td>
                         </tr>)}

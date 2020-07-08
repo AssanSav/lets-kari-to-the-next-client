@@ -52,7 +52,7 @@ class SentMessages extends Component {
                     </td>
                     <td id="last_link">
                       <Button variant="danger" onClick={() => this.props.deleteSentMessage(message, "sent")}>
-                          Delete Message
+                          Delete 
                       </Button>
                     </td>
                     </tr>)}
