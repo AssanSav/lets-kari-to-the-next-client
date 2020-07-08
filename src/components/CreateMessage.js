@@ -97,8 +97,8 @@ class CreateMessage extends Component {
 const mapStateToProps = ({ usersReducer, messagesReducer }, ownProps) => {
   const id = ownProps.routerProps.match.params.id
   const userId = usersReducer.user.id
-  const received_messages = messagesReducer.messages.filter(message => message.user_id == id && message.match_id == userId)
-  const sent_messages = messagesReducer.messages.filter(message => message.user_id == userId && message.match_id == id)
+  const received_messages = messagesReducer.messages.filter(message => message.user_id ? message.user_id == id && message.match_id == userId : message)
+  const sent_messages = messagesReducer.messages.filter(message => message.user_id ? message.user_id == userId && message.match_id == id : message)
   const messages = received_messages.concat(sent_messages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
 
   return {
