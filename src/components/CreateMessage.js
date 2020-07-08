@@ -7,12 +7,13 @@ import ReactDOM from "react-dom"
 
 class CreateMessage extends Component {
   constructor() {
-      super()
-      this.state = {
-          content: "",
-          match_id: ""
-      }
-      this.handleSubmit = this.handleSubmit.bind(this)
+    super()
+    this.state = {
+        content: "",
+        match_id: ""
+    }
+    this.validateContent = this.validateContent.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -49,6 +50,12 @@ class CreateMessage extends Component {
       })
   }
 
+  validateContent() {
+    if (this.state.content === "") {
+      this.props.routerProps.history.push(`/match-new-message/${this.props.routerProps.match.params.id}`)
+    }
+  }
+
   render() {
     if (!this.props.messages || this.props.messages.length === 0) {
       return (
@@ -59,7 +66,7 @@ class CreateMessage extends Component {
           <form className="input" onSubmit={this.handleSubmit}>
               <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
               </textarea>
-            <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" onClick={this.validateContent } />
           </form>
           </div>
           </div>
