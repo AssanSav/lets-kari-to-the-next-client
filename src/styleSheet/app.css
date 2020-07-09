@@ -252,7 +252,16 @@ table {
   margin-bottom: 100px;
 }
 
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 td, th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   border: 0.01px solid;
   text-align: left;
   padding: 5px;
@@ -262,11 +271,21 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-#last_link.btn {
-  border: none; 
-  padding: 8px 10px; 
-  font-size: 16px; 
-  cursor: pointer; 
+#last_link > button {
+  text-align: center !important;
+  margin-left: 20px;
+  width: 50% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#link > a > button {
+  text-align: center !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 .btn:hover {
