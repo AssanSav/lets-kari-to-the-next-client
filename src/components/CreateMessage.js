@@ -55,13 +55,11 @@ class CreateMessage extends Component {
         <div className="chatroom">
           <h3>Chat Room</h3>
           <ul className="chats" ref="chats"></ul>
-          <div>
-            <form className="input" onSubmit={this.handleSubmit}>
-                <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
-                </textarea>
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
+          <form className="input" onSubmit={this.handleSubmit}>
+            <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
+            </textarea>
+            <input type="submit" value="Send" />
+          </form>
         </div>
       )
     }
@@ -82,11 +80,11 @@ class CreateMessage extends Component {
             )
           }
           </ul>
-        <form className="input" onSubmit={this.handleSubmit}>
-            <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
-            </textarea>
-          <input type="submit" value="Send" />
-        </form>
+            <form className="input" onSubmit={this.handleSubmit}>
+              <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
+              </textarea>
+              <input type="submit" value="Send" />
+            </form>
       </div>
       )
     }
