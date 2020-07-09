@@ -92,14 +92,20 @@ const usersReducer = (state = { status: false, user: {}, profile: {}, users: [],
       return {
         ...state,
         users: state.users.filter(u => {
-          if (u.gender && u.gender.includes(gender)) return u
-          else if (u.orientation && u.orientation.includes(orientation)) return u
-          else if (u.ethnicity && u.ethnicity.includes(ethnicity)) return u
-          else {
-            console.log("No User Found!")
+          // if (u.gender && u.gender.includes(gender)) return u
+          // else if (u.orientation && u.orientation.includes(orientation)) return u
+          // else if (u.ethnicity && u.ethnicity.includes(ethnicity)) return u
+          // else {
+          //   console.log("No User Found!")
+          // }
+          if (u.gender || u.orientation || u.ethnicity || u.body_shape){
+          return u.gender.match(gender) && u.orientation.match(orientation) && u.ethnicity.match(ethnicity)  &&
+            u.body_shape.match(body_shape)
+            // || u.relationship.match(relationship) || u.education.match(education) || u.age >= maxAge || u.height >= maxHeight || u.city.match(city) || u.children.match(children)
           }
-//           return u.gender.match(gender)  || u.orientation.match(orientation)  || u.ethnicity.match(ethnicity)  ||
-//  u.body_shape.match(body_shape)  || u.relationship.match(relationship)  || u.education.match(education)  || u.age >= maxAge || u.height >= maxHeight || u.city.match(city)  || u.children.match(children)  
+          else {
+            return console.log("No User Found!")
+          }
         })
       }
     
