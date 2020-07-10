@@ -7,25 +7,10 @@ import { Form, Button } from "react-bootstrap"
 class EditProfile extends Component {
   constructor(props) {
     super()
-      this.state = {
-        username: "",
-        email: "",
-        id: "" ,
-        city: "",
-        age: "",
-        gender: "",
-        orientation: "",
-        ethnicity: "",
-        height: "",
-        body_shape: "",
-        children: "",
-        relationship: "",
-        education: "",
-        bio: "",
-        visibility: ""
-      }
-      this.handleChange = this.handleChange.bind(this)
-      this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = props.user
+    
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
