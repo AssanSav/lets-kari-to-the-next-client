@@ -54,9 +54,9 @@ class EditProfile extends Component {
       e.preventDefault()
       if (this.props.routerProps.match.params.id) {
           this.props.editProfile(this.state)
-              .then(() => {
-                  this.props.routerProps.history.push(`/my-profile/${this.props.routerProps.match.params.id}`)
-              })
+            .then(() => {
+                this.props.routerProps.history.push(`/my-profile/${this.props.routerProps.match.params.id}`)
+            })
       }
   }
 
