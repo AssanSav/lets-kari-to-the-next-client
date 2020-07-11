@@ -32,6 +32,8 @@ export const signupUser = (formData, ownProps) => {
                 passwordError: data.passwordError,
                 passwordConfirmationError: data.password_confirmation_error,
                 genderError: data.gender_error,
+                orientationError: data.orientation_error,
+                interestError: data.interest_error,
               },
               ownProps.history.push("/signup")
             );

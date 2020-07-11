@@ -6,7 +6,7 @@ import { Form, Button } from "react-bootstrap";
 class EditProfile extends Component {
   constructor(props) {
     super();
-    this.state = { user: props.user }
+    this.state = props.user 
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +35,7 @@ class EditProfile extends Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.routerProps.match.params.id) {
-      this.props.editProfile(this.state.user).then(() => {
+      this.props.editProfile(this.state).then(() => {
         this.props.routerProps.history.push(
           `/my-profile/${this.props.routerProps.match.params.id}`
         );
@@ -59,7 +59,7 @@ class EditProfile extends Component {
       relationship,
       education,
       bio,
-    } = this.state.user;
+    } = this.state;
 
     let visibilityChoice = ["true", "false"];
     return (

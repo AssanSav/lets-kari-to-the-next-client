@@ -72,6 +72,7 @@ class Signup extends Component {
       password_confirmation,
       visibility,
       gender,
+      orientation,
     } = this.state;
 
     return (
@@ -125,6 +126,21 @@ class Signup extends Component {
               </Form.Control>
               <div style={{ color: "red" }}>{this.props.genderError}</div>
             </Form.Group>
+            <Form.Group>
+              <Form.Control
+                as="select"
+                name="orientation"
+                value={orientation}
+                placeholder=""
+                onChange={this.handleChange}
+              >
+                <option>Orientation</option>
+                <option value="Gay">Gay</option>
+                <option value="Straight">Straight</option>
+                <option value="Lesbian">Lesbian</option>
+              </Form.Control>
+              <div style={{ color: "red" }}>{this.props.orientationError}</div>
+            </Form.Group>
             <div className="check-me">
               <label>
                 <strong>Select Interests!</strong>
@@ -145,8 +161,11 @@ class Signup extends Component {
                   );
                 })}
               </div>
-            </div>{" "}
+            </div>
+              <div style={{ color: "red" }}>{this.props.orientationError}</div>
             <br />
+            <br />
+
             <Form.Group>
               <Form.Control
                 as="select"
@@ -202,14 +221,27 @@ class Signup extends Component {
 }
 
 const mapStateToProps = ({ usersReducer, interestsReducer }) => {
+  const {
+    user,
+    emailError,
+    usernameError,
+    passwordError,
+    passwordConfirmationError,
+    genderError,
+    orientationError,
+    interestError,
+  } = usersReducer;
+
   return {
     interests: interestsReducer.interests,
-    user: usersReducer.user,
-    emailError: usersReducer.emailError,
-    usernameError: usersReducer.usernameError,
-    passwordError: usersReducer.passwordError,
-    passwordConfirmationError: usersReducer.passwordConfirmationError,
-    genderError: usersReducer.genderError,
+    user: user,
+    emailError: emailError,
+    usernameError: usernameError,
+    passwordError: passwordError,
+    passwordConfirmationError: passwordConfirmationError,
+    genderError: genderError,
+    orientationError: orientationError,
+    interestError: interestError,
   };
 };
 

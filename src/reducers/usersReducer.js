@@ -30,11 +30,13 @@ const usersReducer = (
 ) => {
   const {
     payload,
+    interestError,
     emailError,
     genderError,
     passwordError,
     passwordConfirmationError,
     usernameError,
+    orientationError,
     user,
     users,
     type,
@@ -55,6 +57,8 @@ const usersReducer = (
         passwordError: passwordError,
         passwordConfirmationError: passwordConfirmationError,
         genderError: genderError,
+        orientationError: orientationError,
+        interestError: interestError,
       };
 
     case FAILED_LOGIN:
