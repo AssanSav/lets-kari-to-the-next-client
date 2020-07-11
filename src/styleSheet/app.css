@@ -14,7 +14,8 @@ body {
 
 /* NavBar */
 a.nav-link {
-  font-size: bold !important
+  font-size: bold !important;
+  color: antiquewhite !important
 }
 
 a.nav-link:hover {
@@ -22,7 +23,7 @@ a.nav-link:hover {
 }
 
 #root > nav {
-  background-color: white !important
+  color: black !important;
 }
 
 div.wraper {
@@ -38,8 +39,6 @@ div.wraper {
 
 #root > nav.pb-10.navbar.navbar-expand.navbar-light{
   z-index: 9999 !important;
-  overflow: hidden !important;
-  /* background-color: white !important; */
   position: fixed !important;
   top: 0 !important;
   width: 100% !important;
