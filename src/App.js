@@ -18,7 +18,7 @@ function App() {
       <div className="footer">
         © 2020 Copyright:{" "}
         <a
-          href="mailto:assane.savadogo81@.com/"
+          href="mailto:assane.savadogo81@gmail.com/"
           style={{ fontStyle: "italic", color: "red" }}
         >
           Assane
