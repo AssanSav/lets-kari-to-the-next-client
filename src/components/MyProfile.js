@@ -31,6 +31,12 @@ const MyProfile = (props) => {
       bio,
     } = props.user;
 
+    const anchorTag = (
+      <a style={{ color: "red" }} href={`/edit-profile/${props.user.id}`}>
+        Complete
+      </a>
+    );
+
     return (
       <div className="my-profile">
         <div className="avatar_flip">
@@ -39,7 +45,9 @@ const MyProfile = (props) => {
         <h2>
           <strong>{username}</strong>
         </h2>
-        <Link to={`/upload-photos/${id}`}>Upload Picture</Link>
+        <Link to={`/upload-photos/${id}`}>
+          <strong style={{ color: "blue" }}>ADD PHOTO</strong>
+        </Link>
         <h2>Bio</h2>
         <p className="bio">{bio}</p>
         <table
@@ -48,24 +56,50 @@ const MyProfile = (props) => {
         >
           <tbody>
             <tr>
-              <td>City: {city}</td>
-              <td>Age: {age} </td>
+              <td>
+                <strong>GENDER:</strong> {gender}{" "}
+              </td>
+              <td>
+                <strong>ORIENTATION:</strong> {orientation}
+              </td>
             </tr>
+
             <tr>
-              <td>Gender: {gender} </td>
-              <td>Orientation: {orientation}</td>
+              <td>
+                <strong>CITY:</strong> {!city ? anchorTag : city}
+              </td>
+              <td>
+                <strong>AGE:</strong> {!age ? anchorTag : age}{" "}
+              </td>
             </tr>
+
             <tr>
-              <td>Relationship: {relationship}</td>
-              <td>Children: {children}</td>
+              <td>
+                <strong>RELATIONSHIP:</strong>{" "}
+                {!relationship ? anchorTag : relationship}
+              </td>
+              <td>
+                <strong>KIDS:</strong> {!children ? anchorTag : children}
+              </td>
             </tr>
+
             <tr>
-              <td>Height: {height}</td>
-              <td>Body Shape: {body_shape}</td>
+              <td>
+                <strong>HEIGHT:</strong> {!height ? anchorTag : height}
+              </td>
+              <td>
+                <strong>BODY SHAPE:</strong>{" "}
+                {!body_shape ? anchorTag : body_shape}
+              </td>
             </tr>
+
             <tr>
-              <td>Ethnicity: {ethnicity}</td>
-              <td>Education: {education}</td>
+              <td>
+                <strong>ETHNICITY:</strong> {!ethnicity ? anchorTag : ethnicity}
+              </td>
+              <td>
+                <strong>EDUCATION:</strong> {!education ? anchorTag : education}
+              </td>
             </tr>
           </tbody>
         </table>
