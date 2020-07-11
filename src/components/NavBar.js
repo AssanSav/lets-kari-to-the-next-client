@@ -24,7 +24,7 @@ const NavBarComponent = (props) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" id="nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavDropdown title="Options" id="collasible-nav-dropdown">
+              <NavDropdown title="Options"  id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/users">Users</NavDropdown.Item>
                 <NavDropdown.Item href="/matches">Matches</NavDropdown.Item>
                 <NavDropdown.Item href="/received-messages">Inbox</NavDropdown.Item>

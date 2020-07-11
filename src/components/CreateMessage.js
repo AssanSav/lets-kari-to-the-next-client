@@ -64,10 +64,12 @@ class CreateMessage extends Component {
       )
     }
     else {
+      const matchName = this.props.messages.find(message => message).match_name
+      
       return (
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
-        <h3>Chat Room</h3>
+          <h3>Chat Room With {matchName}</h3> 
         <ul className="chats" ref="chats">
           {
             this.props.messages.map((message) =>

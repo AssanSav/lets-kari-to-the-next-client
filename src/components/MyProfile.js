@@ -65,7 +65,7 @@ const MyProfile = (props) => {
             </h2> 
             <div>
             <Button variant="success" href={`/edit-profile/${props.user.id}`} >
-                    Click to Complete your Profile!
+                Complete Or Edit Your Profile!
             </Button>
             </div> 
           <Button variant="danger" onClick={() => { if (window.confirm('Are you sure you wish to delete your account?')) removeUser() }} style={{marginTop: "10px"}}>
