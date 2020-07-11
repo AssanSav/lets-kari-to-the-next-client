@@ -1,52 +1,51 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { createMessage } from "../actions/createMessage"
-import {fetchMessages} from "../actions/fetchMessages"
-import ReactDOM from "react-dom"
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createMessage } from "../actions/createMessage";
+import { fetchMessages } from "../actions/fetchMessages";
+import ReactDOM from "react-dom";
 
 class CreateMessage extends Component {
   constructor() {
-      super()
-      this.state = {
-          content: "",
-          match_id: ""
-      }
-      this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    super();
+    this.state = {
+      content: "",
+      match_id: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchMessages();
-    this.scrollToBot()
+    this.scrollToBot();
   }
 
   componentDidUpdate() {
-    this.scrollToBot()
+    this.scrollToBot();
   }
 
   scrollToBot() {
-    ReactDOM.findDOMNode(this.refs.chats).scrollTop = ReactDOM.findDOMNode(this.refs.chats).scrollHeight;
+    ReactDOM.findDOMNode(this.refs.chats).scrollTop = ReactDOM.findDOMNode(
+      this.refs.chats
+    ).scrollHeight;
   }
 
   handleChange(e) {
-      this.setState({
-          content: e.target.value,
-          match_id: this.props.routerProps.match.params.id
-
-      })
+    this.setState({
+      content: e.target.value,
+      match_id: this.props.routerProps.match.params.id,
+    });
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    this.props.createMessage(this.state)
-      .then(() => {
-        this.setState({
-          content: ""
-        })
-        this.props.fetchMessages()
-      })
+    this.props.createMessage(this.state).then(() => {
+      this.setState({
+        content: "",
+      });
+      this.props.fetchMessages();
+    });
   }
 
   render() {
@@ -56,56 +55,90 @@ class CreateMessage extends Component {
           <h3>Chat Room</h3>
           <ul className="chats" ref="chats"></ul>
           <form className="input" onSubmit={this.handleSubmit}>
-            <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
-            </textarea>
+            <textarea
+              name="content"
+              value={this.state.content}
+              type="text"
+              ref="msg"
+              onChange={this.handleChange}
+            ></textarea>
             <input type="submit" value="Send" />
           </form>
         </div>
-      )
-    }
-    else {
-      const matchName = this.props.messages.find(message => message).match_name
-      
+      );
+    } else {
+      const matchName = this.props.messages.find((message) => message)
+        .match_name;
+
       return (
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
-          <h3>Chat Room With {matchName}</h3> 
-        <ul className="chats" ref="chats">
-          {
-            this.props.messages.map((message) =>
-              <li key={message.id} className={`chat ${this.props.user.user.id === message.match_id ? "right" : "left"}`}>
-                {this.props.user.id !== message.user_id
-                  && <img src={message.image} alt={`${message.username}'s profile pic`} />
-                }
+          <h3>Chat Room With {matchName}</h3>
+          <ul className="chats" ref="chats">
+            {this.props.messages.map((message) => (
+              <li
+                key={message.id}
+                className={`chat ${
+                  this.props.user.user.id === message.match_id
+                    ? "right"
+                    : "left"
+                }`}
+              >
+                {this.props.user.id !== message.user_id && (
+                  <img
+                    src={message.image}
+                    alt={`${message.username}'s profile pic`}
+                  />
+                )}
                 {message.content}
               </li>
-            )
-          }
+            ))}
           </ul>
-            <form className="input" onSubmit={this.handleSubmit}>
-              <textarea name="content" value={this.state.content} type="text" ref="msg" onChange={this.handleChange}>
-              </textarea>
-              <input type="submit" value="Send" />
-            </form>
-      </div>
-      )
+          <form className="input" onSubmit={this.handleSubmit}>
+            <textarea
+              name="content"
+              value={this.state.content}
+              type="text"
+              ref="msg"
+              onChange={this.handleChange}
+            ></textarea>
+            <input type="submit" value="Send" />
+          </form>
+        </div>
+      );
     }
-    
   }
 }
 
 const mapStateToProps = ({ usersReducer, messagesReducer }, ownProps) => {
-  const id = ownProps.routerProps.match.params.id
-  const userId = usersReducer.user.id
-  const received_messages = messagesReducer.messages.filter(message => message.user_id ? message.user_id == id && message.match_id == userId : message)
-  const sent_messages = messagesReducer.messages.filter(message => message.user_id ? message.user_id == userId && message.match_id == id : message)
-  const messages = received_messages.concat(sent_messages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
+  const id = ownProps.routerProps.match.params.id;
+  const userId = usersReducer.user.id;
+
+  const received_messages = messagesReducer.messages.filter((message) => {
+    return message.user_id
+      ? message.user_id === parseInt(id) &&
+          message.match_id === parseInt(userId)
+      : message;
+  });
+
+  const sent_messages = messagesReducer.messages.filter((message) =>
+    message.user_id
+      ? message.user_id === parseInt(userId) &&
+        message.match_id === parseInt(id)
+      : message
+  );
+
+  const messages = received_messages
+    .concat(sent_messages)
+    .sort((a, b) => (a.created_at > b.created_at ? 1 : -1));
 
   return {
     error: messagesReducer.error,
     user: usersReducer,
-    messages: messages
-  } 
-}
+    messages: messages,
+  };
+};
 
-export default connect(mapStateToProps, {createMessage, fetchMessages})(CreateMessage)
+export default connect(mapStateToProps, { createMessage, fetchMessages })(
+  CreateMessage
+);

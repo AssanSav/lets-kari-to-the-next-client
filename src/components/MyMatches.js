@@ -1,25 +1,21 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { fetchMatches } from "../actions/fetchMatches"
-import {  Button } from "react-bootstrap"
-import {Link} from "react-router-dom"
-
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchMatches } from "../actions/fetchMatches";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class MyMatches extends Component {
-
-    componentDidMount() {
-        this.props.fetchMatches()
-    }
+  componentDidMount() {
+    this.props.fetchMatches();
+  }
 
   render() {
     if (!this.props.matches || this.props.matches.length === 0) {
-      return <h4 style={{textAlign: "center"}}>Loading...</h4>
-    }
-    else {
+      return <h4 style={{ textAlign: "center" }}>Loading...</h4>;
+    } else {
       return (
         <>
-          {this.props.matches.map(user => {
+          {this.props.matches.map((user) => {
             return (
               <div className="profile_short" key={`${user.id}`}>
                 <div className="image-align">
@@ -42,25 +38,22 @@ class MyMatches extends Component {
                     {user.orientation}
                   </p>
                   <Link to={`/match-profile/${user.id}`}>
-                    <Button variant="outline-success" >
-                      View Profile
-                      </Button>
+                    <Button variant="outline-success">View Profile</Button>
                   </Link>
                 </div>
               </div>
-            )
-          })
-          }
+            );
+          })}
         </>
-      )
+      );
     }
   }
 }
 
 const mapStateToProps = ({ matchesReducer }) => {
   return {
-      matches: matchesReducer.matches
-  }
-}
+    matches: matchesReducer.matches,
+  };
+};
 
-export default connect(mapStateToProps, {fetchMatches})(MyMatches)
+export default connect(mapStateToProps, { fetchMatches })(MyMatches);
