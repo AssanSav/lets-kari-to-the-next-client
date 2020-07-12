@@ -78,7 +78,12 @@ class Signup extends Component {
     return (
       <div
         className="form"
-        style={{ display: "block", width: "500px", float: "center" }}
+        style={{
+          display: "block",
+          width: "500px",
+          float: "center",
+          backgroundColor: "black",
+        }}
       >
         <h4
           style={{
@@ -102,6 +107,7 @@ class Signup extends Component {
               />
               <div style={{ color: "red" }}>{this.props.usernameError}</div>
             </Form.Group>
+
             <Form.Group>
               <Form.Control
                 placeholder="email required!"
@@ -112,6 +118,7 @@ class Signup extends Component {
               />
               <div style={{ color: "red" }}>{this.props.emailError}</div>
             </Form.Group>
+
             <Form.Group>
               <Form.Control
                 as="select"
@@ -126,6 +133,7 @@ class Signup extends Component {
               </Form.Control>
               <div style={{ color: "red" }}>{this.props.genderError}</div>
             </Form.Group>
+
             <Form.Group>
               <Form.Control
                 as="select"
@@ -141,9 +149,10 @@ class Signup extends Component {
               </Form.Control>
               <div style={{ color: "red" }}>{this.props.orientationError}</div>
             </Form.Group>
+
             <div className="check-me">
               <label>
-                <strong>Select Interests!</strong>
+                <strong style={{color: "red"}}>Select Interests!</strong>
               </label>{" "}
               <br />
               <div className="interests">
@@ -162,7 +171,7 @@ class Signup extends Component {
                 })}
               </div>
             </div>
-              <div style={{ color: "red" }}>{this.props.orientationError}</div>
+            <div style={{ color: "red" }}>{this.props.orientationError}</div>
             <br />
             <br />
 
@@ -173,11 +182,12 @@ class Signup extends Component {
                 value={visibility}
                 onChange={this.handleChange}
               >
-                <option>Choose True To Be Seen Publicly</option>
-                <option value="true">true</option>
-                <option value="talse">false</option>
+                <option>Choose Yes To Be Seen Publicly</option>
+                <option value="true">Yes</option>
+                <option value="talse">No</option>
               </Form.Control>
             </Form.Group>
+
             <Row>
               <Col>
                 <Form.Control
@@ -190,9 +200,10 @@ class Signup extends Component {
                 />
                 <div style={{ color: "red" }}>{this.props.passwordError}</div>
               </Col>
+
               <Col>
                 <Form.Control
-                  placeholder="Confirm Password required!"
+                  placeholder="Confirm Password!"
                   type="password"
                   name="password_confirmation"
                   autoComplete={password_confirmation}
@@ -210,7 +221,7 @@ class Signup extends Component {
               Signup
             </Button>
           </Form>
-          <span className="bottom_link">
+          <span className="bottom_link" style={{ color: "antiquewhite" }}>
             Have an account!
             <Link to="/login">Login</Link>
           </span>

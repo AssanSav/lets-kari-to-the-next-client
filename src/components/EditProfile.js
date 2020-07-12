@@ -63,13 +63,13 @@ class EditProfile extends Component {
 
     let visibilityChoice = ["true", "false"];
     return (
-      <div className="form">
+      <div className="form" style={{ backgroundColor: "black" }}>
         <h4>Edit Profile</h4>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
             <Form.Control
               type="text"
-              placeholder="username"
               name="username"
               value={username}
               onChange={this.handleChange}
@@ -77,8 +77,8 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>email</Form.Label>
             <Form.Control
-              placeholder="email"
               type="text"
               name="email"
               value={email}
@@ -87,14 +87,13 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Gender</Form.Label>
             <Form.Control
               as="select"
               name="gender"
               value={gender}
-              placeholder=""
               onChange={this.handleChange}
             >
-              <option>Gender required!</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </Form.Control>
@@ -102,6 +101,7 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Orientation</Form.Label>
             <Form.Control
               as="select"
               name="orientation"
@@ -109,7 +109,6 @@ class EditProfile extends Component {
               placeholder=""
               onChange={this.handleChange}
             >
-              <option>Orientation</option>
               <option value="Gay">Gay</option>
               <option value="Straight">Straight</option>
               <option value="Lesbian">Lesbian</option>
@@ -117,13 +116,13 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Relationship</Form.Label>
             <Form.Control
               as="select"
               name="relationship"
               value={relationship}
               onChange={this.handleChange}
             >
-              <option>Relationship</option>
               <option value="Single">Single</option>
               <option value="Married">Married</option>
               <option value="In a Relationship">In a Relationship</option>
@@ -135,8 +134,8 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Kids</Form.Label>
             <Form.Control
-              placeholder="Kids"
               type="number"
               min={0}
               max={100}
@@ -148,13 +147,13 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Education</Form.Label>
             <Form.Control
               as="select"
               name="education"
               value={education}
               onChange={this.handleChange}
             >
-              <option>Education</option>
               <option value="Doctorate">Doctorate</option>
               <option value="Masters">Masters</option>
               <option value="Bachelors">Bachelors</option>
@@ -167,13 +166,13 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Ethnicity</Form.Label>
             <Form.Control
               as="select"
               name="ethnicity"
               value={ethnicity}
               onChange={this.handleChange}
             >
-              <option>Ethnicity</option>
               <option value="Hispanic or Latino">Hispanic or Latino</option>
               <option value="Black/African descent">
                 Black/African descent
@@ -186,13 +185,13 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Body Shape</Form.Label>
             <Form.Control
               as="select"
               name="body_shape"
               value={body_shape}
               onChange={this.handleChange}
             >
-              <option>Body Shape</option>
               <option value="Athletic">Athletic</option>
               <option value="Curvy">Curvy</option>
               <option value="Skinny">Skinny</option>
@@ -200,8 +199,8 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Age</Form.Label>
             <Form.Control
-              placeholder="Age"
               type="number"
               min={16}
               max={100}
@@ -213,8 +212,8 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>Height</Form.Label>
             <Form.Control
-              placeholder="Height"
               type="text"
               name="height"
               autoComplete={height}
@@ -224,8 +223,8 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
+            <Form.Label>City</Form.Label>
             <Form.Control
-              placeholder="City"
               type="text"
               name="city"
               autoComplete={city}
@@ -240,7 +239,6 @@ class EditProfile extends Component {
             </label>{" "}
             <br />
             <Form.Control
-              placeholder="Little Bit About Yourself"
               rows="7"
               cols="50"
               as="textarea"
@@ -251,7 +249,7 @@ class EditProfile extends Component {
           </Form.Group>
 
           <Form.Group>
-            <label>Want to go public?</label>
+            <Form.Label>Want to go public?</Form.Label>
             <Form.Control
               as="select"
               name="visibility"

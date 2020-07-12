@@ -14,7 +14,7 @@ class MyMatches extends Component {
       return <h4 style={{ textAlign: "center" }}>Loading...</h4>;
     } else {
       return (
-        <>
+        <div className="container">
           {this.props.matches.map((user) => {
             return (
               <div className="profile_short" key={`${user.id}`}>
@@ -44,7 +44,7 @@ class MyMatches extends Component {
               </div>
             );
           })}
-        </>
+        </div>
       );
     }
   }

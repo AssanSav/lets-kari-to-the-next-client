@@ -34,12 +34,18 @@ class Login extends Component {
     return (
       <div
         className="form"
-        style={{ display: "block", width: "500px", float: "center" }}
+        style={{
+          display: "block",
+          width: "500px",
+          float: "center",
+          backgroundColor: "black",
+        }}
       >
-        <h1 style={{ textAlign: "center" }}>Login</h1>
+        <h4 style={{ textAlign: "center" }}>Login</h4>
         <ul>
           <Form onSubmit={this.handleSubmit} className="loginUser">
             <Form.Group>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 placeholder="email"
                 type="text"
@@ -51,6 +57,7 @@ class Login extends Component {
             </Form.Group>
 
             <Form.Group>
+              <Form.Label>Password</Form.Label>
               <Form.Control
                 placeholder="password"
                 type="password"
@@ -65,7 +72,7 @@ class Login extends Component {
               Login
             </Button>
           </Form>
-          <div className="bottom_link">
+          <div className="bottom_link" style={{ color: "antiquewhite" }}>
             Don't have an account?
             <Link to="/signup">Signup</Link>
           </div>

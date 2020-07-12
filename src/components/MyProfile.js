@@ -38,7 +38,7 @@ const MyProfile = (props) => {
     );
 
     return (
-      <div className="my-profile">
+      <div className="my-profile" style={{backgroundColor: "gray"}}>
         <div className="avatar_flip">
           <img className="profile_pic" src={image} alt="" />
         </div>
@@ -103,9 +103,9 @@ const MyProfile = (props) => {
             </tr>
           </tbody>
         </table>
-        <h3>
+        <h4>
           <strong>Interested In:</strong>
-        </h3>
+        </h4>
         <h2>
           {props.interests.map((int) => (
             <span key={int.id}>{int.name}&nbsp; </span>

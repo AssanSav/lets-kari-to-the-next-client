@@ -30,13 +30,13 @@ const usersReducer = (
 ) => {
   const {
     payload,
-    interestError,
     emailError,
+    orientationError,
+    interestError,
     genderError,
     passwordError,
     passwordConfirmationError,
     usernameError,
-    orientationError,
     user,
     users,
     type,
