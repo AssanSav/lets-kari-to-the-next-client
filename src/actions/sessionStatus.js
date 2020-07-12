@@ -6,7 +6,7 @@ export const sessionStatus = () => {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })

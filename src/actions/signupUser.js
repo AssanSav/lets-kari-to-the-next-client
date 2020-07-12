@@ -6,7 +6,7 @@ export const signupUser = (formData, ownProps) => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
       body: JSON.stringify(formData),

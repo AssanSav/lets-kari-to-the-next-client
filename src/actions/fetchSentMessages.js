@@ -5,7 +5,7 @@ export const fetchSentMessages = () => {
     return fetch(`${BASE_URL}/api/v1/messages-outbox`, {
       headers: {
         "Conent-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })

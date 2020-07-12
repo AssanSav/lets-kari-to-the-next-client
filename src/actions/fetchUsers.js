@@ -6,7 +6,7 @@ export const fetchUsers = () => {
     return fetch(`${BASE_URL}/api/v1/users`, {
       headers: {
         "Conent-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })

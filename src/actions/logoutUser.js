@@ -6,7 +6,7 @@ export const logoutUser = (id) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })

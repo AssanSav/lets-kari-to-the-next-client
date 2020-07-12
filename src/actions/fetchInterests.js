@@ -6,7 +6,7 @@ export const fetchInterests = () => {
     return fetch(`${BASE_URL}/api/v1/interests`, {
       headers: {
         "Conent-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })
