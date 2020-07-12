@@ -48,7 +48,6 @@ class UsersList extends Component {
       relationship: "",
       education: "",
     });
-    // document.getElementById("index_0").checked = false
   }
 
   render() {

@@ -29,7 +29,7 @@ class MyMatchProfile extends Component {
         bio,
       } = this.props.profile;
       return (
-        <div className="my-profile">
+        <div className="my-profile" style={{backgroundColor: "gray"}}>
           <div className="avatar_flip">
             <img className="profile_pic" src={image} alt="" />
           </div>
@@ -65,9 +65,9 @@ class MyMatchProfile extends Component {
               </tr>
             </tbody>
           </table>
-          <h3>
+          <h4>
             <strong>Interested In:</strong>
-          </h3>
+          </h4>
           <h2>
             {this.props.interests.map((int) => (
               <span key={int.id}>{int.name}&nbsp; </span>
