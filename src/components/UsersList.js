@@ -69,7 +69,9 @@ class UsersList extends Component {
     } else {
       return (
         <>
-          <h2 style={{ textAlign: "center" }}>Let's Hangout!!!</h2>
+          <h2 style={{ textAlign: "center", color: "blue" }}>
+            <strong>Let's Hangout!!!</strong>
+          </h2>
           <div>
             <Form
               onSubmit={this.handleSubmit}
@@ -241,7 +243,7 @@ class UsersList extends Component {
               </Button>
             </Form>
           </div>
-          <h2 style={{ textAlign: "center" }}>Users</h2>
+          <h2 style={{ textAlign: "center", color: "yellow" }}><strong>Users</strong></h2>
           <div className="container">
             {this.props.users.length > 0 ? (
               this.props.users.map((user) => (

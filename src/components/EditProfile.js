@@ -7,7 +7,7 @@ class EditProfile extends Component {
   constructor(props) {
     super();
     this.state = props.user 
-
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -106,7 +106,6 @@ class EditProfile extends Component {
               as="select"
               name="orientation"
               value={orientation}
-              placeholder=""
               onChange={this.handleChange}
             >
               <option value="Gay">Gay</option>
@@ -123,6 +122,7 @@ class EditProfile extends Component {
               value={relationship}
               onChange={this.handleChange}
             >
+              <option value=""></option>
               <option value="Single">Single</option>
               <option value="Married">Married</option>
               <option value="In a Relationship">In a Relationship</option>
@@ -136,12 +136,11 @@ class EditProfile extends Component {
           <Form.Group>
             <Form.Label>Kids</Form.Label>
             <Form.Control
+              value={children}
               type="number"
               min={0}
               max={100}
               name="children"
-              autoComplete={children}
-              value={children}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -154,6 +153,7 @@ class EditProfile extends Component {
               value={education}
               onChange={this.handleChange}
             >
+              <option value=""></option>
               <option value="Doctorate">Doctorate</option>
               <option value="Masters">Masters</option>
               <option value="Bachelors">Bachelors</option>
@@ -173,6 +173,7 @@ class EditProfile extends Component {
               value={ethnicity}
               onChange={this.handleChange}
             >
+              <option value=""></option>
               <option value="Hispanic or Latino">Hispanic or Latino</option>
               <option value="Black/African descent">
                 Black/African descent
@@ -192,6 +193,7 @@ class EditProfile extends Component {
               value={body_shape}
               onChange={this.handleChange}
             >
+              <option value=""></option>
               <option value="Athletic">Athletic</option>
               <option value="Curvy">Curvy</option>
               <option value="Skinny">Skinny</option>
@@ -201,12 +203,11 @@ class EditProfile extends Component {
           <Form.Group>
             <Form.Label>Age</Form.Label>
             <Form.Control
+              value={age}
               type="number"
-              min={16}
+              min={15}
               max={100}
               name="age"
-              autoComplete={age}
-              value={age}
               onChange={this.handleChange}
             />
           </Form.Group>
