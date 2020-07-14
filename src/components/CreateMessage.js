@@ -52,6 +52,7 @@ class CreateMessage extends Component {
     if (!this.props.messages || this.props.messages.length === 0) {
       return (
         <div className="chatroom">
+          <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room</h3>
           <ul className="chats" ref="chats"></ul>
           <form className="input" onSubmit={this.handleSubmit}>
