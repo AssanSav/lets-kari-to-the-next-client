@@ -1,4 +1,4 @@
-export const BASE_URL = "https://lets-meetup-app-api.herokuapp.com";
+export const BASE_URL = "http://localhost:3001";
     // "https://lets-meetup-app-api.herokuapp.com"
     //"http://localhost:3001"
 
