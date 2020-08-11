@@ -9,9 +9,9 @@ import EditProfile from "./EditProfile";
 import CreateMessage from "./CreateMessage";
 import ReceivedMessages from "./ReceivedMessages";
 import SentMessages from "./SentMessages";
-import UsersContainer from "../containers/UsersContainer";
 import UploadPhoto from "./UploadPhoto";
 import { connect } from "react-redux";
+import UsersList from "./UsersList";
 
 const Routes = ({ status }) => {
   if (status) {
@@ -78,7 +78,7 @@ const Routes = ({ status }) => {
             exact
             path="/users"
             render={(routerProps) => (
-              <UsersContainer routerProps={routerProps} />
+              <UsersList routerProps={routerProps} />
             )}
           ></Route>
         </Switch>
