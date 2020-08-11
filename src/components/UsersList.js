@@ -34,11 +34,9 @@ class UsersList extends Component {
     if (gender !== "" || orientation !== "") {
       this.setState({
         users: this.props.users.filter((user) => {
-          if (user.gender || user.orientation) {
-            return (
-              user.gender.includes(gender) && user.orientation.includes(orientation)
-            )
-          }
+          return (
+            user.gender.includes(gender) && user.orientation.includes(orientation)
+          )
         }),
         gender: "",
         orientation: ""
@@ -59,10 +57,10 @@ class UsersList extends Component {
     } else {
       return (
         <>
+          <br /> <br />
           <h2 style={{ textAlign: "center", color: "blue" }}>
             <strong>Let's Hangout!!!</strong>
           </h2>
-          <div>
             <Form
               onSubmit={this.handleSubmit}
               className="form"
@@ -107,11 +105,9 @@ class UsersList extends Component {
                 Search
               </Button>
             </Form>
-          </div>
           <h2 style={{ textAlign: "center", color: "yellow" }}>
             <strong>Users</strong>
-          </h2>
-          <div className="container">
+          </h2> <br /><br />
             {this.state.users.length > 0
               ? this.state.users.map((user) => (
                   <span key={user.id}>
@@ -125,7 +121,6 @@ class UsersList extends Component {
                     <UserCard user={user} />
                   </span>
                 ))}
-          </div>
         </>
       );
     }

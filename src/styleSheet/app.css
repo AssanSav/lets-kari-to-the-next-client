@@ -187,10 +187,10 @@ div.col {
 
 
  /* index page */
- .container {
+ /* .container {
   display: flex;
   flex-wrap: wrap;
-} 
+}  */
 
  .profile_short {
   display: inline-grid;
@@ -203,7 +203,7 @@ div.col {
   text-align: center;
   border-radius: 10px;
   margin-bottom: 40px;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .profile_short a:link {
