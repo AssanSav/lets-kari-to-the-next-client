@@ -16,11 +16,14 @@ const UserCard = ({ user }) => {
             </strong>
           </p>
           <p>
-            <strong>Age:</strong>
-            {user.age}
+            {user.gender}
           </p>
           <p>
-            <strong>Orientation:</strong>
+            <strong>Age: </strong>
+             {user.age}
+          </p>
+          <p>
+            <strong>Orientation: </strong>
             {user.orientation}
           </p>
           <Link to={`/match-profile/${user.id}`}>

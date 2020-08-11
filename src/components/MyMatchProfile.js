@@ -44,24 +44,24 @@ class MyMatchProfile extends Component {
           >
             <tbody>
               <tr>
-                <td>City: {city}</td>
-                <td>Age: {age} </td>
+                <td><strong>City:</strong> {city}</td>
+                <td><strong>Age:</strong> {age} </td>
               </tr>
               <tr>
-                <td>Gender: {gender} </td>
-                <td>Orientation: {orientation}</td>
+                <td><strong>Gender:</strong> {gender} </td>
+                <td><strong>Orientation:</strong> {orientation}</td>
               </tr>
               <tr>
-                <td>Relationship: {relationship}</td>
-                <td>Children: {children}</td>
+                <td><strong>Relationship:</strong> {relationship}</td>
+                <td><strong>Children:</strong> {children}</td>
               </tr>
               <tr>
-                <td>Height: {height}</td>
-                <td>Body Shape: {body_shape}</td>
+                <td><strong>Height:</strong> {height}</td>
+                <td><strong>Body Shape:</strong> {body_shape}</td>
               </tr>
               <tr>
-                <td>Ethnicity: {ethnicity}</td>
-                <td>Education: {education}</td>
+                <td><strong>Ethnicity:</strong> {ethnicity}</td>
+                <td><strong>Education:</strong> {education}</td>
               </tr>
             </tbody>
           </table>
