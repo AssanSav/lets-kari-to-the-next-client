@@ -130,6 +130,7 @@ class Signup extends Component {
                 <option>Gender required!</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                <option value="Transgender">Transgender</option>
               </Form.Control>
               <div style={{ color: "red" }}>{this.props.genderError}</div>
             </Form.Group>
@@ -152,7 +153,7 @@ class Signup extends Component {
 
             <div className="check-me">
               <label>
-                <strong style={{color: "red"}}>Select Interests!</strong>
+                <strong style={{ color: "red" }}>Select Interests!</strong>
               </label>{" "}
               <br />
               <div className="interests">
