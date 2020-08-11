@@ -2,26 +2,22 @@ import React, { Component } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import UserCard from "./UserCard";
 import { connect } from "react-redux";
-import { searchUsers } from "../actions/searchUsers";
+import { fetchUsers } from "../actions/fetchUsers";
 
 class UsersList extends Component {
   constructor() {
     super();
     this.state = {
-      city: "",
-      maxAge: "",
       gender: "",
       orientation: "",
-      ethnicity: "",
-      maxHeight: "",
-      heightLimit: "",
-      body_shape: "",
-      children: "",
-      relationship: "",
-      education: "",
+      users: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchUsers();
   }
 
   handleChange(e) {
@@ -34,38 +30,32 @@ class UsersList extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.searchUsers(this.state);
-    this.setState({
-      city: "",
-      maxAge: "",
-      gender: "",
-      orientation: "",
-      ethnicity: "",
-      maxHeight: "",
-      heightLimit: "",
-      body_shape: "",
-      children: "",
-      relationship: "",
-      education: "",
-    });
+    const { gender, orientation} = this.state
+    if (gender !== "" || orientation !== "") {
+      this.setState({
+        users: this.props.users.filter((user) => {
+          if (user.gender || user.orientation) {
+            return (
+              user.gender.includes(gender) && user.orientation.includes(orientation)
+            )
+          }
+        }),
+        gender: "",
+        orientation: ""
+      })
+    }
   }
 
   render() {
     const {
-      education,
-      city,
-      maxAge,
       gender,
-      orientation,
-      ethnicity,
-      maxHeight,
-      body_shape,
-      children,
-      relationship,
+      orientation
     } = this.state;
 
-    if (this.props.users === [] || !this.props.users) {
-      return <div></div>;
+    const { users } = this.props
+
+    if (users.length === 0 || !users) {
+        return <div></div>;
     } else {
       return (
         <>
@@ -92,6 +82,7 @@ class UsersList extends Component {
                     </option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
+                    <option value="Transgender">Transgender</option>
                   </Form.Control>
                 </Col>
                 <Col>
@@ -111,150 +102,29 @@ class UsersList extends Component {
                   </Form.Control>
                 </Col>
               </Row>
-
-              <Row>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="ethnicity"
-                    value={ethnicity}
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Ethnicity
-                    </option>
-                    <option value="Hispanic or Latino">
-                      Hispanic or Latino
-                    </option>
-                    <option value="Black/African descent">
-                      Black/African descent
-                    </option>
-                    <option value="White">White</option>
-                    <option value="Asian/Pacific Islander">
-                      Asian/Pacific Islander
-                    </option>
-                  </Form.Control>
-                </Col>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="body_shape"
-                    value={body_shape}
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Body Shape
-                    </option>
-                    <option value="Athletic">Athletic</option>
-                    <option value="Curvy">Curvy</option>
-                    <option value="Skinny">Skinny</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="relationship"
-                    value={relationship}
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Relationship
-                    </option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="In a Relationship">In a Relationship</option>
-                    <option value="Engaged">Engaged</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Separated">Separated</option>
-                    <option value="Divorced">Divorced</option>
-                  </Form.Control>
-                </Col>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="education"
-                    value={education}
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Education
-                    </option>
-                    <option value="Doctorate">Doctorate</option>
-                    <option value="Masters">Masters</option>
-                    <option value="Bachelors">Bachelors</option>
-                    <option value="Some College">Some College</option>
-                    <option value="High School">High School</option>
-                    <option value="Did not complete High School">
-                      Did not complete High School
-                    </option>
-                  </Form.Control>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Form.Control
-                    placeholder="Age"
-                    type="text"
-                    name="maxAge"
-                    value={maxAge}
-                    onChange={this.handleChange}
-                  />
-                </Col>
-                <Col>
-                  <Form.Control
-                    placeholder="Height"
-                    type="text"
-                    name="maxHeight"
-                    value={maxHeight}
-                    onChange={this.handleChange}
-                  />
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <Form.Control
-                    placeholder="City"
-                    type="text"
-                    name="city"
-                    value={city}
-                    onChange={this.handleChange}
-                  />
-                </Col>
-                <Col>
-                  <Form.Control
-                    placeholder="Children"
-                    type="text"
-                    name="children"
-                    value={children}
-                    onChange={this.handleChange}
-                  />
-                </Col>
-              </Row>
-
-              <div />
               <br />
               <Button variant="success" type="submit">
                 Search
               </Button>
             </Form>
           </div>
-          <h2 style={{ textAlign: "center", color: "yellow" }}><strong>Users</strong></h2>
+          <h2 style={{ textAlign: "center", color: "yellow" }}>
+            <strong>Users</strong>
+          </h2>
           <div className="container">
-            {this.props.users.length > 0 ? (
-              this.props.users.map((user) => (
-                <span key={user.id}>
-                  {" "}
-                  <UserCard user={user} />
-                </span>
-              ))
-            ) : (
-              <h4 style={{ color: "red" }}>No Record Found!</h4>
-            )}
+            {this.state.users.length > 0
+              ? this.state.users.map((user) => (
+                  <span key={user.id}>
+                    {" "}
+                    <UserCard user={user} />
+                  </span>
+                ))
+              : users.map((user) => (
+                  <span key={user.id}>
+                    {" "}
+                    <UserCard user={user} />
+                  </span>
+                ))}
           </div>
         </>
       );
@@ -262,4 +132,11 @@ class UsersList extends Component {
   }
 }
 
-export default connect(null, { searchUsers })(UsersList);
+const mapStateToProps = ({ usersReducer }) => {
+  return {
+    users: usersReducer.users
+  };
+};
+
+export default connect(mapStateToProps, { fetchUsers })(UsersList);
+
