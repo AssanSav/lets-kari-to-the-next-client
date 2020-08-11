@@ -1,6 +1,5 @@
 import {
   SIGNUP,
-  SEARCH,
   FAILED_SIGNUP,
   FAILED_LOGIN,
   LOGGED_OUT,
@@ -125,50 +124,6 @@ const usersReducer = (
         ...state,
         status: false,
         user: {},
-      };
-
-    case SEARCH:
-      const {
-        maxAge,
-        maxHeight,
-        education,
-        city,
-        gender,
-        orientation,
-        ethnicity,
-        body_shape,
-        children,
-        relationship,
-      } = payload;
-      return {
-        ...state,
-        users: state.users.filter((u) => {
-          if (
-            u.gender ||
-            u.orientation ||
-            u.ethnicity ||
-            u.body_shape ||
-            u.relationship ||
-            u.education ||
-            u.age ||
-            u.height
-          ) {
-            return (
-              u.gender.includes(gender) &&
-              u.orientation.includes(orientation) &&
-              u.ethnicity.includes(ethnicity) &&
-              u.body_shape.includes(body_shape) &&
-              u.relationship.includes(relationship) &&
-              u.education.includes(education) &&
-              u.age >= maxAge &&
-              u.height >= maxHeight &&
-              u.city.includes(city) &&
-              u.children.includes(children)
-            );
-          } else {
-            return console.log("No User Found!");
-          }
-        }),
       };
 
     default: {
