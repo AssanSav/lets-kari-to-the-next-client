@@ -61,7 +61,7 @@ class UsersList extends Component {
           <h2 style={{ textAlign: "center", color: "blue" }}>
             <strong>Let's Hangout!!!</strong>
           </h2>
-            {/* <Form
+            <Form
               onSubmit={this.handleSubmit}
               className="form"
               style={{ backgroundColor: "black" }}
@@ -104,9 +104,9 @@ class UsersList extends Component {
               <Button variant="success" type="submit">
                 Search
               </Button>
-            </Form> */}
+            </Form>
           <h2 style={{ textAlign: "center", color: "yellow" }}>
-            {/* <strong>Users</strong> */}
+            <strong>Users</strong>
           </h2> <br /><br />
             {this.state.users.length > 0
               ? this.state.users.map((user) => (
