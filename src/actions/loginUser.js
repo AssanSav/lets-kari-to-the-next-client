@@ -5,6 +5,7 @@ export const loginUser = (formData, ownProps) => {
     return fetch(`${BASE_URL}/api/v1/login`, {
       method: "POST",
       headers: {
+        "Set-Cookie": "_lets-kari-to-the-next;samesite=none; secure",
         "Content-type": "application/json",
         "Accept": "application/json",
       },
