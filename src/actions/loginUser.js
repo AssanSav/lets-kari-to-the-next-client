@@ -5,7 +5,7 @@ export const loginUser = (formData, ownProps) => {
     return fetch(`${BASE_URL}/api/v1/login`, {
       method: "POST",
       headers: {
-        "Set-Cookie": "user=assan;samesite=none; secure",
+        "Set-Cookie": "samesite=none; secure",
         "Content-type": "application/json",
         "Accept": "application/json",
       },

@@ -5,6 +5,7 @@ export const fetchInterests = () => {
   return (dispatch) => {
     return fetch(`${BASE_URL}/api/v1/interests`, {
       headers: {
+        "Set-Cookie": "samesite=none; secure",
         "Conent-Type": "application/json",
         "Accept": "application/json",
       },
