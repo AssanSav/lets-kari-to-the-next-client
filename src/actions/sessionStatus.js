@@ -5,8 +5,10 @@ export const sessionStatus = () => {
     return fetch(`${BASE_URL}/api/v1/session/status`, {
       mode: "cors",
       headers: {
+        "Set-Cookie":
+          "widget_session=_lets-kari-to-the-next; SameSite=None; Secure",
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       credentials: "include",
     })

@@ -3,19 +3,23 @@ import { CREATE_MESSAGE, FAILED_TO_CREATE, BASE_URL } from "./types"
 
   export const createMessage = (formData) => {
     return dispatch => {
-      return fetch(`${ BASE_URL }/api/v1/messages`, {
+      return fetch(`${BASE_URL}/api/v1/messages`, {
         method: "POST",
         headers: {
+          "Set-Cookie":
+            "widget_session=_lets-kari-to-the-next; SameSite=None; Secure",
           "Content-type": "application/json",
-          "Accept": "application/json"
+          Accept: "application/json",
         },
         credentials: "include",
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       })
-        .then(resp => resp.json())
-        .then(data => {  
-          data.status !== 409 ? dispatch({ type: CREATE_MESSAGE, message: data.message }) : dispatch({type: FAILED_TO_CREATE, payload: data.error})
-        })
+        .then((resp) => resp.json())
+        .then((data) => {
+          data.status !== 409
+            ? dispatch({ type: CREATE_MESSAGE, message: data.message })
+            : dispatch({ type: FAILED_TO_CREATE, payload: data.error });
+        });
     }
   }
 
