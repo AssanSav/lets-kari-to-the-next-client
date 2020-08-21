@@ -4,10 +4,8 @@ export const fetchSentMessages = () => {
   return (dispatch) => {
     return fetch(`${BASE_URL}/api/v1/messages-outbox`, {
       headers: {
-        "Set-Cookie":
-          "widget_session=_lets-kari-to-the-next; SameSite=None; Secure",
         "Conent-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
     })

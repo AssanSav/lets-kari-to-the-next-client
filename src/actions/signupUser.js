@@ -5,10 +5,8 @@ export const signupUser = (formData, ownProps) => {
     return fetch(`${BASE_URL}/api/v1/users`, {
       method: "POST",
       headers: {
-        "Set-Cookie":
-          "widget_session=_lets-kari-to-the-next; SameSite=None; Secure",
         "Content-type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       credentials: "include",
       body: JSON.stringify(formData),

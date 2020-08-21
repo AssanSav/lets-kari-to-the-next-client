@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import UsersList from "./UsersList";
 
 const Routes = ({ status }) => {
-  if (status === true) {
+  if (status) {
     return (
       <>
         <Switch>
