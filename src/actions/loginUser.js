@@ -13,9 +13,8 @@ export const loginUser = (formData, ownProps) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        // data.status !== 500
-        //   ?
-          dispatch(
+        data.status !== 500
+          ? dispatch(
               {
                 type: LOGIN,
                 user: data.user.data.attributes,
@@ -25,14 +24,14 @@ export const loginUser = (formData, ownProps) => {
                 `/my-profile/${data.user.data.attributes.id}`
               )
             )
-          // : dispatch(
-          //     {
-          //       type: FAILED_LOGIN,
-          //       emailError: data.email_error,
-          //       passwordError: data.passwordError,
-          //     },
-          //     ownProps.history.push("/login")
-          //   );
+          : dispatch(
+              {
+                type: FAILED_LOGIN,
+                emailError: data.email_error,
+                passwordError: data.passwordError,
+              },
+              ownProps.history.push("/login")
+            );
       });
   };
 };
