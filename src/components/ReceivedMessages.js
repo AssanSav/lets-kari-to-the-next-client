@@ -4,12 +4,9 @@ import { fetchReceivedMessages } from "../actions/fetchReceivedMessages";
 import { deleteReceivedMessage } from "../actions/deleteReceivedMessage";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { sessionStatus } from "../actions/sessionStatus";
-
 
 class ReceivedMessages extends Component {
   componentDidMount() {
-    this.props.sessionStatus();
     this.props.fetchReceivedMessages();
   }
 
@@ -75,5 +72,4 @@ const mapStateToProps = ({ messagesReducer }) => {
 export default connect(mapStateToProps, {
   fetchReceivedMessages,
   deleteReceivedMessage,
-  sessionStatus
 })(ReceivedMessages);
