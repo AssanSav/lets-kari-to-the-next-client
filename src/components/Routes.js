@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import UsersList from "./UsersList";
 
 const Routes = ({ status }) => {
-  // if (status) {
+  if (status === true) {
     return (
       <>
         <Switch>
@@ -84,30 +84,29 @@ const Routes = ({ status }) => {
         </Switch>
       </>
     );
-  // }
-  // } else {
-  //   return (
-  //     <>
-  //       <Switch>
-  //         <Route exact path="/">
-  //           <Login />
-  //         </Route>
+  } else {
+    return (
+      <>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
 
-  //         <Route
-  //           exact
-  //           path="/login"
-  //           render={(routerProps) => <Login history={routerProps.history} />}
-  //         ></Route>
+          <Route
+            exact
+            path="/login"
+            render={(routerProps) => <Login history={routerProps.history} />}
+          ></Route>
 
-  //         <Route
-  //           exact
-  //           path="/signup"
-  //           render={(routerProps) => <Signup routerProps={routerProps} />}
-  //         ></Route>
-  //       </Switch>
-  //     </>
-  //   );
-  // }
+          <Route
+            exact
+            path="/signup"
+            render={(routerProps) => <Signup routerProps={routerProps} />}
+          ></Route>
+        </Switch>
+      </>
+    );
+  }
 };
 
 const mapStatetoProps = ({ usersReducer }) => {
