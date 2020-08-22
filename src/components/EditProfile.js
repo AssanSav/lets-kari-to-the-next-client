@@ -245,7 +245,7 @@ class EditProfile extends Component {
               as="textarea"
               name="bio"
               onChange={this.handleChange}
-              value={bio}
+              value={bio || ""} 
             />
           </Form.Group>
 

@@ -14,7 +14,7 @@ class CreateMessage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
+z
   componentDidMount() {
     this.props.fetchMessages();
     this.scrollToBot();
@@ -25,8 +25,10 @@ class CreateMessage extends Component {
   }
 
   scrollToBot() {
-    ReactDOM.findDOMNode(this.refs.chats).scrollTop = ReactDOM.findDOMNode(
-      this.refs.chats
+    ReactDOM.findDOMNode(
+      document.querySelector(".chats")
+    ).scrollTop = ReactDOM.findDOMNode(
+      document.querySelector(".chats")
     ).scrollHeight;
   }
 
@@ -54,13 +56,12 @@ class CreateMessage extends Component {
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room</h3>
-          <ul className="chats" ref="chats"></ul>
+          <ul className="chats" ></ul>
           <form className="input" onSubmit={this.handleSubmit}>
             <textarea
               name="content"
               value={this.state.content}
               type="text"
-              ref="msg"
               onChange={this.handleChange}
             ></textarea>
             <input type="submit" value="Send" />
@@ -75,7 +76,7 @@ class CreateMessage extends Component {
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room With {matchName}</h3>
-          <ul className="chats" ref="chats">
+          <ul className="chats">
             {this.props.messages.map((message) => (
               <li
                 key={message.id}
@@ -100,7 +101,6 @@ class CreateMessage extends Component {
               name="content"
               value={this.state.content}
               type="text"
-              ref="msg"
               onChange={this.handleChange}
             ></textarea>
             <input type="submit" value="Send" />

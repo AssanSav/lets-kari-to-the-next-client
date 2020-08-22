@@ -5,7 +5,6 @@ export const loginUser = (formData, ownProps) => {
     return fetch(`${BASE_URL}/api/v1/login`, {
       method: "POST",
       headers: {
-        "Set-Cookie": "samesite=none; secure",
         "Content-type": "application/json",
         "Accept": "application/json",
       },
@@ -14,6 +13,7 @@ export const loginUser = (formData, ownProps) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
+        debugger
         data.status !== 500
           ? dispatch(
               {

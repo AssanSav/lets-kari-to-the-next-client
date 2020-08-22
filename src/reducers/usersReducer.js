@@ -1,10 +1,10 @@
 import {
   SIGNUP,
+  LOGGED_IN,
+  LOGIN,
   FAILED_SIGNUP,
   FAILED_LOGIN,
   LOGGED_OUT,
-  LOGGED_IN,
-  LOGIN,
   LOGOUT,
   EDIT_PROFILE,
   FETCH_PROFILE,
@@ -59,7 +59,21 @@ const usersReducer = (
         orientationError: orientationError,
         interestError: interestError,
       };
-
+      
+      case LOGIN:
+        return {
+          ...state,
+          status: true,
+          user: user,
+        };
+  
+      case LOGGED_IN:
+        return {
+          ...state,
+          status: true,
+          user: user,
+        };
+    
     case FAILED_LOGIN:
       return {
         ...state,
@@ -71,20 +85,6 @@ const usersReducer = (
       return {
         ...state,
         users: users,
-      };
-
-    case LOGIN:
-      return {
-        ...state,
-        status: true,
-        user: user,
-      };
-
-    case LOGGED_IN:
-      return {
-        ...state,
-        status: true,
-        user: user,
       };
 
     case EDIT_PROFILE:

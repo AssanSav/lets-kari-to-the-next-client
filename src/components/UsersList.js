@@ -61,66 +61,68 @@ class UsersList extends Component {
           <h2 style={{ textAlign: "center", color: "blue" }}>
             <strong>Let's Hangout!!!</strong>
           </h2>
-            <Form
-              onSubmit={this.handleSubmit}
-              className="form"
-              style={{ backgroundColor: "black" }}
-            >
-              <Row>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="gender"
-                    value={gender}
-                    placeholder=""
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Gender
-                    </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Transgender">Transgender</option>
-                  </Form.Control>
-                </Col>
-                <Col>
-                  <Form.Control
-                    as="select"
-                    name="orientation"
-                    value={orientation}
-                    placeholder=""
-                    onChange={this.handleChange}
-                  >
-                    <option disabled value="" selected hidden>
-                      Orientation
-                    </option>
-                    <option value="Gay">Gay</option>
-                    <option value="Straight">Straight</option>
-                    <option value="Lesbian">Lesbian</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-              <br />
-              <Button variant="success" type="submit">
-                Search
-              </Button>
-            </Form>
+          <Form
+            onSubmit={this.handleSubmit}
+            className="form"
+            style={{ backgroundColor: "black" }}
+          >
+            <Row>
+              <Col>
+                <Form.Control
+                  as="select"
+                  name="gender"
+                  value={gender}
+                  placeholder=" Gender"
+                  onChange={this.handleChange}
+                >
+                  <option value="">
+                    Gender
+                  </option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Transgender">Transgender</option>
+                </Form.Control>
+              </Col>
+              <Col>
+                <Form.Control
+                  as="select"
+                  name="orientation"
+                  value={orientation}
+                  placeholder=""
+                  onChange={this.handleChange}
+                >
+                  <option value="" >
+                    Orientation
+                  </option>
+                  <option value="Gay">Gay</option>
+                  <option value="Straight">Straight</option>
+                  <option value="Lesbian">Lesbian</option>
+                </Form.Control>
+              </Col>
+            </Row>
+            <br />
+            <Button variant="success" type="submit">
+              Search
+            </Button>
+          </Form>
           <h2 style={{ textAlign: "center", color: "yellow" }}>
             <strong>Users</strong>
-          </h2> <br /><br />
-            {this.state.users.length > 0
-              ? this.state.users.map((user) => (
-                  <span key={user.id}>
-                    {" "}
-                    <UserCard user={user} />
-                  </span>
-                ))
-              : users.map((user) => (
-                  <span key={user.id}>
-                    {" "}
-                    <UserCard user={user} />
-                  </span>
-                ))}
+          </h2>{" "}
+          <br />
+          <br />
+          {this.state.users.length > 0
+            ? this.state.users.map((user) => (
+                <span key={user.id}>
+                  {" "}
+                  <UserCard user={user} />
+                </span>
+              ))
+            : users.map((user) => (
+                <span key={user.id}>
+                  {" "}
+                  <UserCard user={user} />
+                </span>
+              ))}
         </>
       );
     }

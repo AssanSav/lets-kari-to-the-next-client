@@ -6,7 +6,6 @@ export const editProfile = (profile) => {
     return fetch(`${BASE_URL}/api/v1/users/${profile.id}`, {
       method: "PATCH",
       headers: {
-        "Set-Cookie": "samesite=none; secure",
         "Content-type": "application/json",
         "Accept": "application/json",
       },

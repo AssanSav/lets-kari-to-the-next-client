@@ -5,7 +5,6 @@ export const fetchProfile = (id) => {
   return dispatch => {
     return fetch(`${BASE_URL}/api/v1/users/${id}`, {
       headers: {
-        "Set-Cookie": "samesite=none; secure",
         "Content-type": "application/json",
         "Accept": "application/json",
       },
