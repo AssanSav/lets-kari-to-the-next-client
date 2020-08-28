@@ -13,8 +13,7 @@ export const loginUser = (formData, ownProps) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        debugger
-        data.status !== 500
+        data.status != 500
           ? dispatch(
               {
                 type: LOGIN,
