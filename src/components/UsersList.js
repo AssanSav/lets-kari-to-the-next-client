@@ -3,6 +3,8 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import UserCard from "./UserCard";
 import { connect } from "react-redux";
 import { fetchUsers } from "../actions/fetchUsers";
+import Pagination from "../common/Pagination"
+import paginate from "../utils/paginate"
 
 class UsersList extends Component {
   constructor() {
@@ -10,7 +12,9 @@ class UsersList extends Component {
     this.state = {
       gender: "",
       orientation: "",
-      users: []
+      users: [],
+      pageSize: 5, 
+      currentPage: 1
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +22,12 @@ class UsersList extends Component {
 
   componentDidMount() {
     this.props.fetchUsers();
+  }
+
+  handlePageChange = (page) => {
+    this.setState({
+      currentPage: page
+    })
   }
 
   handleChange(e) {
@@ -47,14 +57,15 @@ class UsersList extends Component {
   render() {
     const {
       gender,
-      orientation
+      orientation, 
+      pageSize,
+      currentPage
     } = this.state;
 
     const { users } = this.props
-
-    if (users.length === 0 || !users) {
-        return <div></div>;
-    } else {
+    
+    if (users.length === 0 || !users) return <div></div>;
+      const paginatedUsers = paginate(users, currentPage, pageSize)
       return (
         <>
           <br /> <br />
@@ -117,15 +128,15 @@ class UsersList extends Component {
                   <UserCard user={user} />
                 </span>
               ))
-            : users.map((user) => (
+            : paginatedUsers.map((user) => (
                 <span key={user.id}>
                   {" "}
                   <UserCard user={user} />
                 </span>
               ))}
+              <Pagination usersCount={users.length} currentPage={currentPage}  pageSize={pageSize} onPageChange={this.handlePageChange}/>
         </>
       );
-    }
   }
 }
 
