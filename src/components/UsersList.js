@@ -19,8 +19,7 @@ class UsersList extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchUsers();
-    this.setState({ genders: ["Male", "Female"] });
+    this.setState({ genders: ["All Genders", "Male", "Female"], users: this.props.fetchUsers() });
   }
 
   handlePageChange = (page) => {
@@ -40,7 +39,7 @@ class UsersList extends Component {
 
     if (!users) return <div></div>;
 
-    const filteredByGender = selectedGender
+    const filteredByGender = selectedGender === "Male" || selectedGender === "Female"
       ? users.filter((user) => user.gender === selectedGender)
       : users;
 

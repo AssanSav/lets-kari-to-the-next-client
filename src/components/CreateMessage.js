@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createMessage } from "../actions/createMessage";
 import { fetchMessages } from "../actions/fetchMessages";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 class CreateMessage extends Component {
   constructor() {
@@ -14,7 +16,7 @@ class CreateMessage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-z
+  z;
   componentDidMount() {
     this.props.fetchMessages();
     this.scrollToBot();
@@ -53,10 +55,11 @@ z
   render() {
     if (!this.props.messages || this.props.messages.length === 0) {
       return (
+        <>
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room</h3>
-          <ul className="chats" ></ul>
+          <ul className="chats"></ul>
           <form className="input" onSubmit={this.handleSubmit}>
             <textarea
               name="content"
@@ -67,12 +70,17 @@ z
             <input type="submit" value="Send" />
           </form>
         </div>
+         <Link to={`/users`}>
+         <Button variant="outline-danger">back</Button>
+       </Link>
+     </>
       );
     } else {
       const matchName = this.props.messages.find((message) => message)
         .match_name;
 
       return (
+        <>
         <div className="chatroom">
           <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room With {matchName}</h3>
@@ -105,7 +113,12 @@ z
             ></textarea>
             <input type="submit" value="Send" />
           </form>
+          
         </div>
+        <Link to={`/users`}>
+            <Button variant="outline-danger">back</Button>
+          </Link>
+        </>
       );
     }
   }
