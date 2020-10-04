@@ -19,7 +19,10 @@ class UsersList extends Component {
   }
 
   componentDidMount() {
-    this.setState({ genders: ["All Genders", "Male", "Female"], users: this.props.fetchUsers() });
+    this.setState({
+      genders: ["All Genders", "Male", "Female"],
+      users: this.props.fetchUsers(),
+    });
   }
 
   handlePageChange = (page) => {
@@ -29,7 +32,7 @@ class UsersList extends Component {
   };
 
   handleOnGenderSelect = (gender) => {
-    this.setState({ selectedGender: gender });
+    this.setState({ selectedGender: gender, currentPage: 1 });
   };
 
   render() {
@@ -39,9 +42,10 @@ class UsersList extends Component {
 
     if (!users) return <div></div>;
 
-    const filteredByGender = selectedGender === "Male" || selectedGender === "Female"
-      ? users.filter((user) => user.gender === selectedGender)
-      : users;
+    const filteredByGender =
+      selectedGender === "Male" || selectedGender === "Female"
+        ? users.filter((user) => user.gender === selectedGender)
+        : users;
 
     const paginatedUsers = paginate(filteredByGender, currentPage, pageSize);
 
@@ -59,13 +63,13 @@ class UsersList extends Component {
         </div>
         <br />
         <br />
-          {paginatedUsers.map((user) => (
-              <span key={user.id}>
-                {" "}
-                <UserCard user={user} />
-              </span>
-            ))}
-            {/* } */}
+        {paginatedUsers.map((user) => (
+          <span key={user.id}>
+            {" "}
+            <UserCard user={user} />
+          </span>
+        ))}
+        {/* } */}
         <Pagination
           usersCount={filteredByGender.length}
           currentPage={currentPage}
