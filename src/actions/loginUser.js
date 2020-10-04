@@ -22,7 +22,8 @@ export const loginUser = (formData, ownProps) => {
                 interests: data.interests,
               },
               ownProps.history.push(
-                `/my-profile/${data.user.data.attributes.id}`
+                // `/my-profile/${data.user.data.attributes.id}`
+                `/users`
               )
             )
           : dispatch(
