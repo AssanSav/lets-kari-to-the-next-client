@@ -20,7 +20,6 @@ const NavBarComponent = (props) => {
       {props.status ? (
         <>
           <span style={{ float: "left" }}>
-            <Link to="/users">Users</Link>
             <Link to="/sent-messages">Outbox</Link>
             <Link to="/received-messages">Inbox</Link>
             <Link to="/users">Users</Link>

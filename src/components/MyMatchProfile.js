@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProfile } from "../actions/fetchProfile";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class MyMatchProfile extends Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class MyMatchProfile extends Component {
         bio,
       } = this.props.profile;
       return (
-        <div className="my-profile" style={{backgroundColor: "gray"}}>
+        <div className="my-profile" style={{ backgroundColor: "gray" }}>
           <div className="avatar_flip">
             <img className="profile_pic" src={image} alt="" />
           </div>
@@ -44,24 +45,44 @@ class MyMatchProfile extends Component {
           >
             <tbody>
               <tr>
-                <td><strong>City:</strong> {city}</td>
-                <td><strong>Age:</strong> {age} </td>
+                <td>
+                  <strong>City:</strong> {city}
+                </td>
+                <td>
+                  <strong>Age:</strong> {age}{" "}
+                </td>
               </tr>
               <tr>
-                <td><strong>Gender:</strong> {gender} </td>
-                <td><strong>Orientation:</strong> {orientation}</td>
+                <td>
+                  <strong>Gender:</strong> {gender}{" "}
+                </td>
+                <td>
+                  <strong>Orientation:</strong> {orientation}
+                </td>
               </tr>
               <tr>
-                <td><strong>Relationship:</strong> {relationship}</td>
-                <td><strong>Children:</strong> {children}</td>
+                <td>
+                  <strong>Relationship:</strong> {relationship}
+                </td>
+                <td>
+                  <strong>Children:</strong> {children}
+                </td>
               </tr>
               <tr>
-                <td><strong>Height:</strong> {height}</td>
-                <td><strong>Body Shape:</strong> {body_shape}</td>
+                <td>
+                  <strong>Height:</strong> {height}
+                </td>
+                <td>
+                  <strong>Body Shape:</strong> {body_shape}
+                </td>
               </tr>
               <tr>
-                <td><strong>Ethnicity:</strong> {ethnicity}</td>
-                <td><strong>Education:</strong> {education}</td>
+                <td>
+                  <strong>Ethnicity:</strong> {ethnicity}
+                </td>
+                <td>
+                  <strong>Education:</strong> {education}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -73,9 +94,9 @@ class MyMatchProfile extends Component {
               <span key={int.id}>{int.name}&nbsp; </span>
             ))}
           </h2>
-          <Button variant="success" href={`/match-new-message/${id}`}>
-            Send Message
-          </Button>
+          <Link to={`/match-new-message/${id}`}>
+            <Button variant="success">Send Message</Button>
+          </Link>
         </div>
       );
     }
