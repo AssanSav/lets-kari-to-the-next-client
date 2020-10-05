@@ -2,7 +2,7 @@ import React from "react";
 
 const ListGroup = ({ genders, OnGenderSelect, selectedGender }) => {
   return (
-    <ul class="list-group">
+    <ul className="list-group" style={{display: "flex"}}>
       {genders.map((gender) => (
         <li
         style={{cursor: "pointer"}}

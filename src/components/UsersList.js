@@ -37,7 +37,6 @@ class UsersList extends Component {
 
   render() {
     const { genders, selectedGender, pageSize, currentPage } = this.state;
-
     const { users } = this.props;
 
     if (!users) return <div></div>;
@@ -47,12 +46,12 @@ class UsersList extends Component {
         ? users.filter((user) => user.gender === selectedGender)
         : users;
 
-    const paginatedUsers = paginate(filteredByGender, currentPage, pageSize);
+    const usersData = paginate(filteredByGender, currentPage, pageSize);
 
     return (
       <>
         <div className="col-5">
-          <h2 style={{ textAlign: "center", color: "blue" }}>
+          <h2 style={{ color: "blue" }}>
             <strong>Let's Hangout!!!</strong>
           </h2>
           <ListGroup
@@ -63,13 +62,12 @@ class UsersList extends Component {
         </div>
         <br />
         <br />
-        {paginatedUsers.map((user) => (
+        {usersData.map((user) => (
           <span key={user.id}>
             {" "}
             <UserCard user={user} />
           </span>
         ))}
-        {/* } */}
         <Pagination
           usersCount={filteredByGender.length}
           currentPage={currentPage}

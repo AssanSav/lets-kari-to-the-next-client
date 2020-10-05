@@ -11,19 +11,25 @@ body {
    background-repeat: no-repeat;
  } 
 
-
-/* NavBar */
-a.nav-link {
-  font-size: bold !important;
-  color: antiquewhite !important
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
 }
 
-a.nav-link:hover {
-  color: red !important
+nav a {
+  text-decoration: none;
+  text-align: center;
+  padding-right: 0px;
+  color:antiquewhite;
+  font-family: sans-serif; 
+}
+span a {
+  padding-right: 20px;
 }
 
-#root > nav {
-  color: black !important;
+nav a:hover {
+  color: red;
 }
 
 div.wraper {
@@ -37,12 +43,14 @@ div.wraper {
   overflow: hidden;
 }
 
-#root > nav.pb-10.navbar.navbar-expand.navbar-light{
+
+
+/* #root > nav.pb-10.navbar.navbar-expand.navbar-light{
   z-index: 9999 !important;
   position: fixed !important;
   top: 0 !important;
   width: 100% !important;
-}
+} */
 
 
 /* Signup and Login Forms */
@@ -185,12 +193,6 @@ div.col {
   background-color: #d5d2df;
 }
 
-
- /* index page */
- /* .container {
-  display: flex;
-  flex-wrap: wrap;
-}  */
 
  .profile_short {
   display: inline-grid;

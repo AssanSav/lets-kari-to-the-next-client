@@ -33,7 +33,7 @@ const MyProfile = (props) => {
 
     const anchorTag = (
       <a style={{ color: "red" }} href={`/edit-profile/${props.user.id}`}>
-        Complete
+        Add
       </a>
     );
 
@@ -46,7 +46,7 @@ const MyProfile = (props) => {
           <strong>{username}</strong>
         </h2>
         <Link to={`/upload-photos/${id}`}>
-          <strong style={{ color: "blue" }}>ADD PHOTO</strong>
+          <strong style={{ color: "blue" }}>Add Profile Picture</strong>
         </Link>
         <h2>Bio</h2>
         <p className="bio">{bio}</p>
@@ -113,7 +113,7 @@ const MyProfile = (props) => {
         </h2>
         <div>
           <Button variant="success" href={`/edit-profile/${props.user.id}`}>
-            Complete Or Edit Your Profile!
+             Edit Profile
           </Button>
         </div>
         <Button

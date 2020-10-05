@@ -6,8 +6,8 @@ import { Form, Button } from "react-bootstrap";
 class EditProfile extends Component {
   constructor(props) {
     super();
-    this.state = props.user 
-    
+    this.state = props.user;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,7 +15,7 @@ class EditProfile extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.routerProps.match.params.id) {
       this.setState({
-        user: nextProps.user
+        user: nextProps.user,
       });
     }
   }
@@ -64,7 +64,7 @@ class EditProfile extends Component {
     let visibilityChoice = ["true", "false"];
     return (
       <div className="form" style={{ backgroundColor: "black" }}>
-        <h4>Edit Profile</h4>
+        <h4>Complete Your Profile</h4>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
@@ -245,7 +245,7 @@ class EditProfile extends Component {
               as="textarea"
               name="bio"
               onChange={this.handleChange}
-              value={bio || ""} 
+              value={bio || ""}
             />
           </Form.Group>
 

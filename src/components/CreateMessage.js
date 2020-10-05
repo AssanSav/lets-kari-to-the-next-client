@@ -5,6 +5,7 @@ import { fetchMessages } from "../actions/fetchMessages";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import ChatRoomForm from "../common/ChatRoomForm";
 
 class CreateMessage extends Component {
   constructor() {
@@ -60,18 +61,10 @@ class CreateMessage extends Component {
           <div style={{ color: "red" }}>{this.props.error}</div>
           <h3>Chat Room</h3>
           <ul className="chats"></ul>
-          <form className="input" onSubmit={this.handleSubmit}>
-            <textarea
-              name="content"
-              value={this.state.content}
-              type="text"
-              onChange={this.handleChange}
-            ></textarea>
-            <input type="submit" value="Send" />
-          </form>
+          <ChatRoomForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} content={this.state.content}/>
         </div>
          <Link to={`/users`}>
-         <Button variant="outline-danger">back</Button>
+         <Button variant="dark">back</Button>
        </Link>
      </>
       );
@@ -104,19 +97,10 @@ class CreateMessage extends Component {
               </li>
             ))}
           </ul>
-          <form className="input" onSubmit={this.handleSubmit}>
-            <textarea
-              name="content"
-              value={this.state.content}
-              type="text"
-              onChange={this.handleChange}
-            ></textarea>
-            <input type="submit" value="Send" />
-          </form>
-          
+          <ChatRoomForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} content={this.state.content}/>
         </div>
         <Link to={`/users`}>
-            <Button variant="outline-danger">back</Button>
+            <Button variant="danger">back</Button>
           </Link>
         </>
       );

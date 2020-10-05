@@ -21,7 +21,7 @@ export const signupUser = (formData, ownProps) => {
                 interests: data.interests,
               },
               ownProps.history.push(
-                `/my-profile/${data.user.data.attributes.id}`
+                `/edit-profile/${data.user.data.attributes.id}`
               )
             )
           : dispatch(
