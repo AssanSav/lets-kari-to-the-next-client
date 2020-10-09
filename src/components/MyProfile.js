@@ -32,9 +32,9 @@ const MyProfile = (props) => {
     } = props.user;
 
     const anchorTag = (
-      <a style={{ color: "red" }} href={`/edit-profile/${props.user.id}`}>
+      <Link style={{ color: "red" }} to={`/edit-profile/${props.user.id}`}>
         Add
-      </a>
+      </Link>
     );
 
     return (
@@ -112,9 +112,11 @@ const MyProfile = (props) => {
           ))}
         </h2>
         <div>
-          <Button variant="success" href={`/edit-profile/${props.user.id}`}>
+          <Link to={`/edit-profile/${props.user.id}`}>
+          <Button variant="success">
              Edit Profile
           </Button>
+          </Link>
         </div>
         <Button
           variant="danger"

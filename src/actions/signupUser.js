@@ -20,7 +20,7 @@ export const signupUser = (formData, ownProps) => {
                 payload: data.user.data.attributes,
                 interests: data.interests,
               },
-              ownProps.history.push(
+              ownProps.history.replace(
                 `/edit-profile/${data.user.data.attributes.id}`
               )
             )

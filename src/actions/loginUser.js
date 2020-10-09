@@ -21,8 +21,7 @@ export const loginUser = (formData, ownProps) => {
                 user: data.user.data.attributes,
                 interests: data.interests,
               },
-              ownProps.history.push(
-                // `/my-profile/${data.user.data.attributes.id}`
+              ownProps.history.replace(
                 `/users`
               )
             )
