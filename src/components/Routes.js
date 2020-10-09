@@ -91,6 +91,9 @@ const Routes = ({ status }) => {
               )}
             ></Route>
 
+            <Redirect from="/signup" to="/users"/>
+            <Redirect from="/login" to="/users"/>
+            
             <Route
               exact
               path="/users"
