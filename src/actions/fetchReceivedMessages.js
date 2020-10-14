@@ -3,7 +3,7 @@ import { FETCH_RECEIVED_MESSAGES, BASE_URL } from "./types"
 
 export const fetchReceivedMessages = () => {
   return dispatch => {
-    return fetch(`${ BASE_URL }/api/v1/messages-inbox`, {
+    return fetch(`${ BASE_URL }/messages-inbox`, {
       headers: {
         "Conent-Type": "application/json",
         "Accept": "application/json"

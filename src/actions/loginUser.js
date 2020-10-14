@@ -2,7 +2,7 @@ import { LOGIN, BASE_URL, FAILED_LOGIN } from "./types";
 
 export const loginUser = (formData, ownProps) => {
   return (dispatch) => {
-    return fetch(`${BASE_URL}/api/v1/login`, {
+    return fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

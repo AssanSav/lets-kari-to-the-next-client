@@ -2,7 +2,7 @@ import { LOGOUT, BASE_URL } from "./types";
 
 export const logoutUser = (id) => {
   return (dispatch) => {
-    return fetch(`${BASE_URL}/api/v1/logout/${id}`, {
+    return fetch(`${BASE_URL}/logout/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import { DELETE_USER, BASE_URL } from "./types"
 
 export const deleteUser = (profile) => {
   return dispatch => {
-    return fetch(`${BASE_URL}/api/v1/users/${profile.id}`, {
+    return fetch(`${BASE_URL}/users/${profile.id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

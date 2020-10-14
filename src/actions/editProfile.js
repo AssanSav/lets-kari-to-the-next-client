@@ -3,7 +3,7 @@ import { EDIT_PROFILE, BASE_URL } from "./types"
 
 export const editProfile = (profile) => {
   return dispatch => {
-    return fetch(`${BASE_URL}/api/v1/users/${profile.id}`, {
+    return fetch(`${BASE_URL}/users/${profile.id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

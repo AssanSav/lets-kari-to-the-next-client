@@ -3,7 +3,7 @@ import { FETCH_USERS, BASE_URL } from "./types"
 
 export const fetchUsers = () => {
   return (dispatch) => {
-    return fetch(`${BASE_URL}/api/v1/users`, {
+    return fetch(`${BASE_URL}/users`, {
       headers: {
         "Conent-Type": "application/json",
         "Accept": "application/json",

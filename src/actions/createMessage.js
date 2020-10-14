@@ -3,7 +3,7 @@ import { CREATE_MESSAGE, FAILED_TO_CREATE, BASE_URL } from "./types"
 
   export const createMessage = (formData) => {
     return dispatch => {
-      return fetch(`${ BASE_URL }/api/v1/messages`, {
+      return fetch(`${ BASE_URL }/messages`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
